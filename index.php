@@ -11,7 +11,7 @@
     </head>
     <body>
         <article>
-            <?php require "carrousel.php" ?>
+            <?php require "carousel.php" ?>
         </article>
         <box>
         <form action="produit.php">

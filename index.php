@@ -26,7 +26,7 @@
             </div>
         </article>
         <article>
-            <a href="produit.php">produits</a>
+            <a href="https://mjfilrouge.azurewebsites.net/produit.php">produits</a>
         </article>
     </body>
 </html>

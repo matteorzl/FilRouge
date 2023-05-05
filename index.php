@@ -25,5 +25,8 @@
                 </div>
             </div>
         </article>
+        <article>
+            <a href="produit.php">produits</a>
+        </article>
     </body>
 </html>

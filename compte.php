@@ -9,19 +9,19 @@
         <article class ="compte_info">
             <div class ="info_compte">
                 <div class="info_perso">
-                    <div class="nom">Nom : </div>
-                    <div class="prenom">Prenom : </div>
-                    <div class="mail">Adresse mail : </div>
-                    <div class="mdp">Mot de passe : </div>
+                    <div class="nom"><h> Nom : </h></div>
+                    <div class="prenom"><h> Prenom : </h></div>
+                    <div class="mail"><h> Adresse mail : </h></div>
+                    <div class="mdp"><h> Mot de passe : </h></div>
                 </div>
                 <div class="adresses">
-                    <h1> Adresse de livraison : </h1>
+                    <h> Adresse de livraison : </h>
                     <select class="livraison">
                         <option value="adl1">zvzvze</option>
                         <option value="adl2">zvzvrz</option>
                         <option value="adl3">dvzz</option>
                     </select>
-                    <h2> Adresse de facturation : </h2>
+                    <h> Adresse de facturation : </h>
                     <select class="facturation">
                         <option value="adf1">zvzvze</option>
                         <option value="adf2">zvzvrz</option>
@@ -29,7 +29,7 @@
                     </select>
                 </div>
                 <div class="methode_paiement">
-                    <h2> Cartes de paiement : </h2>
+                    <h> Cartes de paiement : </h>
                     <select class="cartes">
                         <option value="cb1">zvzvze</option>
                         <option value="cb2">zvzvrz</option>
@@ -38,7 +38,9 @@
                 </div>
             </div>
             <div class="info_commandes">
-
+                <div class="commandes">
+                    <button class="button">Vos commandes</button>
+                </div>
             </div>
         </article>
     </body>

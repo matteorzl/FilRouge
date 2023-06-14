@@ -1,10 +1,10 @@
-.p{
+h{
     color: white;
 }
 .compte_info{
     display:grid;
     height: fit-content;
-    grid-template-columns: repeat(2,50%);
+    grid-template-columns: 60% 40%;
     grid-gap: 5px;
     margin : 5px;
     border: 2px solid #4F6D92;
@@ -19,15 +19,66 @@
     margin-bottom: 5px;
 }
 
-.info_perso{
+.nom{
+    border: 2px solid #4F6D92;
     margin : 5px;
+    padding: 5px;
+}
+.prenom{
+    border: 2px solid #4F6D92;
+    margin : 5px;
+    padding: 5px;
+}
+.mail{
+    border: 2px solid #4F6D92;
+    margin : 5px;
+    padding: 5px;
+}
+.mdp{
+    border: 2px solid #4F6D92;
+    margin : 5px;
+    padding: 5px;
 }
 .adresses{
     margin: 5px;
     display : grid;
-    grid-template-rows: 10%,40%,10%,40%;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 50% 50%;
+    grid-row-gap: 3px;
 }
 .methode_paiement{
+    grid-template-columns: 20% 80%;
     margin: 5px;
     display: grid;
+}
+.livraison{
+    height: 30px;
+    border-color: #4F6D92;
+    background-color: lightgray;
+}
+.facturation{
+    height: 30px;
+    border-color: #4F6D92;
+    background-color: lightgray;
+}
+.cartes{
+    height: 30px;
+    border-color: #4F6D92;
+    background-color: lightgray;
+}
+.info_commandes{
+    display: grid;
+    width: 100%;
+    align-content: center;
+}
+.commandes{
+    display: grid;
+    justify-content: center;
+}
+button{
+    border-color: #4F6D92;
+    color: white;
+    background-color: #6D8BB0;
+    margin: 5px;
+    height: 100px;
 }

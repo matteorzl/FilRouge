@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+    $sql = "INSERT INTO users (id, username, password) VALUES (DEFAULT, ?, ?)";
     $params = array($username, $password);
     $stmt = sqlsrv_query($conn, $sql, $params);
 

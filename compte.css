@@ -1,0 +1,33 @@
+.p{
+    color: white;
+}
+.compte_info{
+    display:grid;
+    height: fit-content;
+    grid-template-columns: repeat(2,50%);
+    grid-gap: 5px;
+    margin : 5px;
+    border: 2px solid #4F6D92;
+    background-color: #6D8BB0;
+    border-radius: 5px;
+}
+
+.info_compte{
+    border-right: 4px solid #4F6D92;
+    grid-template-rows:20%,60%,20%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.info_perso{
+    margin : 5px;
+}
+.adresses{
+    margin: 5px;
+    display : grid;
+    grid-template-rows: 10%,40%,10%,40%;
+}
+.methode_paiement{
+    margin: 5px;
+    display: grid;
+}

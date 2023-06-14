@@ -18,5 +18,10 @@
             <input type="submit" value="Produit" />
         </form>
         </box>
+        <box>
+        <form action="database.php">
+            <input type="submit" value="Database" />
+        </form>
+        </box>
     </body>
 </html>

@@ -1,16 +1,10 @@
 <?php
-/* Database credentials. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-define('DB_SERVER', 'tcp:filrougematteojulien.database.windows.net,1433');
-define('DB_USERNAME', 'CloudSAdeaa70e5');
-define('DB_PASSWORD', 'xewpom-hocmuk-5deWha');
-define('DB_NAME', 'filrouge');
- 
-/* Attempt to connect to MySQL database */
-$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
-// Check connection
-if($mysqli === false){
-    die("ERROR: Could not connect. " . $mysqli->connect_error);
-}
+// SQL Server Extension Sample Code:
+    $connectionInfo = array("UID" => "CloudSAdeaa70e5", "pwd" => "xewpom-hocmuk-5deWha", "Database" => "filrouge", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:filrougematteojulien.database.windows.net,1433";
+    $mysqli = sqlsrv_connect($serverName, $connectionInfo);
+    if (!$mysqli) {
+        die("Connection failed: " . mysqli_connect_error());
+      }
+      echo "Connected successfully";
 ?>

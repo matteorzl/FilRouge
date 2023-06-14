@@ -39,7 +39,7 @@
             </div>
             <div class="info_commandes">
                 <div class="commandes">
-                    <button>Vos commandes</button>
+                    <button class="button">Vos commandes</button>
                 </div>
             </div>
         </article>

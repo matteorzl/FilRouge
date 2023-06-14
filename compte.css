@@ -75,7 +75,7 @@ h{
     display: grid;
     justify-content: center;
 }
-button{
+.button{
     border-color: #4F6D92;
     color: white;
     background-color: #6D8BB0;

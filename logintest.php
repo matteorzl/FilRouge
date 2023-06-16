@@ -178,12 +178,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
 
         <div class="form-floating">
-          <input type="username" class="form-control" id="username" placeholder="name@example.com" required>
+          <input type="username" class="form-control" id="username" name="username" placeholder="name@example.com" required>
           <label for="username">Adresse mail</label>
         </div>
 
         <div class="form-floating">
-          <input type="password" class="form-control" id="password" placeholder="Password" required>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
           <label for="password">Mot de passe</label>
         </div>
 

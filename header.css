@@ -83,6 +83,12 @@
     max-height: 49px;
     max-width: 29px;
 }
+.header-right .contact{
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: #4F6D92;
+}
+
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
 @media screen and (max-width: 500px) {

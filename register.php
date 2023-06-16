@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
-        header("Location: registration_success.php");
+        header("Location: login.php");
         exit();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());

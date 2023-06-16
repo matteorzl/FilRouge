@@ -5,4 +5,6 @@
         <title>Compte</title>
         <link rel="stylesheet" href="compte.css">
     </head>
-    <b
+    <body></body>
+
+    </html>

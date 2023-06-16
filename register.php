@@ -1,16 +1,5 @@
 <?php
-$serverName = "filrougematteojulien.database.windows.net";
-$connectionOptions = array(
-    "Database" => "filrouge",
-    "Uid" => "CloudSAdeaa70e5",
-    "PWD" => "xewpom-hocmuk-5deWha"
-);
-
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-
-if ($conn === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
+require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -21,17 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
     $params = array($username, $hashedPassword);
-    $stmt = sqlsrv_query($conn, $sql, $params);
 
-    if ($stmt === false) {
-        die(print_r(sqlsrv_errors(), true));
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
+        header("Location: registration_success.php");
+        exit();
+    } catch (PDOException $e) {
+        die("Erreur lors de l'inscription : " . $e->getMessage());
     }
-
-    header("Location: registration_success.php");
-    exit();
 }
-
-sqlsrv_close($conn);
 ?>
 
 <!DOCTYPE html>

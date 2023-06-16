@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Authentification réussie
             session_start();
             $_SESSION["username"] = $username;
-            header("Location: index.php");
+            header("Location: compte.php");
             exit();
         } else {
             // Nom d'utilisateur ou mot de passe incorrect
@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" id="password" name="password" required><br>
 
         <input type="submit" value="Se connecter">
+        <a href="register.php"><input type="submit" value="S'incrire" ></a>
     </form>
 </body>
 </html>

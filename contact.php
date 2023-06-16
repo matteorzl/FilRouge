@@ -2,9 +2,17 @@
 <html lang="fr" dir="ltr">
     <head> 
         <?php include('header.html') ?>
-        <title>Compte</title>
-        <link rel="stylesheet" href="compte.css">
+        <title>Contact</title>
+        <link rel="stylesheet" href="contact.css">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <body></body>
-
-    </html>
+    <body>
+        <h1>Contactez-nous</h1>
+        <div class="items">
+            <input type="text" placeholder="Entrez votre nom" name="Nom"/>
+            <input type="email" placeholder="Entrez votre adresse mail" name="Mail"/>
+            <textarea class="text" placeholder="Entrez votre texte" name="Text"></textarea>
+            <button class="btn btn-primary w-100 py-2" type="submit">Envoyer</button>
+        </div>
+    </body>
+</html>

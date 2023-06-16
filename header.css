@@ -53,6 +53,11 @@
     background-color:white;
 }
 
+
+input:focus{
+    outline: none;
+}
+
 ::placeholder{
     color: #4F6D92;
     font-family: 'Dancing Script';

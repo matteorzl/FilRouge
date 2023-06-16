@@ -88,12 +88,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input type="email" class="form-control" id="username" name="username" placeholder="name@example.com">
+            <label for="username">Email address</label>
             </div>
             <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <label for="password">Password</label>
             </div>
 
             <div class="form-check text-start my-3">

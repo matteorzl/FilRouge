@@ -1,19 +1,45 @@
+<?php
+require_once "database.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $params = array($username);
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row && password_verify($password, $row['password'])) {
+            // Authentification réussie
+            session_start();
+            $_SESSION["username"] = $username;
+            header("Location: compte.php");
+            exit();
+        } else {
+            // Nom d'utilisateur ou mot de passe incorrect
+            echo "Nom d'utilisateur ou mot de passe incorrect.";
+        }
+    } catch (PDOException $e) {
+        die("Erreur de connexion : " . $e->getMessage());
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
-
+  <head>
+    <script src="../assets/js/color-modes.js"></script>
+    <?php include('header.html') ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.112.5">
     <title>Signin Template · Bootstrap v5.3</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-
-    
-
-    
 
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -93,7 +119,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="registertest.css" rel="stylesheet">
+    <link href="logintest.css" rel="stylesheet">
   </head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -145,34 +171,34 @@
           </button>
         </li>
       </ul>
-    </div>
+    </div> 
+    <main class="form-signin w-100 m-auto">
+      <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 
-    
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+        <div class="form-floating">
+          <input type="username" class="form-control" id="username" placeholder="name@example.com" required>
+          <label for="username">Adresse mail</label>
+        </div>
 
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
-  </form>
-</main>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password" placeholder="Password" required>
+          <label for="password">Mot de passe</label>
+        </div>
 
-    </body>
+        <div class="form-check text-start my-3">
+          <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Se souvenir de moi
+          </label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" type="submit">Se connecter</button>
+        </br></br>
+        <a href="register.php" class="btn btn-primary w-100 py-2">Créer un compte</a>
+        <p class="mt-5 mb-3 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</p>
+      </form>
+    </main>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

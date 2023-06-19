@@ -48,6 +48,18 @@
                 <div class="commandes">
                     <button class="button">Vos commandes</button>
                 </div>
+                <div class="deconnexion">
+                <?php
+                if (isset($_POST['username'])) {
+                    $_SESSION['username'] = $_POST["username"];?>
+                    <input type='submit' name='logout' method='logout' value='Log out'>
+                    <?php
+                    if(isset($_POST['logout']) && ($_POST['logout'] == "Log out")) { 
+                        unset($_SESSION['name']); 
+                    }
+                }
+                ?>
+                </div>
             </div>
         </article>
     </body>

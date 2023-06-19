@@ -55,7 +55,9 @@ if (isset($_SESSION['username'])) {
                     <button class="button">Vos commandes</button>
                 </div>
                 <div class="deconnexion">
-                <button class="button" form action="logout.php" type='submit' name='logout' method='post' value='Log out'>Déconnexion</button>
+                    <form action="logout.php" method="post">
+                        <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
+                    </form>
                 </div>
             </div>
         </article>

@@ -1,10 +1,13 @@
 <?php
-    if(isset($_SESSION['username'])) { 
+    if(isset($_SESSION['username'])) {
+        $_SESSION['username'] = $_POST["username"];
+        if(isset($_POST['logout']) && ($_POST['logout'] == "Log out")) { 
+            unset($_SESSION['username']); 
+        }
         header("Location: login.php");
         exit;
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 
@@ -49,16 +52,7 @@
                     <button class="button">Vos commandes</button>
                 </div>
                 <div class="deconnexion">
-                <?php
-                if (isset($_POST['username'])) {
-                    $_SESSION['username'] = $_POST["username"];?>
-                    <input type='submit' name='logout' method='logout' value='Log out'>
-                    <?php
-                    if(isset($_POST['logout']) && ($_POST['logout'] == "Log out")) { 
-                        unset($_SESSION['name']); 
-                    }
-                }
-                ?>
+                <button class="button" type='submit' name='logout' method='logout' value='Log out'>Déconnexion</button>
                 </div>
             </div>
         </article>

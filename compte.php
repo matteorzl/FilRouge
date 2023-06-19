@@ -1,14 +1,17 @@
 <?php
-    if(isset($_SESSION['username'])) {
-        $_SESSION['username'] = $_POST["username"];
-        if(isset($_POST['logout']) && ($_POST['logout'] == "Log out")) { 
-            unset($_SESSION['username']); 
-            session_destroy();
-            exit;
-        }
-        header("Location: login.php");
-        exit;
-    }
+if (isset($_SESSION['username'])) {
+    // Affiche le nom d'utilisateur
+    echo 'Bienvenue, ' . $_SESSION['username'] . '!';
+
+    // Affiche le bouton de déconnexion
+    echo '<form action="logout.php" method="post">';
+    echo '<input type="submit" value="Se déconnecter">';
+    echo '</form>';
+} else {
+    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    header('Location: login.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

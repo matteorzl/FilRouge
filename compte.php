@@ -1,12 +1,5 @@
 <?php
-if (isset($_SESSION['username'])) {
-    // Affiche le nom d'utilisateur
-    echo 'Bienvenue, ' . $_SESSION['username'] . '!';
-
-    // Affiche le bouton de déconnexion
-    echo '<form action="logout.php" method="post">';
-    echo '<input type="submit" value="Se déconnecter">';
-    echo '</form>';    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+if (!isset($_SESSION['username'])) {
     header('Location: login.php');
     exit();
 }

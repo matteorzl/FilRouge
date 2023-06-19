@@ -26,6 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (PDOException $e) {
         die("Erreur de connexion : " . $e->getMessage());
     }
+
+    if (isset($_SESSION['username'])) {
+      header('Location: compte.php');
+      exit();
+    }
 }
 ?>
 

@@ -6,9 +6,7 @@ if (isset($_SESSION['username'])) {
     // Affiche le bouton de déconnexion
     echo '<form action="logout.php" method="post">';
     echo '<input type="submit" value="Se déconnecter">';
-    echo '</form>';
-} else {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    echo '</form>';    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
     header('Location: login.php');
     exit();
 }

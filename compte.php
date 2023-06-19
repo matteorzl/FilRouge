@@ -3,6 +3,8 @@
         $_SESSION['username'] = $_POST["username"];
         if(isset($_POST['logout']) && ($_POST['logout'] == "Log out")) { 
             unset($_SESSION['username']); 
+            session_destroy();
+            exit;
         }
         header("Location: login.php");
         exit;

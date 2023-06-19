@@ -9,21 +9,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $params = array($username);
 
     try {
-        $stmt = $conn->prepare($sql);
-        $stmt->execute($params);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($row && password_verify($password, $row['password'])) {
-            // Authentification réussie
-            session_start();
-            if(!isset($_SESSION['username'])) {
-                header("Location: compte.php");
-                exit;
-            }
-        } else {
-            // Nom d'utilisateur ou mot de passe incorrect
-            echo "Nom d'utilisateur ou mot de passe incorrect.";
-        }
+      $stmt = $conn->prepare($sql);
+      $stmt->execute($params);
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+      if ($row && password_verify($password, $row['password'])) {
+          // Authentification réussie
+          session_start();
+          $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
+          header("Location: compte.php");
+          exit;
+      } else {
+          // Nom d'utilisateur ou mot de passe incorrect
+          echo "Nom d'utilisateur ou mot de passe incorrect.";
+      }
     } catch (PDOException $e) {
         die("Erreur de connexion : " . $e->getMessage());
     }

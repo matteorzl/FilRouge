@@ -10,7 +10,7 @@
     </head>
     <body>
         <article>
-            <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true, "freeScroll":true}'>
+            <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": 5000, "imagesLoaded":true, "freeScroll":true}'>
                 <div class="carousel-cell">
                     <img class="w3-image" src="https://smash-images.photobox.com/original/5f04c1b41fd48d1b10ff27dfc90548bf13608845_Large-Print-lifestyle-3_1-2600.jpg">
                 </div>

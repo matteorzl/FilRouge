@@ -2,10 +2,6 @@
 require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_SESSION['username'])) {
-      header('Location: compte.php');
-      exit();
-    } 
     $username = $_POST["username"];
     $password = $_POST["password"];
 

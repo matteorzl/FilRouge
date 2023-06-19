@@ -16,9 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row && password_verify($password, $row['password'])) {
             // Authentification réussie
             session_start();
-            $_SESSION["username"] = $username;
-            header("Location: compte.php");
-            exit();
+            if(!isset($_SESSION['username'])) {
+                header("Location: compte.php");
+                exit;
+            }
         } else {
             // Nom d'utilisateur ou mot de passe incorrect
             echo "Nom d'utilisateur ou mot de passe incorrect.";

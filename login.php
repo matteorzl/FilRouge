@@ -21,15 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           exit;
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
-          echo "Nom d'utilisateur ou mot de passe incorrect.";
+          alert ("Nom d'utilisateur ou mot de passe incorrect.");
       }
     } catch (PDOException $e) {
         die("Erreur de connexion : " . $e->getMessage());
-    }
-
-    if (isset($_SESSION['username'])) {
-      header('Location: compte.php');
-      exit();
     }
 }
 ?>

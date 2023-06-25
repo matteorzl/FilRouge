@@ -1,5 +1,7 @@
 h{
-    color: white;
+    color: #4F6D92;
+    font-family: 'Franklin Gothic';
+    font-size: 20px;
 }
 .compte_info{
     display:grid;
@@ -8,7 +10,7 @@ h{
     grid-gap: 5px;
     margin : 5px;
     border: 2px solid #4F6D92;
-    background-color: #6D8BB0;
+    background-color:#6d8bb05e;
     border-radius: 5px;
 }
 
@@ -17,27 +19,32 @@ h{
     grid-template-rows:20%,60%,20%;
     margin-top: 5px;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .nom{
     border: 2px solid #4F6D92;
     margin : 5px;
     padding: 5px;
+    border-radius: 5px;
 }
 .prenom{
     border: 2px solid #4F6D92;
     margin : 5px;
     padding: 5px;
+    border-radius: 5px;
 }
 .mail{
     border: 2px solid #4F6D92;
     margin : 5px;
     padding: 5px;
+    border-radius: 5px;
 }
 .mdp{
     border: 2px solid #4F6D92;
     margin : 5px;
     padding: 5px;
+    border-radius: 5px;
 }
 .adresses{
     margin: 5px;
@@ -51,20 +58,14 @@ h{
     margin: 5px;
     display: grid;
 }
-.livraison{
+select{
+    font-family: 'Franklin Gothic';
+    font-size: 17px;
+    border-radius: 5px;
     height: 30px;
     border-color: #4F6D92;
-    background-color: lightgray;
-}
-.facturation{
-    height: 30px;
-    border-color: #4F6D92;
-    background-color: lightgray;
-}
-.cartes{
-    height: 30px;
-    border-color: #4F6D92;
-    background-color: lightgray;
+    background-color: #6D8BB0;
+    color:white;
 }
 .info_commandes{
     display: grid;
@@ -75,7 +76,13 @@ h{
     display: grid;
     justify-content: center;
 }
+.deconnexion{
+    display: grid;
+    justify-content: center;
+}
 .button{
+    font-family: 'Dancing Script';
+    font-size: 30px;
     border-color: #4F6D92;
     color: white;
     background-color: #6D8BB0;
@@ -83,7 +90,9 @@ h{
     height: 100px;
     width: 300px;
 }
-
 .button:hover{
     background-color: #4F6D92;
+}
+select:focus{
+    outline: none;
 }

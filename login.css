@@ -3,6 +3,9 @@ body {
   height: 100%;
 }
 
+.h3{
+  font-family: 'Dancing Script';
+}
 .form-signin {
   max-width: 330px;
   padding: 1rem;

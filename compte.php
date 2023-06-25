@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['username'])) {
-    header('Location: login.php');
+    header('Location: https://mjfilrouge.azurewebsites.net/login.php?');
     exit();
 }
 ?>
@@ -16,7 +16,7 @@ if (isset($_SESSION['username'])) {
             <div class ="info_compte">
                 <div class="info_perso">
                     <div class="nom"><h> Nom : </h></div>
-                    <div class="prenom"><h> Prenom : </h></div>
+                    <div class="prenom"><h> Prénom : </h></div>
                     <div class="mail"><h> Adresse mail : </h></div>
                     <div class="mdp"><h> Mot de passe : </h></div>
                 </div>

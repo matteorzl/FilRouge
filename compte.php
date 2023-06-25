@@ -1,7 +1,7 @@
 <?php
 if (isset($_SESSION['username'])) {
     header('Location: https://mjfilrouge.azurewebsites.net/login.php?');
-    exit();
+    die();
 }
 ?>
 <!DOCTYPE html>

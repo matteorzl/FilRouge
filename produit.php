@@ -36,7 +36,12 @@
                                 <p>Chaise en bois massif d'hetre<p>
                             </div> 
                         </div>
-                    <div class = "prix"><h1> 12000€ </h1></div>    
+                        <div class="prix_add">
+                            <div class = "prix"><h> 12000€ </h></div>    
+                            <div class = "add_items">
+                                <button class="button_add">Ajouter au panier</button>
+                            </div>
+                        </div>
                 </div>
             </div>
         </article>

@@ -16,10 +16,6 @@ body {
   z-index: 2;
 }
 
-.form-control{
-  border: 2px solid #4F6D92;
-  background-color: #6d8bb05e;
-}
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;

@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           header('Location: compte.php?');
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
-          echo "<script>alert(\"la variable est nulle\")</script>";
+          echo "<script>alert(\"Nom d'utilisateur ou mot de passe incorrect\")</script>";
       }
     } catch (PDOException $e) {
         die("Erreur de connexion : " . $e->getMessage());

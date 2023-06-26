@@ -18,10 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           session_start();
           $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
           header('Location: compte.php?');
-          exit;
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
-          alert("Nom d'utilisateur ou mot de passe incorrect.");
+          echo "<script>alert(\"la variable est nulle\")</script>";
       }
     } catch (PDOException $e) {
         die("Erreur de connexion : " . $e->getMessage());

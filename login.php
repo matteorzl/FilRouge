@@ -5,6 +5,7 @@ require_once "database.php";
 
 if(isset($_SESSION['username'])) {
   header('Location: index.php');
+  exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Authentification réussie
           $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
           header('Location: index.php');
+          exit();
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
           echo "<script>alert(\"Nom d'utilisateur ou mot de passe incorrect\")</script>";

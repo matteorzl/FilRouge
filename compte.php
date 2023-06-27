@@ -2,7 +2,7 @@
 require_once "header.php";
 
 if(!isset($_SESSION['username'])) {
-    header('Location: login.php');
+    header('Location: /login');
   }
 ?>
 

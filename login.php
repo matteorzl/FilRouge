@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Authentification réussie
           session_start();
           $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
-          header('Location: /');
+          die();
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
           echo "<script>alert(\"Nom d'utilisateur ou mot de passe incorrect\")</script>";

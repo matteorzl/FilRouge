@@ -4,7 +4,8 @@ require_once "header.php";
 require_once "database.php";
 
 if(isset($_SESSION['username'])) {
-  header('Location: /index');
+  header('Location: index.php');
+  exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

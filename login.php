@@ -3,6 +3,10 @@ session_start();
 require_once "header.php";
 require_once "database.php";
 
+if(isset($_SESSION['username'])) {
+  header('Location: /');
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -19,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Authentification réussie
           session_start();
           $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
-          header('Location: compte.php?');
+          header('Location: compte.php');
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
           echo "<script>alert(\"Nom d'utilisateur ou mot de passe incorrect\")</script>";

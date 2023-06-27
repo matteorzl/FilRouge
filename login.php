@@ -21,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
       if ($row && password_verify($password, $row['password'])) {
           // Authentification réussie
-          session_start();
           $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
-          header('Location: /index');
+          header('Location: index.php');
+          exit();
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
           echo "<script>alert(\"Nom d'utilisateur ou mot de passe incorrect\")</script>";

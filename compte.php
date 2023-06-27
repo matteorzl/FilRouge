@@ -1,9 +1,9 @@
 <?php
-if (isset($_SESSION['username'])) {
-    header('Location: https://mjfilrouge.azurewebsites.net/login.php?');
-    die();
-}
+if(!isset($_SESSION['username'])) {
+    header('Location: login.php');
+  }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 

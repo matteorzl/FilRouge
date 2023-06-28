@@ -29,6 +29,17 @@ if(!empty($_POST)){
 
       $query->execute();
 
+      session_start();
+
+      $_SESSION["users"]=[
+        "nom"=>$user["nom"],
+        "prenom"=>$user["prenom"],
+        "email"=>$user["email"],
+        "roles"=>$user["user_role"]
+      ];
+
+      header("Location: index.php");
+
   }else{
     echo "<script>alert(\"Le formulaire est incomplet\")</script>";
   }

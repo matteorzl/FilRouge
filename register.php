@@ -180,18 +180,18 @@ require_once "database.php";
         <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="nom" name="nom" placeholder="" required>
+          <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
           <label for="nom">Nom</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="" required>
+          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
           <label for="prenom">Prenom</label>
         </div>
 
         <div class="form-floating">
-          <input type="mail" class="form-control" id="email" name="email" placeholder="name@example.com" required>
-          <label for="mail">Adresse mail</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+          <label for="email">Adresse mail</label>
         </div>
 
         <div class="form-floating">

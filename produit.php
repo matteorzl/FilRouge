@@ -2,6 +2,8 @@
     session_start();
     require_once "header.php";
     require_once "database.php";
+
+    $inCart = false;
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -44,7 +46,11 @@
                         <div class="prix_add">
                             <div class = "prix"><h> 12000€ </h></div>    
                             <div class = "add_items">
-                                <button class="button_add">Ajouter au panier</button>
+                            <?php if($inCart): ?>
+                                <button class="button_add" type="submit" disabled>Ajouter au panier</button>
+						    <?php else: ?>
+							    <button class="button_add" type="submit">Ajouter au panier</button>
+						    <?php endif ?>    
                             </div>
                         </div>
                 </div>

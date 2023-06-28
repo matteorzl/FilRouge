@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once "header.php";
-require_once "database.php";
+
 
 if(isset($_SESSION['username'])) {
   header('Location: /index');
@@ -32,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Erreur de connexion : " . $e->getMessage());
     }
 }
+require_once "header.php";
+require_once "database.php";
 ?>
 
 <!doctype html>

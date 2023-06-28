@@ -1,26 +1,36 @@
 <?php
+
+if(!empty($_POST)){
+
+  if(isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"])
+    && !empty($_POST["nom"]&& !empty($_POST["prenom"])&& !empty($_POST["email"])&& !empty($_POST["pass"]))
+    ){
+      $nom = strip_tags($_POST["nom"]);
+      $prenom = strip_tags($_POST["prenom"]);
+
+      if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+        echo "<script>alert(\"L'adresse email est incorrevte\")</script>";
+      }
+
+      $pass = password_hash($_POST["password"],PASSWORD_ARGON2ID);
+
+      $sql ="INSERT INTO 'users'('nom','prenom','email','pass','user_role') VALUES
+      (:nom, :prenom, :email, '$pass','0')";
+
+      $query = $db->prepare($sql);
+
+      $query->bindValue(":nom",$nom);
+      $query->bindValue(":prenom",$prenom);
+      $query->bindValue(":email",$_POST["email"]);
+
+      $query->execute();
+
+  }else{
+    echo "<script>alert(\"Le formulaire est incomplet\")</script>";
+  }
+}
 require_once "header.php";
 require_once "database.php";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    // Hash du mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-    $params = array($username, $hashedPassword);
-
-    try {
-        $stmt = $conn->prepare($sql);
-        $stmt->execute($params);
-        header("Location: login.php");
-        exit();
-    } catch (PDOException $e) {
-        die("Erreur lors de l'inscription : " . $e->getMessage());
-    }
-}
 ?>
 
 <!doctype html>
@@ -170,8 +180,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com" required>
-          <label for="username">Adresse mail</label>
+          <input type="text" class="form-control" id="nom" name="nom" placeholder="" required>
+          <label for="nom">Nom</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="" required>
+          <label for="prenom">Prenom</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="mail" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+          <label for="mail">Adresse mail</label>
         </div>
 
         <div class="form-floating">

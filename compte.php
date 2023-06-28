@@ -1,9 +1,9 @@
 <?php
-require_once "header.php";
-
 if(!isset($_SESSION['username'])) {
     header('Location: /login');
   }
+
+  require_once "header.php";
 ?>
 
 <!DOCTYPE html>

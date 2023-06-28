@@ -2,7 +2,7 @@
 
 if(!empty($_POST)){
 
-  
+
   if(isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"])
     && !empty($_POST["nom"]&& !empty($_POST["prenom"])&& !empty($_POST["email"])&& !empty($_POST["password"]))
     ){
@@ -14,6 +14,9 @@ if(!empty($_POST)){
       }
 
       $pass = password_hash($_POST["password"],PASSWORD_ARGON2I);
+
+      
+      require_once "database.php";
 
       $sql ="INSERT INTO `users` (`nom`, `prenom`, `email`, `pass`, `user_role`)
       VALUES (:nom, :prenom, :email, '$pass', '0')";
@@ -31,7 +34,6 @@ if(!empty($_POST)){
   }
 }
   require_once "header.php";
-  require_once "database.php";
 ?>
 
 <!doctype html>

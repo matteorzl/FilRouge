@@ -1,7 +1,7 @@
 <?php
 
 if(!empty($_POST)){
-
+var_dump($_POST);
   if(isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"])
     && !empty($_POST["nom"]&& !empty($_POST["prenom"])&& !empty($_POST["email"])&& !empty($_POST["pass"]))
     ){

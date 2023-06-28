@@ -8,13 +8,13 @@ if(!empty($_POST)){
       $prenom = strip_tags($_POST["prenom"]);
 
       if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-        echo "<script>alert(\"L'adresse email est incorrevte\")</script>";
+        echo "<script>alert(\"L'adresse email est incorrecte\")</script>";
       }
 
-      $pass = password_hash($_POST["password"],PASSWORD_ARGON2ID);
+      $pass = password_hash($_POST["password"],PASSWORD_ARGON2I);
 
-      $sql ="INSERT INTO 'users'('nom','prenom','email','pass','user_role') VALUES
-      (:nom, :prenom, :email, '$pass','0')";
+      $sql ="INSERT INTO `users` (`nom`, `prenom`, `email`, `pass`, `user_role`)
+      VALUES (:nom, :prenom, :email, '$pass', '0')";
 
       $query = $db->prepare($sql);
 
@@ -28,8 +28,8 @@ if(!empty($_POST)){
     echo "<script>alert(\"Le formulaire est incomplet\")</script>";
   }
 }
-require_once "header.php";
-require_once "database.php";
+  require_once "header.php";
+  require_once "database.php";
 ?>
 
 <!doctype html>

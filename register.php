@@ -25,7 +25,7 @@ if(!empty($_POST)){
       $sql ="INSERT INTO `users` (`nom`, `prenom`, `email`, `pass`, `user_role`)
       VALUES (:nom, :prenom, :email, '$pass', 0)";
 
-      $query = $db->prepare($sql);
+      $query = $conn->prepare($sql);
 
       $query->bindValue(":nom",$nom);
       $query->bindValue(":prenom",$prenom);

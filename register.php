@@ -22,14 +22,14 @@ if(!empty($_POST)){
       
       require_once "database.php";
 
-      $sql ="INSERT INTO users(nom, prenom, email, pass, user_role) 
-             VALUES (:nom, :prenom, :email, '$pass', 0)";
+      $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) 
+              VALUES (:nom, :prenom, :email, :pass, 0)";
 
       $query = $conn->prepare($sql);
-
-      $query->bindValue(":nom",$nom);
-      $query->bindValue(":prenom",$prenom);
-      $query->bindValue(":email",$_POST["email"]);
+      $query->bindParam(':nom', $nom);
+      $query->bindParam(':prenom', $prenom);
+      $query->bindParam(':email', $email);
+      $query->bindParam(':pass', $pass);
 
       $query->execute();
 

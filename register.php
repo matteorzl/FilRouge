@@ -6,50 +6,26 @@ error_reporting(E_ALL);
 
 require_once "database.php";
 
-if (!empty($_POST)) {
-  if (
-    isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"]) &&
-    !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["password"])
-  ) {
-    $nom = strip_tags($_POST["nom"]);
-    $prenom = strip_tags($_POST["prenom"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nom = $_POST["nom"];
+    $prenom = $_POST["prenom"];
     $email = $_POST["email"];
+    $password = $_POST["password"];
 
-    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-      echo "<script>alert('L'adresse email est incorrecte')</script>";
-    } else {
-      $pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
+    // Hash du mot de passe
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-      try {
-        $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) 
-                VALUES (?, ?, ?, ?, 0)";
+    $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) VALUES (?, ?, ?, ?, 0)";
+    $params = array($nom, $prenom, $email, $hashedPassword);
 
-        $query = $conn->prepare($sql);
-        $query->bindParam(1, $nom);
-        $query->bindParam(2, $prenom);
-        $query->bindParam(3, $email);
-        $query->bindParam(4, $pass);
-
-        $query->execute();
-
-        session_start();
-
-        $_SESSION["users"] = [
-          "nom" => $nom,
-          "prenom" => $prenom,
-          "email" => $email,
-          "roles" => 0
-        ];
-
-        header("Location: index.php");
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
+        header("Location: login.php");
         exit();
-      } catch (PDOException $e) {
+    } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
-      }
     }
-  } else {
-    echo "<script>alert('Le formulaire est incomplet')</script>";
-  }
 }
 
   require_once "header.php";

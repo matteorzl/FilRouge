@@ -13,7 +13,7 @@ if(!empty($_POST)){
         echo "<script>alert(\"L'adresse email est incorrecte\")</script>";
       }
 
-      $pass = password_hash($_POST["password"],PASSWORD_ARGON2I);
+      $pass = password_hash($_POST["password"],PASSWORD_BCRYPT);
 
       
       require_once "database.php";

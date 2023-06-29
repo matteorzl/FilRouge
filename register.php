@@ -143,7 +143,7 @@ if(!empty($_POST)){
       </symbol>
     </svg>
     <main class="form-signin w-100 m-auto">
-      <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+      <form method="POST">
 
         <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 

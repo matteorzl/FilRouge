@@ -22,7 +22,7 @@ if(!empty($_POST)){
       
       require_once "database.php";
 
-      $sql ="INSERT INTO `users` (`nom`, `prenom`, `email`, `pass`, `user_role`)
+      $sql ="INSERT INTO users (`nom`, `prenom`, `email`, `pass`, `user_role`)
       VALUES (:nom, :prenom, :email, '$pass', 0)";
 
       $query = $conn->prepare($sql);

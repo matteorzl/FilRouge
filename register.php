@@ -4,50 +4,50 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if(!empty($_POST)){
+if (!empty($_POST)) {
+  if (
+    isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"]) &&
+    !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["email"]) && !empty($_POST["password"])
+  ) {
+    $nom = strip_tags($_POST["nom"]);
+    $prenom = strip_tags($_POST["prenom"]);
+    $email = $_POST["email"]; // Ajout de cette ligne
 
+    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+      echo "<script>alert('L'adresse email est incorrecte')</script>";
+    }
 
-  if(isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"])
-    && !empty($_POST["nom"])&& !empty($_POST["prenom"])&& !empty($_POST["email"])&& !empty($_POST["password"])
-    ){
-      $nom = strip_tags($_POST["nom"]);
-      $prenom = strip_tags($_POST["prenom"]);
+    $pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
-      if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-        echo "<script>alert(\"L'adresse email est incorrecte\")</script>";
-      }
+    require_once "database.php";
 
-      $pass = password_hash($_POST["password"],PASSWORD_BCRYPT);
+    $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) 
+            VALUES (:nom, :prenom, :email, :pass, 0)";
 
-      
-      require_once "database.php";
+    $query = $conn->prepare($sql);
+    $query->bindParam(':nom', $nom);
+    $query->bindParam(':prenom', $prenom);
+    $query->bindParam(':email', $email);
+    $query->bindParam(':pass', $pass);
 
-      $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) 
-              VALUES (:nom, :prenom, :email, :pass, 0)";
+    $query->execute();
 
-      $query = $conn->prepare($sql);
-      $query->bindParam(':nom', $nom);
-      $query->bindParam(':prenom', $prenom);
-      $query->bindParam(':email', $email);
-      $query->bindParam(':pass', $pass);
+    session_start();
 
-      $query->execute();
+    $_SESSION["users"] = [
+      "nom" => $nom, // Utilisation de $nom au lieu de $user["nom"]
+      "prenom" => $prenom, // Utilisation de $prenom au lieu de $user["prenom"]
+      "email" => $email, // Utilisation de $email au lieu de $user["email"]
+      "roles" => 0 // Utilisation de la valeur 0 directement au lieu de $user["user_role"]
+    ];
 
-      session_start();
+    header("Location: index.php");
 
-      $_SESSION["users"]=[
-        "nom"=>$user["nom"],
-        "prenom"=>$user["prenom"],
-        "email"=>$user["email"],
-        "roles"=>$user["user_role"]
-      ];
-
-      header("Location: index.php");
-
-  }else{
-    echo "<script>alert(\"Le formulaire est incomplet\")</script>";
+  } else {
+    echo "<script>alert('Le formulaire est incomplet')</script>";
   }
 }
+
   require_once "header.php";
 ?>
 

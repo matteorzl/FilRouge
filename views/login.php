@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "email" => $row["email"],
             "roles" => $row["user_role"]
           ]; // Stocke les informations de l'utilisateur en session
-          var_dump($_SESSION);
           $_SESSION['message'] = "Vous etes bien connecté";
           header('Location: index.php');
           exit();
@@ -163,7 +162,7 @@ require_once "header.php";
             Se souvenir de moi
           </label>
         </div>
-        
+        <a href="forgot-password.php" class="btn btn-primary w-100 py-2">Mot de passe oublié</a>
         <button class="btn btn-primary w-100 py-2" type="submit">Se connecter</button>
         </br></br>
         <a href="register.php" class="btn btn-primary w-100 py-2">Créer un compte</a>

@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "email" => $row["email"],
             "roles" => $row["user_role"]
           ]; // Stocke les informations de l'utilisateur en session
+          var_dump($_SESSION);
           $_SESSION['message'] = "Vous etes bien connecté";
           header('Location: index.php');
           exit();

@@ -4,10 +4,30 @@ session_start();
 require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST["nom"];
-    $prenom = $_POST["prenom"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+
+    if(isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"])
+     && !empty($_POST["nom"])&& !empty($_POST["prenom"])&& !empty($_POST["email"])&& !empty($_POST["password"])){
+    
+      $nom = $_POST["nom"];
+      $prenom = $_POST["prenom"];
+      $email = $_POST["email"];
+      $password = $_POST["password"];
+
+      //On verifie si un compte existe deja 
+      $sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+      $params = array($email);
+      $stmt = $conn->prepare($sql);
+      $stmt->execute($params);
+
+      // Récupérer le nombre de lignes correspondantes
+      $count = $query->fetchColumn();
+
+      if ($count > 0) {
+      // L'adresse e-mail existe déjà
+      echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
+      header('Location: login.php');
+    }else{
+
 
     // Hash du mot de passe
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -37,8 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
     }
+  }
 }
-
+else{
+      echo "<script>alert(\"Toutes les informations de sont pas remplis\")</script>";
+}}
   require_once "header.php";
 ?>
 

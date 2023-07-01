@@ -45,12 +45,12 @@ require_once "database.php";
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-    <script src="../assets/js/color-modes.js"></script>
+    <script src="boostrap/assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -207,6 +207,6 @@ require_once "database.php";
         <p class="mt-5 mb-3 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</p>
       </form>
     </main>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="boostrap/assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

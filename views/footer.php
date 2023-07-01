@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-    <script src="../assets/js/color-modes.js"></script>
+    <script src="boostrap/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -108,7 +108,7 @@
           <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
           </a>
-          <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 Airneis, Inc</span>
+          <span class="mb-3 mb-md-0 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -119,6 +119,6 @@
       </footer>
     </div>
   
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="boostrap/assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -1,5 +1,4 @@
 <?php
-ob_start();
 session_start();
 require_once "database.php";
 
@@ -14,16 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $password = $_POST["password"];
 
       //On verifie si un compte existe deja 
-      $sql = "SELECT * FROM users WHERE email = ?";
-      $params = array($email);
+      $sql = "SELECT * FROM users WHERE email = $email";
       $stmt = $conn->prepare($sql);
-      $stmt->execute($params);
+      $stmt->execute();
       
       if (!empty($stmt)) {
       // L'adresse e-mail existe déjà
-      echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
-      ob_end_flush();
       header('Location: login.php');
+      echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
       }else{
 
 
@@ -63,13 +60,13 @@ else{
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-    <script src="../assets/js/color-modes.js"></script>
+    <script src="boostrap/assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {

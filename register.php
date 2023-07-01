@@ -23,8 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $stmt = $conn->prepare($sql);
       $stmt->execute($params);
 
-      echo $query->errorInfo();
-
       // Récupérer le nombre de lignes correspondantes
       $count = $query->fetchColumn();
 
@@ -44,8 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       try {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
-
-        echo $query->errorInfo();
 
         $id=$conn->lastinsertId();
 

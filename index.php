@@ -22,13 +22,13 @@ require_once "database.php";
         </div>
         <div class="row">
             <div class="column">
-                <img src="images/category/chair.jpg" alt="Chair" style="width:100%">
+                <img src="images/category/chair.jpg" alt="Chair" style="width:10%">
             </div>
             <div class="column">
-                <img src="images/category/desk.jpg" alt="Desk" style="width:100%">
+                <img src="images/category/desk.jpg" alt="Desk" style="width:10%">
             </div>
             <div class="column">
-                <img src="images/category/table.jpg" alt="Table" style="width:100%">
+                <img src="images/category/table.jpg" alt="Table" style="width:10%">
             </div>
         </div> 
         <footer>

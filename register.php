@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $stmt->execute($params);
 
       // Récupérer le nombre de lignes correspondantes
-      $count = $query->fetchColumn();
+      $count = $stmt->fetchColumn();
 
       if ($count > 0) {
       // L'adresse e-mail existe déjà

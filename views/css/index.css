@@ -1,8 +1,9 @@
 div.text-index {
+    font-family: 'Dancing Script';  
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 40rem
+    width: 40rem  
 }
 
 div.row::after {

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['email'])) {
-    header('Location: /login');
+if(!isset($_SESSION['users'])) {
+    header('Location: login.php');
   }
 
   require_once "header.php";
@@ -18,10 +18,9 @@ if(!isset($_SESSION['email'])) {
         <article class ="compte_info">
             <div class ="info_compte">
                 <div class="info_perso">
-                    <div class="nom"><h> Nom : </h></div>
-                    <div class="prenom"><h> Prénom : </h></div>
-                    <div class="mail"><h> Adresse mail : </h></div>
-                    <div class="mdp"><h> Mot de passe : </h></div>
+                    <div class="nom"><h> Nom : <?=$_SESSION["users"]["nom"]?></h></div>
+                    <div class="prenom"><h> Prénom : <?=$_SESSION["users"]["prenom"]?></h></div>
+                    <div class="mail"><h> Adresse mail : <?=$_SESSION["users"]["email"]?></h></div>
                 </div>
                 <div class="adresses">
                     <h> Adresse de livraison : </h>

@@ -40,12 +40,7 @@ h{
     padding: 5px;
     border-radius: 5px;
 }
-.mdp{
-    border: 2px solid #4F6D92;
-    margin : 5px;
-    padding: 5px;
-    border-radius: 5px;
-}
+
 .adresses{
     margin: 5px;
     display : grid;

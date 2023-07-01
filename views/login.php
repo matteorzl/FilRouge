@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require_once "database.php";
 
 if (isset($_SESSION['error_message'])) {
   echo "{$_SESSION['error_message']}";
@@ -38,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 }
 require_once "header.php";
-require_once "database.php";
 ?>
 
 <!doctype html>

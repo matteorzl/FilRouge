@@ -157,12 +157,12 @@ require_once "header.php";
         </div>
 
         <div class="form-check text-start my-3">
+          <a href="forgot-password.php">Mot de passe oublié</a>
           <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
             Se souvenir de moi
           </label>
         </div>
-        <a href="forgot-password.php" class="btn btn-primary w-100 py-2">Mot de passe oublié</a>
         <button class="btn btn-primary w-100 py-2" type="submit">Se connecter</button>
         </br></br>
         <a href="register.php" class="btn btn-primary w-100 py-2">Créer un compte</a>

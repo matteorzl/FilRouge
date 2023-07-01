@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['users'])) {
-    header('Location: login.php');
-  }
+if(!isset($_SESSION["users"])){
+    header("Location: login.php");
+}
 
   require_once "header.php";
 ?>

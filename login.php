@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $stmt = $conn->prepare($sql);
       $stmt->execute($params);
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      echo $query->errorInfo();
   
       if ($row && password_verify($password, $row['password'])) {
           // Authentification réussie

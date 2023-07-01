@@ -26,16 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // L'adresse e-mail existe déjà
       echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
       header('Location: login.php');
-    }else{
+      }else{
 
 
-    // Hash du mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+      // Hash du mot de passe
+      $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) VALUES (?, ?, ?, ?, 0)";
-    $params = array($nom, $prenom, $email, $hashedPassword);
+      $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) VALUES (?, ?, ?, ?, 0)";
+      $params = array($nom, $prenom, $email, $hashedPassword);
 
-    try {
+      try {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
 

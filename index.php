@@ -31,5 +31,8 @@ require_once "database.php";
                 <img src="images/category/table.jpg" alt="Table" style="width:100%">
             </div>
         </div> 
+        <article>
+            <?php require "footer.php" ?>
+        </article>
     </body>
 </html>

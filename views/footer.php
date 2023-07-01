@@ -11,10 +11,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
-    
-
-    
-
 <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>

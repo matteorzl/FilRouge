@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['message'])) {
   echo "{$_SESSION['message']}";
-  unset($_SESSION['message']); // Supprimer le message de la session
+  unset($_SESSION['message']);
 }
 require_once "header.php";
 require_once "database.php";
@@ -34,8 +34,9 @@ require_once "database.php";
             <div class="column">
                 <img src="images/category/table.jpg" alt="Table" style="width:100%">
             </div>
-        </div> 
+        </div>
     </body>
+    <footer>
+        <?php require "footer.php" ?>
+    </footer> 
 </html>
-
-<?php require "footer.php" ?>

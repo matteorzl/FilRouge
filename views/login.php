@@ -16,12 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "SELECT * FROM users WHERE email = ?";
     $params = array($email);
-
-    try {
-      $stmt = $conn->prepare($sql);
-      $stmt->execute($params);
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
-      echo $query->errorInfo();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($params);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
   
       if ($row && password_verify($password, $row['password'])) {
           // Authentification réussie
@@ -32,16 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "email" => $row["email"],
             "roles" => $row["user_role"]
           ]; // Stocke les informations de l'utilisateur en session
-
+          $_SESSION['message'] = "Vous etes bien connecté";
           header('Location: index.php');
           exit();
       } else {
           // Nom d'utilisateur ou mot de passe incorrect
           echo "<script>alert(\"Nom d'utilisateur ou mot de passe incorrect\")</script>";
       }
-    } catch (PDOException $e) {
-        die("Erreur de connexion : " . $e->getMessage());
-    }
 }
 require_once "header.php";
 require_once "database.php";

@@ -5,14 +5,14 @@ div.text-index {
     width: 40rem
 }
 
-div.column {
-    float: left;
-    width: 33.33%;
-    padding: 5px;
-}
-
 div.row::after {
     content: "";
     clear: both;
     display: table;
-} 
+}
+
+div.row div.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}

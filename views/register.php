@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once "database.php";
 
@@ -13,11 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $password = $_POST["password"];
 
       //On verifie si un compte existe deja 
-      $sql = "SELECT * FROM users WHERE email = $email";
+      $sql = "SELECT * FROM users WHERE email = ?";
+      $params = array($email);
       $stmt = $conn->prepare($sql);
-      $stmt->execute();
+      $stmt->execute($params);
       
-      if (!empty($stmt)) {
+      $count = $stmt->fetchColumn();
+      
+      if ($count > 0) {
       // L'adresse e-mail existe déjà
       header('Location: login.php');
       echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
@@ -60,7 +67,8 @@ else{
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-    <script src="boostrap/assets/js/color-modes.js"></script>
+    <script src="boostrap/
+    assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">

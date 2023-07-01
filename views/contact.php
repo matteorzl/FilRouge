@@ -8,7 +8,7 @@
     <head> 
         <?php include('header.html') ?>
         <title>Contact</title>
-        <link rel="stylesheet" href="contact.css">
+        <link rel="stylesheet" href="css/contact.css">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>

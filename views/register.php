@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once "database.php";
 
@@ -20,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       if (!empty($stmt)) {
       // L'adresse e-mail existe déjà
-      header('Location: login.php');
       echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
-      exit();
+      ob_end_flush();
+      header('Location: login.php');
       }else{
 
 
@@ -46,10 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           "roles" => ["user_role"]
         ]; // Stocke les informations de l'utilisateur en session
 
-        var_dump($_SESSION);
-
         header('Location: index.php');
-
         exit();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
@@ -149,7 +147,7 @@ else{
 
     
     <!-- Custom styles for this template -->
-    <link href="register.css" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
   </head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

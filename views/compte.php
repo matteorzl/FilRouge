@@ -12,7 +12,7 @@ if(!isset($_SESSION['email'])) {
 <html lang="fr" dir="ltr">
     <head> 
         <title>Compte</title>
-        <link rel="stylesheet" href="compte.css">
+        <link rel="stylesheet" href="css/compte.css">
     </head>
     <body>
         <article class ="compte_info">

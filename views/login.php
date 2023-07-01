@@ -127,7 +127,7 @@ require_once "database.php";
 
     
     <!-- Custom styles for this template -->
-    <link href="login.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
   </head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

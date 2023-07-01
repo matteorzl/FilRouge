@@ -17,15 +17,19 @@ require_once "database.php";
         <article>
             <?php require "carousel.php" ?>
         </article>
-        <box>
-        <form action="produit.php">
-            <input type="submit" value="Produit" />
-        </form>
-        </box>
-        <box>
-        <form action="database.php">
-            <input type="submit" value="Database" />
-        </form>
-        </box>
+        <div class="text-index">
+            <h2>VENANT DES HAUTES TERRES D'ÉCOSSE NOS MEUBLES SONT IMMORTELS<h2>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img_snow.jpg" alt="Snow" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="img_forest.jpg" alt="Forest" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+            </div>
+        </div> 
     </body>
 </html>

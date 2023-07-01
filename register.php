@@ -1,8 +1,5 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+session_start();
 
 require_once "database.php";
 
@@ -21,9 +18,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
-        header("Location: login.php");
+
+        $id=$conn->lastinsertId();
+
+        $_SESSION['users'] = [
+          "id"=> $id,
+          "nom" => $nom,
+          "prenom" => $prenom,
+          "email" => $email,
+          "roles" => ["user_role"]
+        ]; // Stocke les informations de l'utilisateur en session
+
+        var_dump($_SESSION);
+
+        header('Location: index.php');
+
         exit();
-        echo $query->errorInfo();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
     }

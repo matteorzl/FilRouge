@@ -1,18 +1,17 @@
 <?php
 session_start();
 
-
-if(isset($_SESSION['username'])) {
+if(isset($_SESSION['email'])) {
   header('Location: index.php');
   exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM users WHERE username = ?";
-    $params = array($username);
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $params = array($email);
 
     try {
       $stmt = $conn->prepare($sql);
@@ -21,7 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
       if ($row && password_verify($password, $row['password'])) {
           // Authentification réussie
-          $_SESSION['username'] = $row['username']; // Stocke le nom d'utilisateur en session
+          $_SESSION['users'] = [
+            "id"=>$row["id"],
+            "nom" => $row["nom"],
+            "prenom" => $row["prenom"],
+            "email" => $row["email"],
+            "roles" => $row["user_role"]
+          ]; // Stocke les informations de l'utilisateur en session
+
+          var_dump($_SESSION);
+
           header('Location: index.php');
           exit();
       } else {
@@ -40,7 +48,6 @@ require_once "database.php";
 <html lang="en" data-bs-theme="auto">
   <head>
     <script src="../assets/js/color-modes.js"></script>
-    <?php include('header.html') ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -181,8 +188,8 @@ require_once "database.php";
         <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com" required>
-          <label for="username">Adresse mail</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+          <label for="email">Adresse mail</label>
         </div>
 
         <div class="form-floating">

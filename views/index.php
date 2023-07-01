@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['message'])) {
+  echo "{$_SESSION['message']}";
+  unset($_SESSION['message']); // Supprimer le message de la session
+}
 require_once "header.php";
 require_once "database.php";
 ?>

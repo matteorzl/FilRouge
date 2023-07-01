@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 require_once "database.php";
 
@@ -26,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       if ($count > 0) {
       // L'adresse e-mail existe déjà
+      $_SESSION['error_message'] = "Cette adresse mail est déjà utilisée";
       header('Location: login.php');
-      echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
       }else{
 
 
@@ -50,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           "email" => $email,
           "roles" => ["user_role"]
         ]; // Stocke les informations de l'utilisateur en session
-
+        $_SESSION['message'] = "L'incription a été validé";
         header('Location: index.php');
         exit();
     } catch (PDOException $e) {

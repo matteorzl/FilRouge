@@ -5,6 +5,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if (isset($_SESSION['error_message'])) {
+  echo "<script>alert(\"{$_SESSION['error_message']}\")</script>";
+  unset($_SESSION['error_message']); // Supprimer le message d'erreur de la session
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];

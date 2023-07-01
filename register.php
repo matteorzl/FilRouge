@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute($params);
         header("Location: login.php");
         exit();
+        echo $query->errorInfo();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
     }

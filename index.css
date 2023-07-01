@@ -12,7 +12,6 @@ div.column {
 }
 
 div.row::after {
-    width: 33.33%;
     content: "";
     clear: both;
     display: table;

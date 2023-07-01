@@ -4,6 +4,7 @@ if (isset($_SESSION['message'])) {
   echo "{$_SESSION['message']}";
   unset($_SESSION['message']);
 }
+var_dump($_SESSION);
 require_once "header.php";
 require_once "database.php";
 ?>

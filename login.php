@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if(isset($_SESSION['email'])) {
   header('Location: index.php');
   exit();
@@ -27,8 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "email" => $row["email"],
             "roles" => $row["user_role"]
           ]; // Stocke les informations de l'utilisateur en session
-
-          var_dump($_SESSION);
 
           header('Location: index.php');
           exit();

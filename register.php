@@ -18,15 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $password = $_POST["password"];
 
       //On verifie si un compte existe deja 
-      $sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+      $sql = "SELECT * FROM users WHERE email = ?";
       $params = array($email);
       $stmt = $conn->prepare($sql);
       $stmt->execute($params);
-
-      // Récupérer le nombre de lignes correspondantes
-      $count = $stmt->fetchColumn();
-
-      if ($count > 0) {
+      
+      if (!empty($stmt)) {
       // L'adresse e-mail existe déjà
       echo "<script>alert(\"Cette adresse mail est deja utilisé\")</script>";
       header('Location: login.php');

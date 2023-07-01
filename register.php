@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $params = array($email);
       $stmt = $conn->prepare($sql);
       $stmt->execute($params);
+
+      echo $query->errorInfo();
 
       // Récupérer le nombre de lignes correspondantes
       $count = $query->fetchColumn();
@@ -38,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       try {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
+
+        echo $query->errorInfo();
 
         $id=$conn->lastinsertId();
 

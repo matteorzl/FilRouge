@@ -87,12 +87,14 @@
       }
       .footer{
         display:grid;
+        grid-template-columns: 70% 30%;
       }
       .info{
         justify-content:start;
       }
       .logo{
-        justify-content:end;
+        display:grid;
+        grid-template-columns: repeat(3,33%);
       }
     </style>
 
@@ -136,12 +138,12 @@
         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       </a>
       <span class="mb-3 mb-md-0 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</span>
+    </div>
 
-    <ul class="logo">
-      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-    </ul>
+    <div class="logo">
+      <div class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></div>
+      <div class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></div>
+      <div class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></div>
     </div>
   </footer>
 </div>

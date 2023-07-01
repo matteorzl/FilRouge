@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute($params);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
   
-      if ($row && password_verify($password, $row['password'])) {
+      if ($row && password_verify($password, $row['pass'])) {
           // Authentification réussie
           $_SESSION['users'] = [
             "id"=>$row["id"],

@@ -110,7 +110,9 @@ input:focus{
     }
 }
 */
-
+.container{
+    display:flex;
+}
 .form-control-dark {
     border-color: var(--bs-gray);
   }
@@ -122,7 +124,7 @@ input:focus{
   .text-small {
     font-size: 85%;
   }
-  
+  a{text-decoration: none;}
   .dropdown-toggle:not(:focus) {
     outline: 0;
   }

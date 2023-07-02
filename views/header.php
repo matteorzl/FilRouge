@@ -121,8 +121,12 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <?php if($_SERVER['PHP_SELF'])?>
+          <?php if(!isset($_SERVER['PHP_SELF']) == "view/index.php"):?>
           <li><a href="index.php" class="nav-link px-2 text-dark">Accueil</a></li>
+          <?php else:?>
+          <li><a href="index.php" class="nav-link px-2 text-light">Accueil</a></li>
+          <?php endif;?>
+          
           <li><a href="produit.php" class="nav-link px-2 text-light">Produits</a></li>
           <li><a href="contact.php" class="nav-link px-2 text-light">Nous contactez</a></li>
           <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
@@ -134,10 +138,10 @@
 
         <div class="text-end">
         <?php if(!isset($_SESSION["users"])):?>
-          <button type="button" class="btn btn-#6D8BB0 me-2"><a href="login.php">Se connecter</a></button>
+          <button type="button" class="btn btn-#4F6D92 me-2"><a href="login.php">Se connecter</a></button>
           <button type="button" class="btn btn-warning"><a href="register.php">Créer un compte</a></button>
         <?php else:?>
-            <button type="button" class="btn btn-#6D8BB0 me-2"><a href="compte.php">Mon compte</a></button>
+            <button type="button" class="btn btn-#4F6D92 me-2"><a href="compte.php">Mon compte</a></button>
             <button type="button" class="btn btn-warning"><a href="logout.php">Déconnexion</a></button>
         <?php endif;?>
         </div>

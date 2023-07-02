@@ -110,9 +110,6 @@ input:focus{
     }
 }
 */
-.container{
-    display:flex;
-}
 .form-control-dark {
     border-color: var(--bs-gray);
   }

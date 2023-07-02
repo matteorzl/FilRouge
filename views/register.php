@@ -166,22 +166,21 @@ else{
         <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="lastname" name="Nom" placeholder="lastname" required>
-          <label for="lastname">lastname</label>
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
+          <label for="lastname">Nom</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="firstname" name="Prenom" placeholder="firstname" required>
-          <label for="firstname">firstname</label>
+          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
+          <label for="firstname">Prenom</label>
         </div>
 
         <div class="form-floating">
-          <input type="mail" class="form-control" id="mail" name="E-mail" placeholder="name@example.com" required>
-          <label for="mail">Adresse mail</label>
+          <input type="mail" class="form-control" id="mail" name="mail" placeholder="name@example.com" required>
+          <label for="mail">E-mail</label>
         </div>
-
         <div class="form-floating">
-          <input type="pwd" class="form-control" id="pwd" name="Mot de passe" placeholder="pwd" required>
+          <input type="pwd" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
           <label for="pwd">Mot de passe</label>
         </div>
 

@@ -14,8 +14,10 @@
     <?php
     
     try {
-        $query = "SELECT * FROM products";
-        $stmt = $conn->query($query);
+        $sql = "SELECT * FROM products";
+        $params = array($mail);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
         if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "Product ID: " . $row['product_id'] . "<br>";

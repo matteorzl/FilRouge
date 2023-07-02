@@ -117,7 +117,7 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           
-        <img src="images\logo\logo.png" width="80px" height="60px">
+        <img src="images\logo\logo.png" width="80px" height="60px" margin-right="15px">
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <?php if(($_SERVER['PHP_SELF']) == "/views/index.php"):?>

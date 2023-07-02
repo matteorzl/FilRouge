@@ -46,23 +46,6 @@
                 <div class="commandes">
                     <button class="button">Vos commandes</button>
                 </div>
-                <div class="button_log">
-                    <?php if(!isset($_SESSION["users"])):?>
-                        <div class="log">
-                            <form action="login.php">
-                                <button class="button" type="submit" name="login" value="Login">Connexion</a></button>
-                            </form>
-                            <form action="register.php" >
-                                <button class="button" type="submit" name="signup" value="signup">Inscription</a></button>
-                            </form>
-                        </div>
-                    <?php else:?>
-                        <div class="logout">
-                            <form method="post" action="logout.php">
-                            <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
-                            </form>
-                        </div>
-                    <?php endif;?>
                 </div>
             </div>
         </article>

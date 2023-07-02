@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 
-        <title>Contact</title>
         <link rel="stylesheet" href="css/contact.css">
         <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>

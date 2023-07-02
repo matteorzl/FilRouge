@@ -36,6 +36,7 @@ jobs:
         with:
           name: php-app
           path: .
+          retention-days: 5
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,6 +50,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: php-app
+          retention-days: 5
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2

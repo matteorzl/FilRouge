@@ -112,7 +112,6 @@ input:focus{
 */
 .d-flex{
     display:grid;
-    grid-template-columns: 5% 40% 30% 25%;
     padding: 10px;
 }
   

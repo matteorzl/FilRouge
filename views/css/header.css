@@ -100,8 +100,8 @@ input:focus{
 
 tspan{
     position:absolute;
-    top:200px;
-    right:150px;
+    top:-1px;
+    right:-1px;
     background-color:red;
     height:20px;
     width:20px;

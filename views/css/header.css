@@ -1,5 +1,5 @@
 /* Style the header with a grey background and some padding */
-.header {
+/*.header {
     overflow: hidden;
     background-color: #6D8BB0;
     padding: 20px 10px;
@@ -9,7 +9,7 @@
 }
   
 /* Style the header links */
-.header a {
+/*.header a {
     float: left;
     color: black;
     text-align: center;
@@ -23,7 +23,7 @@
 }
   
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
+/*.header a.logo {
     color: white;
     font-size: 25px;
     font-family: 'Dancing Script';
@@ -34,13 +34,13 @@
 }
   
 /* Style the active/current link*/
-.header a.active {
+/*.header a.active {
     background-color: dodgerblue;
     color: white;
 }
   
 /* Float the link section to the right */
-.header-right {
+/*.header-right {
     float: right;
     margin-right: 10%;
 }
@@ -98,7 +98,7 @@ input:focus{
     max-width: 30px;
 }
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
-@media screen and (max-width: 500px) {
+/*@media screen and (max-width: 500px) {
     .header a {
       float: none;
       display: block;
@@ -109,3 +109,21 @@ input:focus{
         float: none;
     }
 }
+*/
+
+.form-control-dark {
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+  }
+  
+  .text-small {
+    font-size: 85%;
+  }
+  
+  .dropdown-toggle:not(:focus) {
+    outline: 0;
+  }
+  

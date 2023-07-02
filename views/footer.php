@@ -83,6 +83,7 @@
         --bs-btn-active-bg: #5a23c8;
         --bs-btn-active-border-color: #5a23c8;
       }
+
       .bd-mode-toggle {
         z-index: 1500;
       }
@@ -91,9 +92,10 @@
       	border-top: 0.5px solid lightgray;
         margin-left:15%;
         margin-right:15%;
-        }
+      }
+
       .footer{
-      margin:5px;
+        margin:5px;
        display: flex;
        flex-direction:row;
       }
@@ -104,6 +106,7 @@
        justify-content: flex-end;
        flex: 3;
       }
+      
       .ms-3{margin:2px;}
     </style>
 

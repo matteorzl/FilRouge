@@ -19,4 +19,7 @@
             <button class="btn btn-primary w-100 py-2" type="submit">Envoyer</button>
         </div>
     </body>
+    <footer>
+        <?php require "footer.php" ?>
+    </footer> 
 </html>

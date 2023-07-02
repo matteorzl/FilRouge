@@ -15,4 +15,7 @@
     </head>
     <body>
     </body>
+    <footer>
+        <?php require "footer.php" ?>
+    </footer> 
 </html>

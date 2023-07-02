@@ -67,4 +67,7 @@
             </div>
         </article>
     </body>
+    <footer>
+        <?php require "footer.php" ?>
+    </footer> 
 </html>

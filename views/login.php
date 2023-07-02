@@ -159,10 +159,10 @@ require_once "header.php";
         <div class="form-floating">
           <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
           <label for="password">Mot de passe</label>
+          <a href="forgot-password.php">Mot de passe oublié</a>
         </div>
 
         <div class="form-check text-start my-3">
-          <a href="forgot-password.php">Mot de passe oublié</a>
           <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
             Se souvenir de moi

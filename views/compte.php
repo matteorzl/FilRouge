@@ -1,10 +1,6 @@
 <?php
     session_start();
     require_once "database.php";
-    if(!isset($_SESSION["users"])){
-        header('Location: login.php');
-        exit();
-    }
     require_once "header.php";
 ?>
 

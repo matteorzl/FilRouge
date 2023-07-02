@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute($params);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
   
-      if ($row && pwd_verify($pwd, $row['pwd'])) {
+      if ($row && password_verify($pwd, $row['pwd'])) {
           // Authentification réussie
           $_SESSION['users'] = [
             "user_id"=>$row["user_id"],
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 require_once "header.php";
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
   <head>
     <script src="boostrap/assets/js/color-modes.js"></script>

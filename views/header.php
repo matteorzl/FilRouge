@@ -121,7 +121,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="index.php" class="nav-link px-2 text-secondary">Acceuil</a></li>
+          <li><a href="index.php" class="nav-link px-2 text-secondary">Accueil</a></li>
           <li><a href="produit.php" class="nav-link px-2 text-white">Produits</a></li>
           <li><a href="contact.php" class="nav-link px-2 text-white">Nous contactez</a></li>
           <li><a href="panier.php" class="nav-link px-2 text-white">Panier</a></li>

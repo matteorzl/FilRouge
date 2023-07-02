@@ -133,7 +133,10 @@ input:focus{
     border-radius: var(--bs-border-radius);
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
+.p-3{
+    background-color: #6D8BB0;
+    border-color: #6D8BB0;
+}
 .form-control-dark {
     border-color: var(--bs-gray);
   }
@@ -151,7 +154,9 @@ input:focus{
       text-decoration: none;
       color:white;
   }
-
+  .btn:hover{
+    color:#4F6D92;
+  }
   .dropdown-toggle:not(:focus) {
     outline: 0;
   }

@@ -32,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
       // Hash du mot de passe
-      $hashedpwd = pwd_hash($pwd, pwd_BCRYPT);
+      $hashedpwd = password_hash($pwd, password_BCRYPT);
 
-      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, role) VALUES (?, ?, ?, ?, 0)";
+      $sql = "INSERT INTO users (lastname, firstname, mail, pwd) VALUES (?, ?, ?, ?)";
       $params = array($lastname, $firstname, $mail, $hashedpwd);
 
       try {
@@ -64,7 +64,7 @@ else{
   require_once "header.php";
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
   <head>
     <script src="boostrap/

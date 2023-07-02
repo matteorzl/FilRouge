@@ -142,7 +142,7 @@
           <?php if(($_SERVER['PHP_SELF']) == "/views/panier.php"):?>
             <li><a href="panier.php" class="nav-link px-2 text-dark">Panier<?php if(!empty($_SESSION["cart"])):?><tspan></tspan><?php endif;?></a></li>
           <?php else:?>
-            <li><a href="panier.php" class="nav-link px-2 text-light">Panier<span></span></a></li>
+            <li><a href="panier.php" class="nav-link px-2 text-light">Panier<tspan></tspan></a></li>
           <?php endif;?>
         </ul>
 

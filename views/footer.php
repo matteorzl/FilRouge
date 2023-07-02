@@ -129,7 +129,7 @@
   <footer class="footer">
     <div class="text_alter">
       <a href="index.php">
-      <svg class="logo-footer" version="1.0" xmlns="http://www.w3.org/2000/svg" width="158.000000pt" height="104.000000pt" viewBox="0 0 158.000000 104.000000" preserveAspectRatio="xMidYMid meet"></svg>
+      <svg class="logo-footer" version="1.0" xmlns="http://www.w3.org/2000/svg" width="158.000000pt" height="104.000000pt" viewBox="0 0 158.000000 104.000000" fill="#4F6D92" preserveAspectRatio="xMidYMid meet"></svg>
       </a>
       <span class="mb-3 mb-md-0 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</span>
     </div>

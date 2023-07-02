@@ -131,7 +131,7 @@ require_once "header.php";
     <link href="css/login.css" rel="stylesheet">
   </head>
   <body>
-    <div class="d-flex align-items-center py-4 bg-body-tertiary">
+    <div class="formulaire">
       <main class="form-signin w-100 m-auto">
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 

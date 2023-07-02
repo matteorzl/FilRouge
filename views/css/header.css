@@ -97,18 +97,15 @@ input:focus{
     max-height: 30px;
     max-width: 30px;
 }
-
-tspan{
-    position:absolute;
-    top:-1px;
-    right:-1px;
-    background-color:red;
-    height:20px;
-    width:20px;
-    display:flex;
-    border-radius:50%;
-    }
-
+.panier-notif {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
 @media screen and (max-width: 500px) {
     .header a {

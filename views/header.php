@@ -133,9 +133,9 @@
           <?php endif;?>
           
           <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
-            <li><a href="contact.php" class="nav-link px-2 text-dark">Nous contactez</a></li>
+            <li><a href="contact.php" class="nav-link px-2 text-dark">Nous contacter</a></li>
           <?php else:?>
-            <li><a href="contact.php" class="nav-link px-2 text-light">Nous contactez</a></li>
+            <li><a href="contact.php" class="nav-link px-2 text-light">Nous contacter</a></li>
           <?php endif;?>
 
           <?php if(!empty($_SESSION["cart"])):?>

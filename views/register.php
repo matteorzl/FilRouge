@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION["users"])){
+  header('Location: compte.php');
+  exit;
+}
 require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

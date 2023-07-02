@@ -78,6 +78,9 @@ select{
     display:flex;
     justify-content: center;
 }
+.logout{
+    text-align:center;
+    }
 .button{
     font-family: 'Dancing Script';
     font-size: 30px;

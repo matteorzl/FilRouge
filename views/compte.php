@@ -57,9 +57,11 @@
                             </form>
                         </div>
                     <?php else:?>
-                        <form method="post" action="logout.php">
+                        <div class="logout">
+                            <form method="post" action="logout.php">
                             <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
-                        </form>
+                            </form>
+                        </div>
                     <?php endif;?>
                 </div>
             </div>

@@ -126,10 +126,10 @@
             <li><a href="index.php" class="nav-link px-2 text-light">Accueil</a></li>
           <?php endif;?>
           
-          <?php if(($_SERVER['PHP_SELF']) == "/views/produit.php"):?>
-            <li><a href="produit.php" class="nav-link px-2 text-dark">Produits</a></li>
+          <?php if(($_SERVER['PHP_SELF']) == "/views/liste-produits.php"):?>
+            <li><a href="liste-produits.php" class="nav-link px-2 text-dark">Produits</a></li>
           <?php else:?>
-            <li><a href="produit.php" class="nav-link px-2 text-light">Produits</a></li>
+            <li><a href="liste-produits.php" class="nav-link px-2 text-light">Produits</a></li>
           <?php endif;?>
           
           <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>

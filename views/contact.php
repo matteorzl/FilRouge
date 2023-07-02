@@ -8,7 +8,7 @@
     <head> 
         <title>Contact</title>
         <link rel="stylesheet" href="css/contact.css">
-        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <h1>Contactez-nous</h1>

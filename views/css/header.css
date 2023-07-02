@@ -98,7 +98,7 @@ input:focus{
     max-width: 30px;
 }
 
-span{
+tspan{
     position:absolute;
     top:-9px;
     right:-9px;

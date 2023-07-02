@@ -157,8 +157,7 @@ input:focus{
   .dropdown-toggle:not(:focus) {
     outline: 0;
   }
-span{
-    position: absolute;
+tspan{
     top:-9px;
     right: -9px;
     background-color: red;

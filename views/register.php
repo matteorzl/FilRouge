@@ -2,7 +2,6 @@
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 session_start();
 if(isset($_SESSION["users"])){
@@ -37,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
       // Hash du mot de passe
-      $hashedpwd = password_hash($pwd, password_BCRYPT);
+      $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
 
       $sql = "INSERT INTO users (lastname, firstname, mail, pwd) VALUES (?, ?, ?, ?)";
       $params = array($lastname, $firstname, $mail, $hashedpwd);

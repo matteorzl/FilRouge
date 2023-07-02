@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="boostrap/assets/scss/forms/_form-control.scss" rel="stylesheet">
 <link href="css/header.css" rel="stylesheet">
 
     <style>

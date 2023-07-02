@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Hash du mot de passe
       $hashedpwd = pwd_hash($pwd, pwd_BCRYPT);
 
-      $sql = "INSERT INTO users (lastname, firstname, mail, pass, role) VALUES (?, ?, ?, ?, 0)";
+      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, role) VALUES (?, ?, ?, ?, 0)";
       $params = array($lastname, $firstname, $mail, $hashedpwd);
 
       try {
@@ -166,22 +166,22 @@ else{
         <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
+          <input type="text" class="form-control" id="lastname" name="Nom" placeholder="lastname" required>
           <label for="lastname">lastname</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
+          <input type="text" class="form-control" id="firstname" name="Prenom" placeholder="firstname" required>
           <label for="firstname">firstname</label>
         </div>
 
         <div class="form-floating">
-          <input type="mail" class="form-control" id="mail" name="mail" placeholder="name@example.com" required>
+          <input type="mail" class="form-control" id="mail" name="E-mail" placeholder="name@example.com" required>
           <label for="mail">Adresse mail</label>
         </div>
 
         <div class="form-floating">
-          <input type="pwd" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
+          <input type="pwd" class="form-control" id="pwd" name="Mot de passe" placeholder="pwd" required>
           <label for="pwd">Mot de passe</label>
         </div>
 

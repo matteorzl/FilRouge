@@ -50,10 +50,10 @@
                     <?php if(!isset($_SESSION["users"])):?>
                         <div class="log">
                             <form action="login.php">
-                                <button class="button" type="submit" name="logout" value="Log out">>Connexion</a></button>
+                                <button class="button" type="submit" name="login" value="Login">Connexion</a></button>
                             </form>
                             <form action="register.php" >
-                                <button class="button" type="submit" name="logout" value="Log out">>Inscription</a></button>
+                                <button class="button" type="submit" name="signup" value="signup">Inscription</a></button>
                             </form>
                         </div>
                     <?php else:?>

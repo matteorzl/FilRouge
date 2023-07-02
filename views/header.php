@@ -122,7 +122,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <?php var_dump( $_SERVER['PHP_SELF']) ?>
-          <?php if(!isset($_SERVER['PHP_SELF']) == "/views/index.php"):?>
+          <?php if(($_SERVER['PHP_SELF']) == "/views/index.php"):?>
           <li><a href="index.php" class="nav-link px-2 text-dark">Accueil</a></li>
           <?php else:?>
           <li><a href="index.php" class="nav-link px-2 text-light">Accueil</a></li>

@@ -121,16 +121,29 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <?php var_dump( $_SERVER['PHP_SELF']) ?>
           <?php if(($_SERVER['PHP_SELF']) == "/views/index.php"):?>
-          <li><a href="index.php" class="nav-link px-2 text-dark">Accueil</a></li>
+            <li><a href="index.php" class="nav-link px-2 text-dark">Accueil</a></li>
           <?php else:?>
-          <li><a href="index.php" class="nav-link px-2 text-light">Accueil</a></li>
+            <li><a href="index.php" class="nav-link px-2 text-light">Accueil</a></li>
+          <?php endif;?>
+          
+          <?php if(($_SERVER['PHP_SELF']) == "/views/produit.php"):?>
+            <li><a href="produit.php" class="nav-link px-2 text-dark">Produits</a></li>
+          <?php else:?>
+            <li><a href="produit.php" class="nav-link px-2 text-light">Produits</a></li>
+          <?php endif;?>
+          
+          <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
+            <li><a href="contact.php" class="nav-link px-2 text-dark">Nous contactez</a></li>
+          <?php else:?>
+            <li><a href="contact.php" class="nav-link px-2 text-light">Nous contactez</a></li>
           <?php endif;?>
 
-          <li><a href="produit.php" class="nav-link px-2 text-light">Produits</a></li>
-          <li><a href="contact.php" class="nav-link px-2 text-light">Nous contactez</a></li>
-          <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
+          <?php if(($_SERVER['PHP_SELF']) == "/views/panier.php"):?>
+            <li><a href="panier.php" class="nav-link px-2 text-dark">Panier</a></li>
+          <?php else:?>
+            <li><a href="panier.php" class="nav-link px-2 text-light">Nous contactez</a></li>
+          <?php endif;?>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

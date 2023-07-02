@@ -4,8 +4,8 @@
     if (isset($_SESSION['users'])) {
     header('Location: login.php?');
     exit();
+    }
     require_once "header.php";
-}
 
 ?>
 <!DOCTYPE html>

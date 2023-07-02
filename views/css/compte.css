@@ -75,8 +75,7 @@ select{
     justify-content: center;
 }
 .log{
-    display:grid;
-    grid-template-columns: repeat(2,50%);
+    display:flex;
     justify-content: center;
 }
 .button{

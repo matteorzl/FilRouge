@@ -142,7 +142,7 @@
           <?php if(($_SERVER['PHP_SELF']) == "/views/panier.php"):?>
             <li><a href="panier.php" class="nav-link px-2 text-dark">Panier</a></li>
           <?php else:?>
-            <li><a href="panier.php" class="nav-link px-2 text-light">Nous contactez</a></li>
+            <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
           <?php endif;?>
         </ul>
 
@@ -152,10 +152,10 @@
 
         <div class="text-end">
         <?php if(!isset($_SESSION["users"])):?>
-          <button type="button" class="btn btn-#4F6D92 me-2"><a href="login.php">Se connecter</a></button>
+          <button type="button" class="btn btn-#6D8BB0 me-2"><a href="login.php">Se connecter</a></button>
           <button type="button" class="btn btn-warning"><a href="register.php">Créer un compte</a></button>
         <?php else:?>
-            <button type="button" class="btn btn-#4F6D92 me-2"><a href="compte.php">Mon compte</a></button>
+            <button type="button" class="btn btn-#6D8BB0 me-2"><a href="compte.php">Mon compte</a></button>
             <button type="button" class="btn btn-warning"><a href="logout.php">Déconnexion</a></button>
         <?php endif;?>
         </div>

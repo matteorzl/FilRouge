@@ -11,6 +11,7 @@
 
 <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="boostrap/assets/scss/forms/_form-control.scss" rel="stylesheet">
+<link href="css/header.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -85,10 +86,6 @@
         z-index: 1500;
       }
     </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="css/headers.css" rel="stylesheet">
   </head>
   <body>
     

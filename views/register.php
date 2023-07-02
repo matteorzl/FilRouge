@@ -41,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
 
-        $id=$conn->lastinsertId();
+        $user_id=$conn->lastinsertId();
 
         $_SESSION['users'] = [
-          "id"=> $id,
+          "user_id"=> $user_id,
           "lastname" => $lastname,
           "firstname" => $firstname,
           "mail" => $mail,
@@ -190,6 +190,6 @@ else{
         <p class="mt-5 mb-3 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</p>
       </form>
     </main>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="boostrap/assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

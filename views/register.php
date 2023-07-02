@@ -155,41 +155,38 @@ else{
     <!-- Custom styles for this template -->
     <link href="css/register.css" rel="stylesheet">
   </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-      </symbol>
-    </svg>
-    <main class="form-signin w-100 m-auto">
-      <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+  <body>
+    <div class="d-flex align-items-center py-4 bg-body-tertiary">
+      <main class="form-signin w-100 m-auto">
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 
-        <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
+          <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
-        <div class="form-floating">
-          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
-          <label for="lastname">Nom</label>
-        </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
+            <label for="lastname">Nom</label>
+          </div>
 
-        <div class="form-floating">
-          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
-          <label for="firstname">Prenom</label>
-        </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
+            <label for="firstname">Prenom</label>
+          </div>
 
-        <div class="form-floating">
-          <input type="mail" class="form-control" id="mail" name="mail" placeholder="name@example.com" required>
-          <label for="mail">E-mail</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
-          <label for="pwd">Mot de passe</label>
-        </div>
+          <div class="form-floating">
+            <input type="mail" class="form-control" id="mail" name="mail" placeholder="name@example.com" required>
+            <label for="mail">E-mail</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
+            <label for="pwd">Mot de passe</label>
+          </div>
 
-        <button class="btn btn-primary w-100 py-2" type="submit">Créer un compte</button>
+          <button class="btn btn-primary w-100 py-2" type="submit">Créer un compte</button>
 
-        <p class="mt-5 mb-3 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</p>
-      </form>
-    </main>
+          <p class="mt-5 mb-3 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</p>
+        </form>
+      </main>
+    </div>
     <script src="boostrap/assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

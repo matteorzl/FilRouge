@@ -145,7 +145,12 @@ input:focus{
   .text-small {
     font-size: 85%;
   }
-  a{text-decoration: none;}
+
+  a:hover, a:visited, a:link, a:active
+  {
+      text-decoration: none;
+  }
+
   .dropdown-toggle:not(:focus) {
     outline: 0;
   }

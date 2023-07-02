@@ -71,9 +71,6 @@ select{
     display: grid;
     justify-content: center;
 }
-.button_log{
-    justify-content: center;
-}
 .log{
     display:flex;
     justify-content: center;

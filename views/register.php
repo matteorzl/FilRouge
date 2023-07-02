@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION["users"])){
   header('Location: compte.php');
-  exit;
+  exit();
 }
 require_once "database.php";
 

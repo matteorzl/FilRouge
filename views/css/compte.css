@@ -72,8 +72,11 @@ select{
     justify-content: center;
 }
 .button_log{
-    display: grid;
     justify-content: center;
+}
+.log{
+    display:grid;
+    grid-template-columns: repeat(2,50%);
 }
 .button{
     font-family: 'Dancing Script';

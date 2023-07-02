@@ -48,10 +48,18 @@
                 </div>
                 <div class="button_log">
                     <?php if(!isset($_SESSION["users"])):?>
-                        <button class="button"><a href="login.php">Connexion</a></button>
-                        <button class="button"><a href="register.php">Inscription</a></button>
+                        <div class="log">
+                            <form action="login.php">
+                                <button class="button" type="submit" name="logout" value="Log out">>Connexion</a></button>
+                            </form>
+                            <form action="register.php" >
+                                <button class="button" type="submit" name="logout" value="Log out">>Inscription</a></button>
+                            </form>
+                        </div>
                     <?php else:?>
-                        <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
+                        <form method="post" action="logout.php">
+                            <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
+                        </form>
                     <?php endif;?>
                 </div>
             </div>

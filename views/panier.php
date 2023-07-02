@@ -1,16 +1,16 @@
 <?php
-session_start();
-require_once "header.php";
-if (isset($_SESSION['username'])) {
-    header('Location: https://mjfilrouge.azurewebsites.net/login.php?');
-    die();
+    session_start();
+    require_once "database.php";
+    if (isset($_SESSION['users'])) {
+    header('Location: login.php?');
+    exit();
+    require_once "header.php";
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 
-        <?php include('header.html') ?>
         <title>Panier</title>
     </head>
     <body>

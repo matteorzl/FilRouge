@@ -136,6 +136,7 @@ input:focus{
 .header{
     background-color: #6D8BB0;
     border-color: #6D8BB0;
+    height: 5%;
 }
 .form-control-dark {
     border-color: var(--bs-gray);

@@ -121,6 +121,7 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <?php if($_SERVER['PHP_SELF'])?>
           <li><a href="index.php" class="nav-link px-2 text-dark">Accueil</a></li>
           <li><a href="produit.php" class="nav-link px-2 text-light">Produits</a></li>
           <li><a href="contact.php" class="nav-link px-2 text-light">Nous contactez</a></li>

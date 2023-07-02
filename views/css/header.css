@@ -154,9 +154,6 @@ input:focus{
       text-decoration: none;
       color:white;
   }
-  .btn:hover{
-    color:#4F6D92;
-  }
   .dropdown-toggle:not(:focus) {
     outline: 0;
   }

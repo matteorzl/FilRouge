@@ -1,17 +1,13 @@
 <?php
-session_start();
-require_once "database.php";
-
-if(!isset($_SESSION["users"])){
-    header("Location: login.php");
-}
-
-  require_once "header.php";
+    session_start();
+    require_once "database.php";
+    require_once "header.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Compte</title>
         <link rel="stylesheet" href="css/compte.css">
     </head>
@@ -50,10 +46,13 @@ if(!isset($_SESSION["users"])){
                 <div class="commandes">
                     <button class="button">Vos commandes</button>
                 </div>
-                <div class="deconnexion">
-                    <form action="logout.php" method="post">
+                <div class="button_log">
+                    <?php if(!isset($_SESSION["users"])):?>
+                        <button class="button"><a href="login.php">Connexion</a></button>
+                        <button class="button"><a href="register.php">Inscription</a></button>
+                    <?php else:?>
                         <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
-                    </form>
+                    <?php endif;?>
                 </div>
             </div>
         </article>

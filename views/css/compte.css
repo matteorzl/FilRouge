@@ -71,7 +71,7 @@ select{
     display: grid;
     justify-content: center;
 }
-.deconnexion{
+.button_log{
     display: grid;
     justify-content: center;
 }

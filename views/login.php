@@ -14,23 +14,23 @@ if (isset($_SESSION['error_message'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $mail = $_POST["mail"];
+    $pwd = $_POST["pwd"];
 
-    $sql = "SELECT * FROM users WHERE email = ?";
-    $params = array($email);
+    $sql = "SELECT * FROM users WHERE mail = ?";
+    $params = array($mail);
     $stmt = $conn->prepare($sql);
     $stmt->execute($params);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
   
-      if ($row && password_verify($password, $row['pass'])) {
+      if ($row && pwd_verify($pwd, $row['pwd'])) {
           // Authentification réussie
           $_SESSION['users'] = [
-            "id"=>$row["id"],
-            "nom" => $row["nom"],
-            "prenom" => $row["prenom"],
-            "email" => $row["email"],
-            "roles" => $row["user_role"]
+            "user_id"=>$row["user_id"],
+            "lastname" => $row["lastname"],
+            "firstname" => $row["firstname"],
+            "mail" => $row["mail"],
+            "role" => $row["role"]
           ]; // Stocke les informations de l'utilisateur en session
           $_SESSION['message'] = "Vous etes bien connecté";
           header('Location: index.php');
@@ -152,14 +152,14 @@ require_once "header.php";
         <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
 
         <div class="form-floating">
-          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
-          <label for="email">Adresse mail</label>
+          <input type="mail" class="form-control" id="mail" name="mail" placeholder="name@example.com" required>
+          <label for="mail">Adresse mail</label>
         </div>
 
         <div class="form-floating">
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-          <label for="password">Mot de passe</label>
-          <a href="forgot-password.php">Mot de passe oublié</a>
+          <input type="pwd" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
+          <label for="pwd">Mot de passe</label>
+          <a href="forgot-pwd.php">Mot de passe oublié</a>
         </div>
 
         <div class="form-check text-start my-3">

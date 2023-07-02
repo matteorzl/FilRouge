@@ -8,17 +8,17 @@ require_once "database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if(isset($_POST["nom"], $_POST["prenom"], $_POST["email"], $_POST["password"])
-     && !empty($_POST["nom"])&& !empty($_POST["prenom"])&& !empty($_POST["email"])&& !empty($_POST["password"])){
+    if(isset($_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["pwd"])
+     && !empty($_POST["lastname"])&& !empty($_POST["firstname"])&& !empty($_POST["mail"])&& !empty($_POST["pwd"])){
     
-      $nom = $_POST["nom"];
-      $prenom = $_POST["prenom"];
-      $email = $_POST["email"];
-      $password = $_POST["password"];
+      $lastname = $_POST["lastname"];
+      $firstname = $_POST["firstname"];
+      $mail = $_POST["mail"];
+      $pwd = $_POST["pwd"];
 
       //On verifie si un compte existe deja 
-      $sql = "SELECT * FROM users WHERE email = ?";
-      $params = array($email);
+      $sql = "SELECT * FROM users WHERE mail = ?";
+      $params = array($mail);
       $stmt = $conn->prepare($sql);
       $stmt->execute($params);
       
@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
       // Hash du mot de passe
-      $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+      $hashedpwd = pwd_hash($pwd, pwd_BCRYPT);
 
-      $sql = "INSERT INTO users (nom, prenom, email, pass, user_role) VALUES (?, ?, ?, ?, 0)";
-      $params = array($nom, $prenom, $email, $hashedPassword);
+      $sql = "INSERT INTO users (lastname, firstname, mail, pass, role) VALUES (?, ?, ?, ?, 0)";
+      $params = array($lastname, $firstname, $mail, $hashedpwd);
 
       try {
         $stmt = $conn->prepare($sql);
@@ -45,10 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $_SESSION['users'] = [
           "id"=> $id,
-          "nom" => $nom,
-          "prenom" => $prenom,
-          "email" => $email,
-          "roles" => ["user_role"]
+          "lastname" => $lastname,
+          "firstname" => $firstname,
+          "mail" => $mail,
+          "role" => ["role"]
         ]; // Stocke les informations de l'utilisateur en session
         $_SESSION['message'] = "L'incription a été validé";
         header('Location: index.php');
@@ -166,23 +166,23 @@ else{
         <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
-          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
+          <label for="lastname">lastname</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
-          <label for="prenom">Prenom</label>
+          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
+          <label for="firstname">firstname</label>
         </div>
 
         <div class="form-floating">
-          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
-          <label for="email">Adresse mail</label>
+          <input type="mail" class="form-control" id="mail" name="mail" placeholder="name@example.com" required>
+          <label for="mail">Adresse mail</label>
         </div>
 
         <div class="form-floating">
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-          <label for="password">Mot de passe</label>
+          <input type="pwd" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
+          <label for="pwd">Mot de passe</label>
         </div>
 
         <button class="btn btn-primary w-100 py-2" type="submit">Créer un compte</button>

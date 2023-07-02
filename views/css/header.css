@@ -97,16 +97,6 @@ input:focus{
     max-height: 30px;
     max-width: 30px;
 }
-.panier-notif {
-    position: absolute;
-    top: 1.7%;
-    right: 6%;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    border:0.5px solid black;
-}
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
 @media screen and (max-width: 500px) {
     .header a {

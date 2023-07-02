@@ -113,7 +113,7 @@ input:focus{
 .d-flex{
     display:grid;
     grid-template-columns: 5% 40% 30% 25%;
-    padding-top: 5px;
+    padding: 10px;
 }
   
 .form-control {
@@ -136,7 +136,6 @@ input:focus{
 .header{
     background-color: #6D8BB0;
     border-color: #4F6D92;
-    height: 10%;
 }
 .form-control-dark {
     border-color: var(--bs-gray);

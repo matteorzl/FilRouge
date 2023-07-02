@@ -30,3 +30,7 @@ body {
 .formulaire{
   align-items: center;
 }
+
+a.forgot-pwd {
+  color: black;
+}

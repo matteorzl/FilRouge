@@ -145,7 +145,7 @@ require_once "header.php";
           <div class="form-floating">
             <input type="pwd" class="form-control" id="pwd" name="pwd" placeholder="pwd" required>
             <label for="pwd">Mot de passe</label>
-            <a href="forgot-pwd.php">Mot de passe oublié</a>
+            <a class="forgot-pwd" href="forgot-pwd.php">Mot de passe oublié</a>
           </div>
 
           <div class="form-check text-start my-3">

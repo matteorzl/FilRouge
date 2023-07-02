@@ -94,8 +94,8 @@
                     </form>
 
                     <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2" href="login.php">Login</button>
-                        <button type="button" class="btn btn-warning" href="register.php">Sign-up</button>
+                        <button type="button" class="btn btn-outline-light me-2"><a href="login.php">Login</a></button>
+                        <button type="button" class="btn btn-warning" href="register.php"><a href="register.php">Sign-up</a></button>
                     </div>
                 </div>
             </div>

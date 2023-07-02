@@ -1,14 +1,9 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="fr" dir="ltr">
   <head><script src="boostrap/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.112.5">
-    <title>Footers · Bootstrap v5.3</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
     

@@ -44,7 +44,7 @@ require_once "header.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="fr" dir="ltr">
   <head>
     <script src="boostrap/assets/js/color-modes.js"></script>
     <meta charset="utf-8">

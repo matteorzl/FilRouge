@@ -156,14 +156,6 @@ input:focus{
   .dropdown-toggle:not(:focus) {
     outline: 0;
   }
-tspan{
-    top:-9px;
-    right: -9px;
-    background-color: red;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-}
 .btn.left{
     background-color: #4F6D92;
 }

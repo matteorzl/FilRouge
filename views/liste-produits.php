@@ -15,7 +15,7 @@
     </head>
     <body>
     <?php
-           $stmt = $pdo->query("SELECT * FROM users");
+           $stmt = $conn->query("SELECT * FROM users");
            while ($row = $stmt->fetch()) {
                echo "Product ID: " . $row['product_id'] . "<br>";
                echo "Category ID: " . $row['category_id'] . "<br>";

@@ -3,6 +3,7 @@
     session_start();
     require_once "header.php";
     require_once "database.php";
+    
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -14,6 +15,8 @@
     <body>
     <?php
            $stmt = $pdo->query("SELECT * FROM users");
+           echo "\nPDO::errorInfo():\n";
+           print_r($pdo->errorInfo());
            while ($row = $stmt->fetch()) {
                echo "Product ID: " . $row['product_id'] . "<br>";
                echo "Category ID: " . $row['category_id'] . "<br>";

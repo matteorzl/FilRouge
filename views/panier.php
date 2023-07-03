@@ -5,6 +5,8 @@
     header('Location: login.php?');
     exit();
     }
+    $stmt = $conn->query("SELECT * FROM products WHERE product_id = 17");
+    $product = $stmt->fetch();
     require_once "header.php";
 
 ?>
@@ -26,11 +28,11 @@
                         <th>Supprimer</th>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><img src="images/delete/delete.png"></td>
+                        <td><img src="<?php echo $product['image_id.bin']; ?>" width="40px" padding="8px 0"></td>
+                        <td><?=$product["name"]?></td>
+                        <td><?=$product["price"]?></td>
+                        <td><?=$product["quantity"]?></td>
+                        <td><img src="images/delete/delete.png" width="40px" padding="8px 0"></td>
                     </tr>
                     <tr>
                         <th>Total: </th>

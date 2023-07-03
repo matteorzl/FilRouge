@@ -4,28 +4,33 @@
     justify-content: center;
     min-height: 100vh;
 }
-section{
+
+.panier section{
     background-color: #6d8bb05e;
     width: 70%;
     border: 2px solid #4F6D92;
     border-radius: 5px;
 }
-table{
+
+.panier table{
     border-collapse: collapse;
     width: 100%;
     letter-spacing: 1px;
     font-size: 13px;
 }
-th{
+
+.panier th{
     padding: 10px 0;
     font-weight: 400;
     text-align: center;
     text-decoration: solid;
 }
-td{
+
+.panier td{
     border-top: 0.5px solid #4F6D92;
     text-align: center;
 }
-tr{
+
+.panier tr{
     border-bottom: 0.5px solid #4F6D92;
 }

@@ -139,9 +139,9 @@
           <?php endif;?>
 
           <?php if(!empty($_SESSION["cart"])):?>
-            <li><a href="panier.php" class="nav-link px-2 text-blue">Panier<tspan>8</tspan></a></li>
+            <li><a href="panier.php" class="nav-link px-2 text-blue">Panier</a></li>
           <?php else:?>
-            <li><a href="panier.php" class="nav-link px-2 text-light">Panier<tspan>8</tspan></a></li>
+            <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
           <?php endif;?>
         </ul>
 

@@ -29,10 +29,12 @@
            }
            $img = $conn->query("SELECT * FROM images");
            while ($row = $img->fetch()) {
-               echo "image id: " . $row['image_id'] . "<br>";
-               <img src="./image/<?php echo $data['filename']; ?>">
-           }
+            ?>
+           <img src="<?php echo $row['bin']; ?>">
+           <?}
     ?>
+
+
     </body>
     <footer>
         <?php require "footer.php" ?>

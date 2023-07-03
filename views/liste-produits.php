@@ -15,7 +15,7 @@
     </head>
     <body>
     <?php
-           $stmt = $conn->query("SELECT * FROM users");
+           $stmt = $conn->query("SELECT * FROM products");
            while ($row = $stmt->fetch()) {
                echo "Product ID: " . $row['product_id'] . "<br>";
                echo "Category ID: " . $row['category_id'] . "<br>";

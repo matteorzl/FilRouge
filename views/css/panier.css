@@ -20,6 +20,7 @@ th{
     padding: 10px 0;
     font-weight: 400;
     text-align: center;
+    text-decoration: solid;
 }
 td{
     border-top: 0.5px solid #4F6D92;

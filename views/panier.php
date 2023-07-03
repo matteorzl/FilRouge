@@ -5,9 +5,15 @@
     header('Location: login.php?');
     exit();
     }
-    $stmt = $conn->query("SELECT * FROM products WHERE product_id = 17");
+    $stmt = $conn->query("SELECT p.*, i.bin FROM products p
+        INNER JOIN images i ON p.image_id = i.image_id
+        WHERE p.product_id = 17");
     $product = $stmt->fetch();
+    //$stmt = $conn->query("SELECT * FROM products WHERE product_id = 17");
+    //$product = $stmt->fetch();
     require_once "header.php";
+
+
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +34,7 @@
                         <th>Supprimer</th>
                     </tr>
                     <tr>
-                        <td><img src="<?php echo $product['image_id.bin']; ?>" width="40px" padding="8px 0"></td>
+                        <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
                         <td><?=$product["name"]?></td>
                         <td><?=$product["price"]?></td>
                         <td><?=$product["quantity"]?></td>

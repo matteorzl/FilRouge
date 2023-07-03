@@ -1,12 +1,11 @@
-section{
+body{
     display:flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #6d8bb05e;
-    width: 70%;
 }
-table{
+section{
+    background-color: #6d8bb05e;
     width: 70%;
 }
 tr{

@@ -15,8 +15,8 @@
     </head>
     <body>
     <?php
-        $stmt = $pdo->query("SELECT * FROM products");
-        $img = $pdo->query("SELECT * FROM images");
+        $stmt = $conn->query("SELECT * FROM products");
+        $img = $conn->query("SELECT * FROM images");
         
         while ($row = $stmt->fetch() && $rowImg = $img->fetch()) {
             ?><img src="<?php echo $rowImg['bin']; ?>"><?php

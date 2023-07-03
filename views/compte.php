@@ -17,7 +17,7 @@
                 <div class="info_perso">
                     <div class="nom"><h> Nom : <?=$_SESSION["users"]["lastname"]?></h></div>
                     <div class="prenom"><h> Prénom : <?=$_SESSION["users"]["firstname"]?></h></div>
-                    <div class="mail"><h> Adresse mail : <?=$_SESSION["users"]["email"]?></h></div>
+                    <div class="mail"><h> Adresse mail : <?=$_SESSION["users"]["mail"]?></h></div>
                 </div>
                 <div class="adresses">
                     <h> Adresse de livraison : </h>

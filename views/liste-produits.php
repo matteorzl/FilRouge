@@ -27,6 +27,11 @@
                echo "Price: " . $row['price'] . "<br>";
                echo "<br>";
            }
+           $img = $conn->query("SELECT * FROM images");
+           while ($row = $img->fetch()) {
+               echo "image id: " . $row['image_id'] . "<br>";
+               echo "bin: " . $row['bin'] . "<br>";
+           }
     ?>
     </body>
     <footer>

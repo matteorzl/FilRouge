@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    vertical-align: top;
 }
 
 .panier section{
@@ -19,6 +20,10 @@
     font-size: 13px;
 }
 
+.panier tr{
+    border-bottom: 0.5px solid #4F6D92;
+}
+
 .panier th{
     padding: 10px 0;
     font-weight: 400;
@@ -31,6 +36,3 @@
     text-align: center;
 }
 
-.panier tr{
-    border-bottom: 0.5px solid #4F6D92;
-}

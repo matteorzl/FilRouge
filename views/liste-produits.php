@@ -15,26 +15,23 @@
     </head>
     <body>
     <?php
-           $stmt = $conn->query("SELECT * FROM products");
-           while ($row = $stmt->fetch()) {
-               echo "Product ID: " . $row['product_id'] . "<br>";
-               echo "Category ID: " . $row['category_id'] . "<br>";
-               echo "Image ID: " . $row['image_id'] . "<br>";
-               echo "Name: " . $row['name'] . "<br>";
-               echo "Description: " . $row['description'] . "<br>";
-               echo "Material: " . $row['material'] . "<br>";
-               echo "Quantity: " . $row['quantity'] . "<br>";
-               echo "Price: " . $row['price'] . "<br>";
-               echo "<br>";
-           }
-           $img = $conn->query("SELECT * FROM images");
-           while ($row = $img->fetch()) {
-            ?>
-           <img src="<?php echo $row['bin']; ?>">
-           <?}
+        $stmt = $pdo->query("SELECT * FROM products");
+        $img = $pdo->query("SELECT * FROM images");
+        
+        while ($row = $stmt->fetch() && $rowImg = $img->fetch()) {
+            ?><img src="<?php echo $rowImg['bin']; ?>"><?php
+            echo $row['name']."<br>";
+            echo $row['description']."<br>";
+            echo $row['material']."<br>";
+            if($row['quantity'] > 1) {
+                echo "En stock";
+            } else {
+                echo "En rupture";
+            }
+            echo $row['price']."<br>";
+            echo "<br>";
+        }
     ?>
-
-
     </body>
     <footer>
         <?php require "footer.php" ?>

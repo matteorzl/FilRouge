@@ -68,8 +68,7 @@ else{
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
-    <script src="boostrap/
-    assets/js/color-modes.js"></script>
+    <script src="boostrap/assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">

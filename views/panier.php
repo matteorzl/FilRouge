@@ -14,7 +14,6 @@
     require_once "header.php";
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

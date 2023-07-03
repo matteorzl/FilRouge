@@ -160,7 +160,7 @@ input:focus{
 .btn.left{
     background-color: #4F6D92;
 }
-.span_panier{
+tspan{
     position: absolute;
     top:-9px;
     right:-9px;

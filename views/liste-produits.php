@@ -30,7 +30,7 @@
            $img = $conn->query("SELECT * FROM images");
            while ($row = $img->fetch()) {
                echo "image id: " . $row['image_id'] . "<br>";
-               echo "bin: " . $row['bin'] . "<br>";
+               <img src="./image/<?php echo $data['filename']; ?>">
            }
     ?>
     </body>

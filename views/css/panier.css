@@ -1,13 +1,32 @@
-section{
+.panier{
     display:flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
-table{
+section{
     background-color: #6d8bb05e;
     width: 70%;
+    border: 2px solid #4F6D92;
+}
+img{
+    width: 40px;
+    padding: 8px 0;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+th{
+    padding: 10px 0;
+    font-weight: 400;
+}
+td{
+    border-top: 0.5px solid #4F6D92;
+    text-align: center;
 }
 tr{
-
+    border-bottom: 0.5px solid #4F6D92;
 }

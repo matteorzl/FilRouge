@@ -18,7 +18,7 @@
         $stmt = $conn->query("SELECT * FROM products");
         $img = $conn->query("SELECT * FROM images");
         
-        while ($row = $stmt->fetch() && $rowImg = $img->fetch()) {
+        while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {
             ?><img src="<?php echo $rowImg['bin']; ?>"><?php
             echo $row['name']."<br>";
             echo $row['description']."<br>";
@@ -32,6 +32,7 @@
             echo "<br>";
         }
     ?>
+
     </body>
     <footer>
         <?php require "footer.php" ?>

@@ -32,8 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "mail" => $row["mail"],
             "role" => $row["role"]
           ]; // Stocke les informations de l'utilisateur en session
-          $_SESSION['message'] = "Vous etes bien connecté";
-          header('Location: index.php');
+          if("role" == 0) {
+            header('Location: index.php');
+          }
+          else {
+            header('Location: admin/index.php');
+          }
           exit();
       } else {
           // Nom d'utilisateur ou mot de passe incorrect

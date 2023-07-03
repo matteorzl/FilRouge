@@ -15,21 +15,29 @@
         <link href="css/panier.css" rel="stylesheet">
     </head>
     <body>
-        <section>
-            <table>
-                <tr>
-                    <th>Image</th>
-                    <th>Nom</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                    <th>Supprimer</th>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th>Total: </th>
-                </tr>
-            </table>
-        </section>
+        <div class="panier">
+            <section>
+                <table>
+                    <tr>
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Supprimer</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><img src="images/delete/delete.png"></td>
+                    </tr>
+                    <tr>
+                        <th>Total: </th>
+                    </tr>
+                </table>
+            </section>
+        </div>
     </body>
     <footer>
         <?php require "footer.php" ?>

@@ -30,3 +30,7 @@ input{
 .text:focus{
     outline: none;
 }
+
+.liste_produits a{
+    color:black;
+}

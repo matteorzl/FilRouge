@@ -52,7 +52,7 @@
                                 <?php endif?>
                             </div>
                             <div class=description>
-                                <p>Chaise en bois massif d'hetre<p>
+                                <p><?=$product['description']?><p>
                             </div> 
                         </div>
                         <div class="prix_add">

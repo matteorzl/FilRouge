@@ -1,13 +1,8 @@
 <!--Test-->
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     session_start();
     require_once "header.php";
     require_once "database.php";
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -21,21 +16,25 @@
         $stmt = $conn->query("SELECT * FROM products");
         $img = $conn->query("SELECT * FROM images");
 
-        while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {
-            ?><img src="<?php echo $rowImg['bin']; ?>"><?php
-            echo $row['name']."<br>";
-            echo $row['description']."<br>";
-            echo $row['material']."<br>";
-            if($row['quantity'] > 1) {
-                echo "En stock";
-            } else {
-                echo "En rupture";
-            }
-            echo $row['price']."<br>";
-            echo "<br>";
-            ?>
+        while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {?>
             <form method="post">
-            <a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Voir produit</a>
+                <div>
+                    <img src="<?php echo $rowImg['bin']; ?>">
+                </div>
+                <div class="info_produit">
+                    <p><?=$row['name']?></p>
+                    <p><?=$row['description']?></p>
+                    <p><?=$row['material']?></p>
+                </div>
+                <div>
+                    <?=if($row['quantity'] > 1):?>
+                        <p> En stock </p>
+                    <?=else:?>
+                        <p> En rupture </p>
+                    <?=endif?>
+                    <p><?=$row['price']?></p>
+                    <a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Voir produit</a>
+                </div>
             </form>
         <?php }?>
     

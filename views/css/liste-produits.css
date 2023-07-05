@@ -16,14 +16,12 @@ aside{
     margin-right: 15%;
     border-radius: 2%;
 }
-.list_prod{
+.button_liste{
     display: flex;
     flex-direction: row;
-    border:1px solid #4F6D92;
     margin:2%;
-    padding:1%;
     justify-content: center;
-    grid-row-gap: 2% ;
+    padding-left: 1%;
 }
 
 .info_produit{

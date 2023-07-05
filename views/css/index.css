@@ -16,3 +16,7 @@ div.row div.column {
     width: 33.33%;
     padding: 5px;
 }
+
+img.w3-image {
+    height: 50%;
+}

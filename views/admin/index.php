@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL);
 
 if(!isset($_SESSION["role"]) == 1) {
     header("../index.php");

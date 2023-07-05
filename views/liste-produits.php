@@ -22,7 +22,7 @@
 
         while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {?>
             <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
-                <button type="submit">
+                <button type="submit" class="button_liste_produit">
                     <div class="list_prod">
                         <div class="produit_img">
                             <img src="<?php echo $rowImg['bin']; ?>" width="100">
@@ -41,7 +41,7 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                <button>
+                </button>
             </form>
     <?php 
         }

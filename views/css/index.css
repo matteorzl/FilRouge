@@ -17,6 +17,11 @@ div.row div.column {
     padding: 5px;
 }
 
+div.text-index {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 /* cell number */
 .carousel-cell:before {
     display: block;

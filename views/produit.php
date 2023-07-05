@@ -1,4 +1,7 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     require_once "database.php";
     session_start();
     $id = $_GET['id'];
@@ -13,7 +16,6 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>  
-        <?php include('header.html') ?>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">

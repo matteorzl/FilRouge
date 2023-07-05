@@ -35,7 +35,12 @@
   /*
    * Navbar
    */
-  
+
+   li.nav-item{
+    background-color: #6D8BB0;
+    border-color: #4F6D92;
+}
+
   .navbar-brand {
     padding-top: .75rem;
     padding-bottom: .75rem;

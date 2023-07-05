@@ -1,4 +1,5 @@
 <?php
+    require_once "database.php";
     session_start();
     $id = $_GET['id'];
 
@@ -7,10 +8,7 @@
         WHERE p.product_id = $id");
     $product = $stmt->fetch();
     
-    require_once "database.php";
     require_once "header.php";
-
-    $inCart = false;
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

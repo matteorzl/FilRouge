@@ -15,9 +15,6 @@ aside{
     margin-left: 15%;
     margin-right: 15%;
 }
-.button_liste_produit{
-    
-}
 .list_prod{
     display: flex;
     flex-direction: row;
@@ -25,11 +22,12 @@ aside{
     margin:2%;
     padding:1%;
     justify-content: center;
+    grid-row-gap: 2% ;
 }
 
 .info_produit{
     display: grid;
-    grid-template-rows: 30% 20% 50%;
+    grid-template-rows: 10% 10% 80%;
     width: 80%;
     text-align: left;
     border-left: 0.5% solid #4F6D92;

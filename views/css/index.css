@@ -17,6 +17,12 @@ div.row div.column {
     padding: 5px;
 }
 
+div.row div.column:last-child {
+    float: left;
+    width: 33.33%;
+    padding: 0;
+}
+
 div.text-index {
     padding-bottom: 2rem;
 }

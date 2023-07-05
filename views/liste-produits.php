@@ -1,5 +1,8 @@
 <!--Test-->
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     session_start();
     require_once "header.php";
     require_once "database.php";
@@ -17,7 +20,7 @@
     <?php
         $stmt = $conn->query("SELECT * FROM products");
         $img = $conn->query("SELECT * FROM images");
-        
+
         while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {
             ?><img src="<?php echo $rowImg['bin']; ?>"><?php
             echo $row['name']."<br>";
@@ -31,7 +34,9 @@
             echo $row['price']."<br>";
             echo "<br>";
             ?>
-            <a href="produit.php?id=<?=$row["product_id"]?>">Voir produit</a>
+            <form method="post">
+            <a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Voir produit</a>
+            </form>
         <?php }?>
     
     </body>

@@ -141,14 +141,12 @@
                 <?php endif;?>
 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
-                  <li><a href="panier.php" class="nav-link px-2 text-dark">Panier</a></li>
                   <?php if(!empty($_SESSION["cart"])):?>
                     <li><a href="panier.php" class="nav-link px-5 text-blue">Panier</a></li>
                   <?php else:?>
                     <li><a href="panier.php" class="nav-link px-2 text-dark">Panier</a></li>
                   <?php endif;?>
                 <?php else:?>
-                  <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
                   <?php if(!empty($_SESSION["cart"])):?>
                     <li><a href="panier.php" class="nav-link px-5 text-blue">Panier</a></li>
                   <?php else:?>

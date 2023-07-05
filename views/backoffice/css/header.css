@@ -1,0 +1,162 @@
+/* Style the header with a grey background and some padding */
+/*.header {
+    overflow: hidden;
+    background-color: #6D8BB0;
+    padding: 20px 10px;
+    border-bottom:5px solid ;
+    border-color: #4F6D92;
+    margin-bottom: 10px;
+}
+  
+/* Style the header links */
+/*.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border:2px solid ;
+    border-color: red;
+    border-radius: 4px;
+}
+  
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+/*.header a.logo {
+    color: white;
+    font-size: 25px;
+    font-family: 'Dancing Script';
+    border:2px solid ;
+    border-color: white;
+    border-radius: 50%;
+    
+}
+  
+/* Style the active/current link*/
+/*.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+  
+/* Float the link section to the right */
+/*.header-right {
+    float: right;
+    margin-right: 10%;
+}
+
+.header-right input {
+    width: 300px;
+    border: 2px solid;
+    border-color: #4F6D92;
+    border-radius: 10px;
+    background-color:white;
+}
+
+
+input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #4F6D92;
+    font-family: 'Dancing Script';
+    font-size: 20px;
+    padding-left: 5px;
+}
+.header-right button {
+    border-radius: 50%;
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: #4F6D92;
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.header-right .compte{
+    float: right;
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: #4F6D92;
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.header-right .panier{
+    float: right;
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: #4F6D92;
+    max-height: 30px;
+    max-width: 30px;
+}
+.header-right .contact{
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: #4F6D92;
+    max-height: 30px;
+    max-width: 30px;
+}
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
+/*@media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+*/
+.d-flex{
+    display:flex;
+    flex-direction: row;
+    padding: 10px;
+}
+  
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.header{
+    background-color: #6D8BB0;
+    border-color: #4F6D92;
+}
+.form-control-dark {
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    border-color: #ffff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+  }
+  
+  .text-small {
+    font-size: 85%;
+  }
+
+  a:hover, a:visited, a:link
+  {
+      text-decoration: none;
+      color:white;
+  }
+  .dropdown-toggle:not(:focus) {
+    outline: 0;
+  }
+.btn.left{
+    background-color: #4F6D92;
+}

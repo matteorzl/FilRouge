@@ -128,22 +128,22 @@
                   <li><a href="dashboard.php" class="nav-link px-2 text-light">Accueil</a></li>
                 <?php endif;?>
                 
-                <?php if(($_SERVER['PHP_SELF']) == "/views/liste-produits.php"):?>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/category.php"):?>
                   <li><a href="category.php" class="nav-link px-2 text-dark">Catégorie</a></li>
                 <?php else:?>
                   <li><a href="category.php" class="nav-link px-2 text-light">Catégorie</a></li>
                 <?php endif;?>
                 
-                <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/products.php"):?>
                   <li><a href="products.php" class="nav-link px-2 text-dark">Produits</a></li>
                 <?php else:?>
                   <li><a href="products.php" class="nav-link px-2 text-light">Produits</a></li>
                 <?php endif;?>
 
-                <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
-                  <li><a href="carrousel.php" class="nav-link px-2 text-dark">Carrousel</a></li>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/carousel.php"):?>
+                  <li><a href="carousel.php" class="nav-link px-2 text-dark">Carrousel</a></li>
                 <?php else:?>
-                  <li><a href="carrousel.php" class="nav-link px-2 text-light">Carrousel</a></li>
+                  <li><a href="carousel.php" class="nav-link px-2 text-light">Carrousel</a></li>
                 <?php endif;?>
               </ul>
 

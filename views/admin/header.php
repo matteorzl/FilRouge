@@ -1,15 +1,15 @@
 <?php
     session_start();
-    require_once "database.php";
+    require_once "../database.php";
 ?>
 <!doctype html>
 <html lang="fr" dir="ltr">
-  <head><script src="boostrap/assets/js/color-modes.js"></script>
+  <head><script src="../boostrap/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/header.css" rel="stylesheet">
 
     <style>

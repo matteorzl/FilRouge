@@ -17,6 +17,29 @@ div.row div.column {
     padding: 5px;
 }
 
-img.w3-image {
-    height: 50%;
+/* cell number */
+.carousel-cell:before {
+    display: block;
 }
+
+/* position dots in carousel */
+.flickity-page-dots {
+    top: 90%;
+    height: 30px;
+}
+/* white circles */
+.flickity-page-dots .dot {
+    opacity: 1;
+    background: transparent;
+    border: 2px solid white;
+
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+    background: white;
+}
+
+img.w3-image {
+    width: 100%;
+}
+

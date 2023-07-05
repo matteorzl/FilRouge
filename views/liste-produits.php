@@ -22,7 +22,7 @@
         $img = $conn->query("SELECT * FROM images");
 
         while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {
-            ?><img src="<?php echo $rowImg['bin']; ?>" height="300px"><?php
+            ?><img src="<?php echo $rowImg['bin']; ?>"><?php
             echo $row['name']."<br>";
             echo $row['description']."<br>";
             echo $row['material']."<br>";

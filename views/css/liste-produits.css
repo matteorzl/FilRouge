@@ -9,20 +9,26 @@ aside{
 }
 
 form{
-    border:2px solid #4F6D92;
+    border:1% solid #4F6D92;
     background-color: #6d8bb05e;
-    margin:5px;
+    margin:2%;
 }
 
-.content{
+.produits{
     display: flex;
     flex-direction: row;
-    border-bottom:2px solid #4F6D92;
-    margin:5px;
-    text-align: center;
+    border:1px solid #4F6D92;
+    margin:2%;
+    margin-right: 15%;
+    padding:1%;
+    justify-content: center;
 }
 
 .info_produit{
     display: grid;
-    grid-template-columns: 30% 50% 20%;
+    grid-template-rows: 30% 20% 50%;
+    width: 80%;
+    text-align: left;
+    border-left: 0.5% solid #4F6D92;
 }
+

@@ -13,7 +13,7 @@
     <body>
     <aside>
         <div class="aside_category">
-
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, velit doloribus exercitationem voluptatem eum iure distinctio officia autem nisi, ut maiores odio reiciendis quis omnis? Maiores dolorem inventore architecto saepe.
         </div>
     </aside>
     <?php
@@ -22,22 +22,22 @@
 
         while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {?>
             <form method="post" action="produit.php?id=<?=$row['product_id']?>">
-                <div class="content">
+                <div class="produits">
                     <div class="produit_img">
                         <img src="<?php echo $rowImg['bin']; ?>" width="100">
                     </div>
                     <div class="info_produit">
                         <p><?=$row['name']?></p>
-                        <p><?=$row['description']?></p>
                         <p><?=$row['material']?></p>
+                        <p><?=$row['description']?></p>
                     </div>
-                    <div>
+                    <div class="quantite_prix">
+                        <p><?=$row['price']?></p>
                         <?php if($row['quantity'] > 1): ?>
                             <p> En stock </p>
                         <?php else: ?>
                             <p> En rupture </p>
                         <?php endif; ?>
-                        <p><?=$row['price']?></p>
                     </div>
                 </div>
             </form>

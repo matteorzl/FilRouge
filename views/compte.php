@@ -12,7 +12,6 @@
 <html lang="fr" dir="ltr">
     <head> 
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Compte</title>
         <link rel="stylesheet" href="css/compte.css">
     </head>
     <body>

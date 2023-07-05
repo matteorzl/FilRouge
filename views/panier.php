@@ -18,7 +18,6 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 
-        <title>Panier</title> 
         <link href="css/panier.css" rel="stylesheet">
     </head>
     <body>

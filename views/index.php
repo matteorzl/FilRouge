@@ -13,7 +13,6 @@ require_once "database.php";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Site E-commerce</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/carousel.css">
         <link rel="stylesheet" href="js/index.js">

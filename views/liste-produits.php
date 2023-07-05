@@ -26,11 +26,11 @@
                     <p><?=$row['material']?></p>
                 </div>
                 <div>
-                    <?=if($row['quantity'] > 1):?>
+                    <?php if($row['quantity'] > 1):?>
                         <p> En stock </p>
-                    <?=else:?>
+                    <? else:?>
                         <p> En rupture </p>
-                    <?=endif?>
+                    <? endif?>
                     <p><?=$row['price']?></p>
                     <a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Voir produit</a>
                 </div>

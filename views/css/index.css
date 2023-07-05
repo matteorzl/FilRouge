@@ -28,7 +28,7 @@ div.text-index {
 }
 
 /* position dots in carousel */
-.flickity-page-dots {
+/*.flickity-page-dots {
     top: 90%;
     height: 30px;
 }

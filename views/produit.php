@@ -3,7 +3,6 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     require_once "database.php";
-    session_start();
     $id = $_GET['id'];
 
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
@@ -32,7 +31,7 @@
                 <div class ="block">
                     <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
                         <div class="carousel-cell">
-                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                            <img class="w3-image" src="<?php echo $product['bin']; ?>" width="33%" height="200px">
                         </div>
                         <div class="carousel-cell">
                             <img class="w3-image" src="<?php echo $product['bin']; ?>">
@@ -46,7 +45,7 @@
                         <div class="detail">
                             <div class ="nom"><h1><?=$product["name"]?></h1></div>
                             <div class ="stock">
-                                <?php if($product["quantité"] > 1):?>
+                                <?php if($product["quantity"] > 1):?>
                                  <p> En stock</p>
                                 <?php else:?>
                                  <p> En rupture de stock </p>
@@ -59,7 +58,7 @@
                         <div class="prix_add">
                             <div class = "prix"><h> <?=$product["price"]?> </h></div>    
                             <div class = "add_items">
-                            <?php if($product["quantité"] > 1): ?>
+                            <?php if($product["quantity"] > 1): ?>
                                 <button class="button_add" type="submit">Ajouter au panier</button>
 						    <?php else: ?>
 							    <button class="button_add" type="submit" disabled>Ajouter au panier</button>

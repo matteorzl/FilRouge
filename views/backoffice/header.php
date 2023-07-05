@@ -119,13 +119,13 @@
           <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 
-              <img src="images\logo\logo.png" width="80px" height="60px" margin-right="15px">
+              <img src="..images\logo\logo.png" width="80px" height="60px" margin-right="15px">
 
               <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <?php if(($_SERVER['PHP_SELF']) == "/views/index.php"):?>
-                  <li><a href="index.php" class="nav-link px-2 text-dark">Accueil</a></li>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/dashboard.php"):?>
+                  <li><a href="dashboard.php" class="nav-link px-2 text-dark">Accueil</a></li>
                 <?php else:?>
-                  <li><a href="index.php" class="nav-link px-2 text-light">Accueil</a></li>
+                  <li><a href="dashboard.php" class="nav-link px-2 text-light">Accueil</a></li>
                 <?php endif;?>
                 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/liste-produits.php"):?>
@@ -164,6 +164,6 @@
           </div>
         </div>
       </main>
-      <script src="boostrap/assets/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../boostrap/assets/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

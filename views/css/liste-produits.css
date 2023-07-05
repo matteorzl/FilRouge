@@ -12,14 +12,15 @@ form{
     border:1% solid #4F6D92;
     background-color: #6d8bb05e;
     margin:2%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
-.produits{
+.list_prod{
     display: flex;
     flex-direction: row;
     border:1px solid #4F6D92;
     margin:2%;
-    margin-right: 15%;
     padding:1%;
     justify-content: center;
 }

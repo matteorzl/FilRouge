@@ -14,8 +14,8 @@ require_once "../database.php";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="js/index.js">
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="js/dashboard.js">
     </head>
     <body>
       <h1>TEST</h1>

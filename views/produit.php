@@ -31,7 +31,7 @@
                 <div class ="block">
                     <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
                         <div class="carousel-cell">
-                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                            <img class="w3-image" src="<?php echo $product['bin']; ?>" height="300px">
                         </div>
                         <div class="carousel-cell">
                             <img class="w3-image" src="<?php echo $product['bin']; ?>">

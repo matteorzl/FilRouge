@@ -26,17 +26,19 @@
                     <p><?=$row['material']?></p>
                 </div>
                 <div>
-                    <?php if($row['quantity'] > 1):?>
+                    <?php if($row['quantity'] > 1): ?>
                         <p> En stock </p>
-                    <? else:?>
+                    <?php else: ?>
                         <p> En rupture </p>
-                    <? endif?>
+                    <?php endif; ?>
                     <p><?=$row['price']?></p>
                     <a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Voir produit</a>
                 </div>
             </form>
-        <?php }?>
-    
+    <?php 
+        }
+    ?>
+
     </body>
     <footer>
         <?php require "footer.php" ?>

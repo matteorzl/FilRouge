@@ -25,6 +25,7 @@ div.row div.column {
 div.row div.column:last-child {
     float: left;
     width: 33.33%;
+    padding-top: 5px;
     padding: 0;
 }
 

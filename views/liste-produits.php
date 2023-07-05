@@ -30,9 +30,10 @@
             }
             echo $row['price']."<br>";
             echo "<br>";
-        }
-    ?>
-    <a href="produit.php?id=<?=$row["product_id"]?>">Voir produit</a>
+            ?>
+            <a href="produit.php?id=<?=$row["product_id"]?>">Voir produit</a>
+        <?php }?>
+    
     </body>
     <footer>
         <?php require "footer.php" ?>

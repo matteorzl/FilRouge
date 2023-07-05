@@ -1,0 +1,22 @@
+div.text-index {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40rem  
+}
+
+div.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+div.row div.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+img.w3-image {
+    height: 50%;
+}

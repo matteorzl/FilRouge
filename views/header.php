@@ -140,11 +140,22 @@
                   <li><a href="contact.php" class="nav-link px-2 text-light">Nous contacter</a></li>
                 <?php endif;?>
 
-                <?php if(!empty($_SESSION["cart"])):?>
-                  <li><a href="panier.php" class="nav-link px-2 text-blue">Panier</a></li>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
+                  <li><a href="panier.php" class="nav-link px-2 text-dark">Panier</a></li>
+                  <?php if(!empty($_SESSION["cart"])):?>
+                    <li><a href="panier.php" class="nav-link px-5 text-blue">Panier</a></li>
+                  <?php else:?>
+                    <li><a href="panier.php" class="nav-link px-2 text-dark">Panier</a></li>
+                  <?php endif;?>
                 <?php else:?>
                   <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
+                  <?php if(!empty($_SESSION["cart"])):?>
+                    <li><a href="panier.php" class="nav-link px-5 text-blue">Panier</a></li>
+                  <?php else:?>
+                    <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
+                  <?php endif;?>
                 <?php endif;?>
+
               </ul>
 
               <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

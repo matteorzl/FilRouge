@@ -126,7 +126,7 @@
 <div class="content">
   <footer class="footer">
     <div class="text_alter">
-      <img src="images\logo\logo-min.png" height="30px" margin-right="15px">
+      <img src="..\images\logo\logo-min.png" height="30px" margin-right="15px">
       <span class="mb-3 mb-md-0 text-body-secondary">ProjetFilRouge_InstitutLimayrac &copy; 2023</span>
     </div>
 

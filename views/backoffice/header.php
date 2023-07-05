@@ -129,21 +129,21 @@
                 <?php endif;?>
                 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/liste-produits.php"):?>
-                  <li><a href="liste-produits.php" class="nav-link px-2 text-dark">Produits</a></li>
+                  <li><a href="category.php" class="nav-link px-2 text-dark">Catégorie</a></li>
                 <?php else:?>
-                  <li><a href="liste-produits.php" class="nav-link px-2 text-light">Produits</a></li>
+                  <li><a href="category.php" class="nav-link px-2 text-light">Catégorie</a></li>
                 <?php endif;?>
                 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
-                  <li><a href="contact.php" class="nav-link px-2 text-dark">Nous contacter</a></li>
+                  <li><a href="products.php" class="nav-link px-2 text-dark">Produits</a></li>
                 <?php else:?>
-                  <li><a href="contact.php" class="nav-link px-2 text-light">Nous contacter</a></li>
+                  <li><a href="products.php" class="nav-link px-2 text-light">Produits</a></li>
                 <?php endif;?>
 
-                <?php if(!empty($_SESSION["cart"])):?>
-                  <li><a href="panier.php" class="nav-link px-2 text-blue">Panier</a></li>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
+                  <li><a href="carrousel.php" class="nav-link px-2 text-dark">Carrousel</a></li>
                 <?php else:?>
-                  <li><a href="panier.php" class="nav-link px-2 text-light">Panier</a></li>
+                  <li><a href="carrousel.php" class="nav-link px-2 text-light">Carrousel</a></li>
                 <?php endif;?>
               </ul>
 

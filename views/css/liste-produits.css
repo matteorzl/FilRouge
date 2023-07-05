@@ -1,0 +1,13 @@
+aside{
+    width: 15%;
+}
+.aside_category{
+    background-color: #6d8bb05e;
+    border-color: 1px solid #4F6D92;
+    border-radius: 5px;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+}

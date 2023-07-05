@@ -1,10 +1,6 @@
 <?php
     session_start();
     require_once "database.php";
-    if (isset($_SESSION['users'])) {
-    header('Location: login.php?');
-    exit();
-    }
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
         INNER JOIN images i ON p.image_id = i.image_id
         WHERE p.product_id = 17");

@@ -140,7 +140,7 @@
                   <li><a href="contact.php" class="nav-link px-2 text-light">Nous contacter</a></li>
                 <?php endif;?>
 
-                <?php if(($_SERVER['PHP_SELF']) == "/views/contact.php"):?>
+                <?php if(($_SERVER['PHP_SELF']) == "/views/panier.php"):?>
                   <?php if(!empty($_SESSION["cart"])):?>
                     <li><a href="panier.php" class="nav-link px-5 text-blue">Panier</a></li>
                   <?php else:?>

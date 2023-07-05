@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           if($row["role"] == 1) {
             //Administrateur connecté, renvoi vers le backoffice
-            header('Location: /backoffice/dashboard.php');
+            header('Location: backoffice/dashboard.php');
           }
           else {
             //Utilisateur connecté, redirigé vers l'index

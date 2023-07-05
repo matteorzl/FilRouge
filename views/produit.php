@@ -1,7 +1,14 @@
 <?php
     session_start();
-    require_once "header.php";
+    $id = $_GET['id'];
+
+    $stmt = $conn->query("SELECT p.*, i.bin FROM products p
+        INNER JOIN images i ON p.image_id = i.image_id
+        WHERE p.product_id = $id");
+    $product = $stmt->fetch();
+    
     require_once "database.php";
+    require_once "header.php";
 
     $inCart = false;
 ?>
@@ -25,37 +32,50 @@
                 <div class ="block">
                     <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
                         <div class="carousel-cell">
-                            <img class="w3-image" src="https://smash-images.photobox.com/original/5f04c1b41fd48d1b10ff27dfc90548bf13608845_Large-Print-lifestyle-3_1-2600.jpg">
+                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
                         </div>
                         <div class="carousel-cell">
-                            <img class="w3-image" src="https://smash-images.photobox.com/original/bca8e5fa7862a2cfaefc300c5b572e7a6dc6f3f3_Standard-Prints-lifestyle-3_1-2600.jpg">
+                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
                         </div>
                         <div class="carousel-cell">
-                            <img class="w3-image" src="https://smash-images.photobox.com/original/a422aed1a721e933961b19ea9e47e07fc71e0699_Acrylic-Prints-lifestyle-3_1-2600.jpg">
+                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
                         </div>
                     </div>
                 </div>
                 <div class="produit_details">
                         <div class="detail">
-                            <div class ="nom"><h1> Chaise </h1></div>
-                            <div class ="stock"><p> En stock </p></div>
+                            <div class ="nom"><h1><?=$product["name"]?></h1></div>
+                            <div class ="stock">
+                                <?php if($product["quantité"] > 1):?>
+                                 <p> En stock</p>
+                                <?php else:?>
+                                 <p> En rupture de stock </p>
+                                <?php endif?>
+                            </div>
                             <div class=description>
                                 <p>Chaise en bois massif d'hetre<p>
                             </div> 
                         </div>
                         <div class="prix_add">
-                            <div class = "prix"><h> 12000€ </h></div>    
+                            <div class = "prix"><h> <?=$product["price"]?> </h></div>    
                             <div class = "add_items">
-                            <?php if($inCart): ?>
-                                <button class="button_add" type="submit" disabled>Ajouter au panier</button>
+                            <?php if($product["quantité"] > 1): ?>
+                                <button class="button_add" type="submit">Ajouter au panier</button>
 						    <?php else: ?>
-							    <button class="button_add" type="submit">Ajouter au panier</button>
+							    <button class="button_add" type="submit" disabled>Ajouter au panier</button>
 						    <?php endif ?>    
                             </div>
                         </div>
                 </div>
             </div>
         </article>
+        <!-- <?php
+        // $cat = $product["categorie"];
+        // $stmt = $conn->query("SELECT p.*, i.bin FROM products p
+        // INNER JOIN images i ON p.image_id = i.image_id
+        // WHERE p.categorie = $cat");
+        // $product = $stmt->fetch();
+        ?>  -->
         <article>
             <div class ="produits_similaires">
                 <div class="text">produits similaires</div>

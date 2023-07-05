@@ -32,7 +32,7 @@
             echo "<br>";
         }
     ?>
-
+    <a href="produit.php?id=<?=$row["product_id"]?>">
     </body>
     <footer>
         <?php require "footer.php" ?>

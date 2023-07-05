@@ -22,21 +22,23 @@
 
         while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {?>
             <form method="post" action="produit.php?id=<?=$row['product_id']?>">
-                <div class="produit_img">
-                    <img src="<?php echo $rowImg['bin']; ?>">
-                </div>
-                <div class="info_produit">
-                    <p><?=$row['name']?></p>
-                    <p><?=$row['description']?></p>
-                    <p><?=$row['material']?></p>
-                </div>
-                <div>
-                    <?php if($row['quantity'] > 1): ?>
-                        <p> En stock </p>
-                    <?php else: ?>
-                        <p> En rupture </p>
-                    <?php endif; ?>
-                    <p><?=$row['price']?></p>
+                <div class="content">
+                    <div class="produit_img">
+                        <img src="<?php echo $rowImg['bin']; ?>" width="100">
+                    </div>
+                    <div class="info_produit">
+                        <p><?=$row['name']?></p>
+                        <p><?=$row['description']?></p>
+                        <p><?=$row['material']?></p>
+                    </div>
+                    <div>
+                        <?php if($row['quantity'] > 1): ?>
+                            <p> En stock </p>
+                        <?php else: ?>
+                            <p> En rupture </p>
+                        <?php endif; ?>
+                        <p><?=$row['price']?></p>
+                    </div>
                 </div>
             </form>
     <?php 

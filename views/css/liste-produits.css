@@ -1,5 +1,6 @@
 aside{
     width: 15%;
+    float: left;
 }
 .aside_category{
     background-color: #6d8bb05e;
@@ -8,6 +9,20 @@ aside{
 }
 
 form{
+    border:2px solid #4F6D92;
+    background-color: #6d8bb05e;
+    margin:5px;
+}
+
+.content{
     display: flex;
     flex-direction: row;
+    border-bottom:2px solid #4F6D92;
+    margin:5px;
+    text-align: center;
+}
+
+.info_produit{
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
 }

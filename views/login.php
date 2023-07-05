@@ -32,11 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "mail" => $row["mail"],
             "role" => $row["role"]
           ]; // Stocke les informations de l'utilisateur en session
-          if("role" == 0) {
-            header('Location: index.php');
+
+          if($row["role"] == 1) {
+            //Administrateur connecté, renvoi vers le backoffice
+            header('Location: admin/index.php');
           }
           else {
-            header('Location: admin/index.php');
+            //Utilisateur connecté, redirigé vers l'index
+            header('Location: index.php');
           }
           exit();
       } else {

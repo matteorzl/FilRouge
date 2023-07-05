@@ -5,6 +5,11 @@ div.text-index {
     width: 40rem  
 }
 
+div.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
 div.row::after {
     content: "";
     clear: both;

@@ -21,7 +21,7 @@
         $img = $conn->query("SELECT * FROM images");
 
         while (($row = $stmt->fetch()) && ($rowImg = $img->fetch())) {?>
-            <form method="post" action="produit.php?id=<?=$row['product_id']?>">
+            <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
                 <button type="submit">
                     <div class="list_prod">
                         <div class="produit_img">

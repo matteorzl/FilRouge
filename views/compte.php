@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(!isset($_SESSION["role"]) == 0) {
+        header("../index.php");
+    }
+
     require_once "database.php";
     require_once "header.php";
 ?>

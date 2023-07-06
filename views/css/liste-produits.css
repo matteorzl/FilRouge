@@ -1,6 +1,7 @@
 aside{
     width: 15%;
     float: left;
+    margin:1em;
 }
 .aside_category{
     background-color: #6d8bb05e;
@@ -10,6 +11,7 @@ aside{
 .form_list_prod{
 	float: right;
     width:80%;
+    margin:1em;
 }
 .button_liste{
 	display:flex;

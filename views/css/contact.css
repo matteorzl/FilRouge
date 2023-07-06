@@ -24,13 +24,9 @@ input{
     border:2px solid #4F6D92;
     border-radius: 5px;
     margin: 3px;
-    height: 15%;
+    min-height: 15%;
 }
 
 .text:focus{
     outline: none;
-}
-
-.liste_produits a{
-    color:black;
 }

@@ -87,15 +87,18 @@
       	border-top: 0.5px solid lightgray;
         margin-left:15%;
         margin-right:15%;
-        position: absolute;
+        position:fixed;
         bottom: 0;
-        width: 80%;
+        width: 100%;
+        background-color: white;
       }
 
       .footer{
         margin:5px;
         display: flex;
         flex-direction:row;
+        
+        width: 80%;
       }
       .reseaux{
        list-style-type: none;

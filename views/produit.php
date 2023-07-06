@@ -1,7 +1,4 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     require_once "database.php";
     $id = $_GET['id'];
 
@@ -9,7 +6,7 @@
         INNER JOIN images i ON p.image_id = i.image_id
         WHERE p.product_id = $id");
     $product = $stmt->fetch();
-    if(empty($produit)){
+    if(empty($stmt)){
         echo "<script>alert(\"Ce produit n'existe pas\")</script>";
     }
     require_once "header.php";
@@ -28,7 +25,7 @@
     </head>
     <body>
         <article>
-            <form action="ajout_produit.php?<?=$id?>" method="post">
+            <form action="ajout_produit.php?id=<?=$id?>" method="post">
                 <div class="page">
                     <div class ="block">
                         <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>

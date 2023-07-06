@@ -89,6 +89,7 @@
         margin-right:15%;
         position: absolute;
         bottom: 0;
+        width: 80%;
       }
 
       .footer{

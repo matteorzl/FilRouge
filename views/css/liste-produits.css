@@ -25,7 +25,7 @@ aside{
 
 .info_produit{
     display: grid;
-    grid-template-rows: 10% 10% 80%;
+    grid-template-rows: 15% 10% 75%;
     align-items:center;
     width: 80%;
     text-align: start;
@@ -41,4 +41,7 @@ aside{
 }
 h4{
     font-weight: bold;
+}
+.img_produit{
+    border-radius: 1em;
 }

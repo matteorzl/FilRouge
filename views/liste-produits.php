@@ -24,7 +24,7 @@
             <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
                 <button type="submit" class="button_liste">
                     <div class="produit_img">
-                        <img src="<?php echo $rowImg['bin']; ?>" width="150">
+                        <img src="<?php echo $rowImg['bin']; ?>" width="150" class="img_produit">
                     </div>
                        <div class="info_produit">
                         <h4><?=$row['name']?></h4>

@@ -7,16 +7,12 @@ aside{
     border-color: 1px solid #4F6D92;
     border-radius: 5px;
 }
-
-.form_list_prod{
-    border:1% solid #4F6D92;
-    background-color: #6d8bb05e;
-    margin:2%;
+.button_liste{
+    border:1% solid #4F6D92 !important;
+    background-color: #6d8bb05e !important;
     margin-left: 15%;
     margin-right: 15%;
     border-radius: 2%;
-}
-.button_liste{
     display: flex;
     flex-direction: row;
     margin:2%;

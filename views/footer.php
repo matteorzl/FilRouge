@@ -85,18 +85,19 @@
       
       .content{
       	border-top: 0.5px solid lightgray;
-        margin-left:15%;
-        margin-right:15%;
         position:fixed;
-        bottom: 0;
+        bottom: 0; 
+        left: 0;
         background-color: white;
+        width: 100%;
+        padding-left:15%;
+        padding-right:15%;
       }
 
       .footer{
         margin:5px;
         display: flex;
         flex-direction:row;
-        width: 100%;
       }
       .reseaux{
        list-style-type: none;

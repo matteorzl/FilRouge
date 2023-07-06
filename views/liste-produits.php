@@ -27,12 +27,12 @@
                         <img src="<?php echo $rowImg['bin']; ?>" width="150">
                     </div>
                        <div class="info_produit">
-                        <p><?=$row['name']?></p>
+                        <h4><?=$row['name']?></h4>
                         <p><?=$row['material']?></p>
                         <p><?=$row['description']?></p>
                     </div>
                     <div class="quantite_prix">
-                        <p><?=$row['price']?></p>
+                        <h4><?=$row['price']?></h4>
                         <?php if($row['quantity'] > 1): ?>
                             <p> En stock </p>
                         <?php else: ?>

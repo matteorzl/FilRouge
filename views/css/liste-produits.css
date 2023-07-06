@@ -30,7 +30,7 @@ aside{
     width: 80%;
     text-align: start;
     border-right:0.1em solid #4F6D92;
-    margin:0.5em;
+    margin:1em;
     
 }
 .quantite_prix{
@@ -39,4 +39,6 @@ aside{
     align-items: center;
     text-align: center;
 }
-
+h4{
+    font-weight: bold;
+}

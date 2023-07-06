@@ -32,7 +32,7 @@
                         <p><?=$row['description']?></p>
                     </div>
                     <div class="quantite_prix">
-                        <h4><?=$row['price']?></h4>
+                        <h4><?=$row['price']?>€</h4>
                         <?php if($row['quantity'] > 1): ?>
                             <p> En stock </p>
                         <?php else: ?>

@@ -22,6 +22,8 @@
 
 .panier tr{
     border-bottom: 0.5px solid #4F6D92;
+    margin-top : 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .panier th{

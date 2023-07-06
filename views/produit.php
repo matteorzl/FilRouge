@@ -9,7 +9,9 @@
         INNER JOIN images i ON p.image_id = i.image_id
         WHERE p.product_id = $id");
     $product = $stmt->fetch();
-    
+    if(empty($produit)){
+        echo "<script>alert(\"Ce produit n'existe pas\")</script>";
+    }
     require_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -26,28 +28,29 @@
     </head>
     <body>
         <article>
-            <div class="page">
-                <div class ="block">
-                    <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
-                        <div class="carousel-cell">
-                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
-                        </div>
-                        <div class="carousel-cell">
-                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
-                        </div>
-                        <div class="carousel-cell">
-                            <img class="w3-image" src="<?php echo $product['bin']; ?>">
+            <form action="ajout_produit.php?<?=$id?>" method="post">
+                <div class="page">
+                    <div class ="block">
+                        <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
+                            <div class="carousel-cell">
+                                <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                            </div>
+                            <div class="carousel-cell">
+                                <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                            </div>
+                            <div class="carousel-cell">
+                                <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="produit_details">
+                    <div class="produit_details">
                         <div class="detail">
                             <div class ="nom"><h1><?=$product["name"]?></h1></div>
                             <div class ="stock">
                                 <?php if($product["quantity"] > 1):?>
-                                 <p> En stock</p>
+                                    <p> En stock</p>
                                 <?php else:?>
-                                 <p> En rupture de stock </p>
+                                    <p> En rupture de stock </p>
                                 <?php endif?>
                             </div>
                             <div class=description>
@@ -59,13 +62,14 @@
                             <div class = "add_items">
                             <?php if($product["quantity"] > 1): ?>
                                 <button class="button_add" type="submit">Ajouter au panier</button>
-						    <?php else: ?>
-							    <button class="button_add" type="submit" disabled>Ajouter au panier</button>
-						    <?php endif ?>    
+                            <?php else: ?>
+                                <button class="button_add" type="submit" disabled>Ajouter au panier</button>
+                            <?php endif ?>    
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
+            </form>
         </article>
         <!-- <?php
         // $cat = $product["categorie"];

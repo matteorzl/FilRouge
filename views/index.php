@@ -48,8 +48,8 @@ require_once "database.php";
                 <img src="images/category/table.jpg" alt="Table" style="width:100%">
             </div>
         </div>
-    </body>
-    <footer>
+        <footer>
         <?php require "footer.php" ?>
-    </footer> 
+        </footer> 
+    </body>
 </html>

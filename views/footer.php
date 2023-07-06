@@ -91,8 +91,10 @@
 
       .footer{
         margin:5px;
-       display: flex;
-       flex-direction:row;
+        display: flex;
+        flex-direction:row;
+        position: absolute;
+        bottom: 0;
       }
       .reseaux{
        list-style-type: none;

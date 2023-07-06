@@ -89,7 +89,6 @@
         margin-right:15%;
         position:fixed;
         bottom: 0;
-        width: 100%;
         background-color: white;
       }
 
@@ -97,8 +96,7 @@
         margin:5px;
         display: flex;
         flex-direction:row;
-        
-        width: 80%;
+        width: 100%;
       }
       .reseaux{
        list-style-type: none;

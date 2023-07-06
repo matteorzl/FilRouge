@@ -1,6 +1,6 @@
 <?php
-    require_once "database.php";
     session_start();
+    require_once "database.php";
 
     if(!isset($_SESSION["panier"])){
         $_SESSION["panier"] = array();
@@ -22,7 +22,7 @@
             $_SESSION["panier"][$id]= 1;    
         }
 
-        header('Location: $_SERVER[HTTP_REFERER]');
+        header('Location: index.php');
         
     }
 

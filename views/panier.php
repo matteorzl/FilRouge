@@ -40,15 +40,15 @@
                         <th>Supprimer</th>
                     </tr>
                     <?php
-                    $total =0;
+                        $total = 0;
 
-                    $ids = array_keys($_SESSION["panier"]);
-                    if(empty($ids)):?>
-                    <tr><td>Votre panier est vide</td></tr>
-                    <?php else:{
-                        $stmt = $conn->query("SELECT p.*, i.bin FROM products p
-                        INNER JOIN images i ON p.image_id = i.image_id
-                        WHERE p.product_id IN (".implode(",","$ids").")");
+                        $ids = array_keys($_SESSION["panier"]);
+                        if(empty($ids)):?>
+                            <tr><td>Votre panier est vide</td></tr>
+                        <?php else:{
+                            $stmt = $conn->query("SELECT p.*, i.bin FROM products p
+                            INNER JOIN images i ON p.image_id = i.image_id
+                            WHERE p.product_id IN (".implode(",","$ids").")");
 
                         foreach($stmt as $product):
                             $total += $product["price"] * $_SESSION["panier"][$product["product_id"]];

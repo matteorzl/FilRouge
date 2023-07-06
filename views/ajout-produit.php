@@ -12,7 +12,7 @@
         $stmt = $conn->query("SELECT * FROM products WHERE product_id = $id");
         $product = $stmt->fetch();
 
-        if(empty($produit)){
+        if(empty($stmt)){
             echo "<script>alert(\"Ce produit n'existe pas\")</script>";
         }
 
@@ -22,7 +22,7 @@
             $_SESSION["panier"][$id]= 1;    
         }
 
-        header('Location: $_SERVER[HTTP_REFERER]');
+        header('Location: liste-produits.php');
         
     }
 

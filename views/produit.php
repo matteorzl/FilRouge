@@ -25,7 +25,7 @@
     </head>
     <body>
         <article>
-            <form action="ajout_produit.php?id=<?=$id?>" method="post">
+            <form action="ajout-produit.php?id=<?=$id?>" method="post">
                 <div class="page">
                     <div class ="block">
                         <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>

@@ -22,7 +22,7 @@
             $_SESSION["panier"][$id]= 1;    
         }
 
-        header('Location: index.php');
+        header('Location: $_SERVER[HTTP_REFERER]');
         
     }
 

@@ -87,14 +87,14 @@
       	border-top: 0.5px solid lightgray;
         margin-left:15%;
         margin-right:15%;
+        position: absolute;
+        bottom: 0;
       }
 
       .footer{
         margin:5px;
         display: flex;
         flex-direction:row;
-        position: absolute;
-        bottom: 0;
       }
       .reseaux{
        list-style-type: none;

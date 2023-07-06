@@ -1,7 +1,7 @@
 .panier{
     display:flex;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 5em;
     vertical-align: top;
     margin-top: 3%;
 }

@@ -21,11 +21,10 @@
                     </tr>
                     <?php
                         $total = 0;
-                        $ids = array_keys($_SESSION["cart"]);
 
-                        var_dump($ids);
+                        var_dump($_SESSION["cart"]);
 
-                        if(empty($ids)):?>
+                        if(empty($_SESSION["cart"])):?>
 
                     <tr><td>Votre panier est vide</td></tr>
                     <tr>

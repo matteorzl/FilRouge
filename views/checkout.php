@@ -21,7 +21,7 @@
     </head>
     <body>
         <div class="checkout">
-          <h1>Checkout</h1>
+          <h1 class="titleCheckout">Checkout</h1>
         <form action="process_payment.php" method="post">
             <div class="form-row inline-labels">
                 <label for="first_name">Prénom :</label>

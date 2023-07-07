@@ -154,3 +154,7 @@ h1{
     color: white;
     height: 280px;
 }
+
+img.w3-image {
+    width: 50%;
+}

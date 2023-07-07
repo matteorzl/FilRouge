@@ -3,11 +3,11 @@
     require_once "database.php";
     require_once "header.php";
     var_dump($_SESSION["cart"]);
-    $id = $_SESSION["cart"];
+    $ids = array_keys($_SESSION["cart"]);
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
                           INNER JOIN images i ON p.image_id = i.image_id
                           WHERE p.product_id = $id");                           
-    var_dump($stmt);
+    var_dump($ids);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

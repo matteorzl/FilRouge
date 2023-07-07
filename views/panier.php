@@ -57,8 +57,9 @@
                             <?php endif; ?>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <tr>
+                    <tr class="total-row">
                         <th>Total: <?php echo $total ?>€</th>
+                        <td><a href="checkout.php" class="btn-payer">Payer</a></td>
                     </tr>
                 </table>
             </section>

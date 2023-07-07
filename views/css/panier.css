@@ -38,9 +38,31 @@
     text-align: center;
 }
 
-.empty{
+.empty {
     font-weight: bold;
     width: fit-content;
     flex: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-payer {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #6d8bb05e;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #4F6D92;
+    border-radius: 4px;
+}
+
+.btn-payer:hover {
+    background-color: #4F6D92;
 }
 

@@ -21,8 +21,9 @@
         }else{
             $_SESSION["panier"][$id]= 1;    
         }
+        var_dump($_SESSION["panier"]);
 
-        header('Location: liste-produits.php');
+        //header('Location: liste-produits.php');
         
     }
 

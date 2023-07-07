@@ -5,11 +5,12 @@
     max-width: 400px;
     width: 100%;
     box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+
+    display: grid;
+    grid-row-gap: 5px;
+    margin-left: 33%;
+    margin-right: 33%;
+    padding: 5px;
 }
 
 form {

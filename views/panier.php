@@ -1,8 +1,4 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    
     session_start();
     require_once "database.php";
 
@@ -12,8 +8,8 @@
     $idsString = implode(",", $ids);
 
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
-    INNER JOIN images i ON p.image_id = i.image_id
-    WHERE p.product_id IN ($idsString)");  
+        INNER JOIN images i ON p.image_id = i.image_id
+        WHERE p.product_id IN ($idsString)");
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (isset($_GET["del"])) {
@@ -49,14 +45,16 @@
                         </tr>
                     <?php else: ?>
                         <?php foreach ($products as $product): ?>
-                            <tr>
-                                <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
-                                <td><?=$product["name"]?></td>
-                                <td><?=$product["price"]?>€</td>
-                                <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
-                                <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
-                            </tr>
-                            <?php $total += $product["price"] * $_SESSION["cart"][$product["product_id"]]; ?>
+                            <?php if ($_SESSION["cart"][$product["product_id"]] > 0): ?>
+                                <tr>
+                                    <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
+                                    <td><?=$product["name"]?></td>
+                                    <td><?=$product["price"]?>€</td>
+                                    <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
+                                    <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
+                                </tr>
+                                <?php $total += $product["price"] * $_SESSION["cart"][$product["product_id"]]; ?>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     <?php endif; ?>
                     <tr>

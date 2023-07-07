@@ -6,8 +6,8 @@
     $ids = array_keys($_SESSION["cart"]);
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
                           INNER JOIN images i ON p.image_id = i.image_id
-                          WHERE p.product_id = $id");                           
-    var_dump(.implode(",",$ids).);
+                          WHERE p.product_id = $ids");                           
+    var_dump($stmt);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

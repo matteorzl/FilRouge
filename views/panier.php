@@ -1,11 +1,10 @@
 <?php
     session_start();
     require_once "database.php";
-    require_once "header.php";
     $ids = array_keys($_SESSION["cart"]);
-    $stmt = $conn->query("SELECT * FROM products WHERE product_id IN ($ids)");  
-    $product = $stmt->fetch();
-    var_dump($product);
+    var_dump($ids);
+
+    require_once "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

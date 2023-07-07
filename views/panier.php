@@ -7,7 +7,7 @@
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
                           INNER JOIN images i ON p.image_id = i.image_id
                           WHERE p.product_id = $id");                           
-    var_dump($ids);
+    var_dump(.implode(",",$ids).);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

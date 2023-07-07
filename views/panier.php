@@ -16,7 +16,7 @@
     if(isset($_GET["del"])){
         $id_del = $_GET["del"];
         if($id_del < 1){
-            unset($_SESSION["cart"][$id_del])
+            unset($_SESSION["cart"][$id_del]);
         }else{
             $_SESSION["cart"][$id]--;
         }
@@ -63,11 +63,9 @@
                         <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
                         <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
                     </tr>
-                    <?php endforeach: } 
-                        endif;
-                    ?>
+                    <?php endforeach: }?>
                     <tr>
-                        <th>Total:<?php $total ?>€</th>
+                        <th>Total:<?php echo $total ?>€</th>
                     </tr>
                 </table>
             </section>

@@ -5,8 +5,10 @@
     
     session_start();
     require_once "database.php";
+
     $ids = array_keys($_SESSION["cart"]);
     $idsString = implode(",", $ids);
+
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
     INNER JOIN images i ON p.image_id = i.image_id
     WHERE p.product_id IN ($idsString)");  
@@ -20,6 +22,8 @@
             $_SESSION["cart"][$id_del]--;
         }
     }
+
+    $total += $product["price"] * $_SESSION["cart"][$product["product_id"]];
 
     require_once "header.php";
 ?>
@@ -50,7 +54,7 @@
                         <td><a href="panier.php?del=<?php echo $products["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
                     </tr>
                     <tr>
-                        <th>Total:€</th>
+                        <th>Total: <?php echo $total ?>€</th>
                     </tr>
                 </table>
             </section>

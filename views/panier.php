@@ -48,13 +48,16 @@
 
                         <tr><td>Votre panier est vide</td></tr>
 
-                        <?php else:{
+                        <?php else:
                             $stmt = $conn->query("SELECT p.*, i.bin FROM products p
                             INNER JOIN images i ON p.image_id = i.image_id
                             WHERE p.product_id IN (".implode(",","$ids").")");
 
-                            foreach($stmt as $product):
-                            $total += $product["price"] * $_SESSION["cart"][$product["product_id"]];
+                            if (!$stmt) {
+                                echo "Erreur de requête : " . $conn->error;
+                            } else {
+                                foreach ($stmt as $product):
+                                    $total += $product["price"] * $_SESSION["cart"][$product["product_id"]];
                         ?>
                     <tr>
                         <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>

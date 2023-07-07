@@ -1,4 +1,5 @@
 <?php
+print_r(error_get_last());
 session_start();
 if (isset($_SESSION['message'])) {
   echo "{$_SESSION['message']}";

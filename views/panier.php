@@ -5,7 +5,7 @@
     $ids = array_keys($_SESSION["cart"]);
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
                           INNER JOIN images i ON p.image_id = i.image_id
-                          WHERE p.product_id = $ids");  
+                          WHERE p.product_id IN ($ids)");  
     $product = $stmt->fetch();
 ?>
 <!DOCTYPE html>
@@ -24,8 +24,9 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <tr><td class="empty">Votre panier est vide</td></tr>
                     <tr>
+                        <td class="empty">Votre panier est vide</td>
+                    </tr>
                     <tr>
                         <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
                         <td><?=$product["name"]?></td>
@@ -33,6 +34,7 @@
                         <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
                         <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
                     </tr>
+                    <tr>
                         <th>Total:€</th>
                     </tr>
                 </table>

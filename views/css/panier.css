@@ -41,5 +41,6 @@
 .empty{
     font-weight: bold;
     width: fit-content;
+    flex: 3;
 }
 

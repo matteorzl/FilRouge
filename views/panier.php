@@ -6,7 +6,8 @@
     session_start();
     require_once "database.php";
     $ids = array_keys($_SESSION["cart"]);
-    $stmt = $conn->query("SELECT * FROM products WHERE product_id IN ($ids)");  
+    $idsString = implode(",", $ids);
+    $stmt = $conn->query("SELECT * FROM products WHERE product_id IN ($idsString)");  
     $product = $stmt->fetch();
 
     require_once "header.php";

@@ -1,9 +1,5 @@
 <?php
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
+    print_r(error_get_last());
     session_start();
     require_once "database.php";
     // $stmt = $conn->query("SELECT p.*, i.bin FROM products p

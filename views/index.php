@@ -1,12 +1,11 @@
 <?php
-print_r(error_get_last());
-session_start();
-if (isset($_SESSION['message'])) {
-  echo "{$_SESSION['message']}";
-  unset($_SESSION['message']);
-}
-require_once "header.php";
-require_once "database.php";
+    session_start();
+    if (isset($_SESSION['message'])) {
+    echo "{$_SESSION['message']}";
+    unset($_SESSION['message']);
+    }
+    require_once "header.php";
+    require_once "database.php";
 ?>
 
 <!DOCTYPE html>

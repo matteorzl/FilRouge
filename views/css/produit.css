@@ -60,7 +60,7 @@ h1{
     text-shadow:1px 1px 2px #4F6D92;
     display: grid;
     grid-template-columns: repeat(1,100%);
-    grid-template-rows: 40% 20% 40%;
+    grid-template-rows: 35% 7% 40%;
     
     border-right: 3px solid;
     border-color: #4F6D92;
@@ -100,6 +100,7 @@ h1{
     color:white;
     margin-top: 5px;
     justify-self: start;
+    padding-bottom: ;
 }
 
 .description{

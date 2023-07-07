@@ -19,16 +19,9 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <?php
-                        $total = 0;
-
-                        var_dump($_SESSION["cart"]);
-
-                        if(empty($_SESSION["cart"])):?>
-
                     <tr><td>Votre panier est vide</td></tr>
                     <tr>
-                        <th>Total:<?php echo $total ?>€</th>
+                        <th>Total:€</th>
                     </tr>
                 </table>
             </section>

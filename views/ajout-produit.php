@@ -12,14 +12,14 @@
         $stmt = $conn->query("SELECT * FROM products WHERE product_id = $id");
         $product = $stmt->fetch();
 
-        if(empty($stmt)){
+        if(empty($product)){
             echo "<script>alert(\"Ce produit n'existe pas\")</script>";
         }
 
         if(isset($_SESSION["cart"][$id])){
             $_SESSION["cart"][$id]++;
         }else{
-            $_SESSION["cart"][$id]= 1;    
+            $_SESSION["cart"][$id] = 1;    
         }
 
         header('Location: liste-produits.php');

@@ -6,24 +6,24 @@
     session_start();
     require_once "database.php";
 
+    $total = 0;
+
     $ids = array_keys($_SESSION["cart"]);
     $idsString = implode(",", $ids);
 
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
     INNER JOIN images i ON p.image_id = i.image_id
     WHERE p.product_id IN ($idsString)");  
-    $products = $stmt->fetch();
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if(isset($_GET["del"])){
+    if (isset($_GET["del"])) {
         $id_del = $_GET["del"];
-        if($_SESSION["cart"][$id_del] < 1){
+        if ($_SESSION["cart"][$id_del] < 1) {
             unset($_SESSION["cart"][$id_del]);
-        }else{
+        } else {
             $_SESSION["cart"][$id_del]--;
         }
     }
-
-    $total = $total + $products["price"] * $_SESSION["cart"][$products["product_id"]];
 
     require_once "header.php";
 ?>
@@ -43,16 +43,22 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <tr>
-                        <td class="empty">Votre panier est vide</td>
-                    </tr>
-                    <tr>
-                        <td><img src="<?php echo $products['bin']; ?>" width="40px"></td>
-                        <td><?=$products["name"]?></td>
-                        <td><?=$products["price"]?>€</td>
-                        <td><?=$_SESSION["cart"][$products["product_id"]]?></td>
-                        <td><a href="panier.php?del=<?php echo $products["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
-                    </tr>
+                    <?php if (empty($products)): ?>
+                        <tr>
+                            <td class="empty">Votre panier est vide</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($products as $product): ?>
+                            <tr>
+                                <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
+                                <td><?=$product["name"]?></td>
+                                <td><?=$product["price"]?>€</td>
+                                <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
+                                <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
+                            </tr>
+                            <?php $total += $product["price"] * $_SESSION["cart"][$product["product_id"]]; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                     <tr>
                         <th>Total: <?php echo $total ?>€</th>
                     </tr>

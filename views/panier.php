@@ -46,16 +46,16 @@
 
                         if(empty($ids)):?>
 
-                            <tr><td>Votre panier est vide</td></tr>
+                        <tr><td>Votre panier est vide</td></tr>
 
                         <?php else:{
                             $stmt = $conn->query("SELECT p.*, i.bin FROM products p
                             INNER JOIN images i ON p.image_id = i.image_id
                             WHERE p.product_id IN (".implode(",","$ids").")");
 
-                        foreach($stmt as $product):
+                            foreach($stmt as $product):
                             $total += $product["price"] * $_SESSION["cart"][$product["product_id"]];
-                    ?>
+                        ?>
                     <tr>
                         <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
                         <td><?=$product["name"]?></td>
@@ -63,7 +63,9 @@
                         <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
                         <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
                     </tr>
-                    <?php endforeach: }?>
+                    <?php endforeach: } 
+                        endif;
+                    ?>
                     <tr>
                         <th>Total:<?php $total ?>€</th>
                     </tr>

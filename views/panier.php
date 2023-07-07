@@ -2,6 +2,7 @@
     session_start();
     require_once "database.php";
     require_once "header.php";
+    var_dump($_SESSION["cart"]);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -19,7 +20,7 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <tr><td>Votre panier est vide</td></tr>
+                    <tr><td class="empty">Votre panier est vide</td></tr>
                     <tr>
                         <th>Total:€</th>
                     </tr>

@@ -38,3 +38,8 @@
     text-align: center;
 }
 
+.empty{
+    font-weight: bold;
+    width: fit-content;
+}
+

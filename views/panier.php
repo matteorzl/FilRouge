@@ -7,9 +7,6 @@
                           INNER JOIN images i ON p.image_id = i.image_id
                           WHERE p.product_id = $ids");  
     $product = $stmt->fetch();
-    if (!$stmt) {
-        echo "Erreur de requête : " . $conn->error;
-    }
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

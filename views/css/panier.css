@@ -39,17 +39,18 @@
 }
 
 .empty {
+    margin-top: 1em;
     font-weight: bold;
-    width: fit-content;
-    flex: 3;
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    text-align: center;
+    align-items:center;
 }
 
 .total-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: none !important;
 }
 
 .btn-payer {

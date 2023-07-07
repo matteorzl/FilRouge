@@ -39,10 +39,10 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <?php if (empty($products)): ?>
-                        <tr>
-                            <td class="empty">Votre panier est vide</td>
-                        </tr>
+                    <?php if ($_SESSION["cart"][$products["product_id"]] == 0): ?>
+                        <div>
+                            <div class="empty">Votre panier est vide</div>
+                        </div>
                     <?php else: ?>
                         <?php foreach ($products as $product): ?>
                             <?php if ($_SESSION["cart"][$product["product_id"]] > 0): ?>
@@ -59,7 +59,11 @@
                     <?php endif; ?>
                     <tr class="total-row">
                         <th>Total: <?php echo $total ?>€</th>
-                        <td><a href="checkout.php" class="btn-payer">Payer</a></td>
+                        <?php if ($_SESSION["cart"][$products["product_id"]] == 0): ?>
+                            <th><a href="checkout.php" class="btn-payer" disabled>Payer</a></th>
+                        <?php else: ?>
+                            <th><a href="checkout.php" class="btn-payer">Payer</a></th>
+                        <?php endif; ?>
                     </tr>
                 </table>
             </section>

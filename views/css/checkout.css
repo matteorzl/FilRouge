@@ -13,7 +13,7 @@
     padding: 5px;
 }
 
-.titleCheckout {
+h1.titleCheckout {
     text-align: center;
 }
 
@@ -45,9 +45,13 @@ form textarea {
     margin-right: 10px;
 }
 
-.checkbox {
+.sameForBilling {
     display: flex;
-    align-items: center;
+    align-items: left;
+}
+
+.sameForBilling.checkbox {
+    align-items: right !important;
 }
 
 .checkbox input[type="checkbox"] {

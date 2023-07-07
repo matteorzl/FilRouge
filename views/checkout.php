@@ -35,8 +35,8 @@
             <label for="billing_address">Adresse de facturation :</label>
             <textarea id="billing_address" name="billing_address" required></textarea>
 
-            <div class="checkbox">
-                <input type="checkbox" id="same_address_checkbox" onclick="copyAddress()">
+            <div class="sameForBilling">
+                <input class="checkbox" type="checkbox" id="same_address_checkbox" onclick="copyAddress()">
                 <label for="same_address_checkbox">Utiliser la même adresse pour la facturation</label>
             </div>
 

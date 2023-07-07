@@ -2,8 +2,8 @@
     session_start();
     require_once "database.php";
 
-    if(!isset($_SESSION["panier"])){
-        $_SESSION["panier"] = array();
+    if(!isset($_SESSION["cart"])){
+        $_SESSION["cart"] = array();
     }
 
     if(isset($_GET["id"])){
@@ -16,14 +16,13 @@
             echo "<script>alert(\"Ce produit n'existe pas\")</script>";
         }
 
-        if(isset($_SESSION["panier"][$id])){
-            $_SESSION["panier"][$id]++;
+        if(isset($_SESSION["cart"][$id])){
+            $_SESSION["cart"][$id]++;
         }else{
-            $_SESSION["panier"][$id]= 1;    
+            $_SESSION["cart"][$id]= 1;    
         }
-        var_dump($_SESSION["panier"]);
 
-        //header('Location: liste-produits.php');
+        header('Location: liste-produits.php');
         
     }
 

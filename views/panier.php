@@ -23,7 +23,7 @@
         }
     }
 
-    $total += $product["price"] * $_SESSION["cart"][$product["product_id"]];
+    $total = $total + $products["price"] * $_SESSION["cart"][$products["product_id"]];
 
     require_once "header.php";
 ?>

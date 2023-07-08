@@ -30,8 +30,8 @@ require_once "../database.php";
                         <tr>
                             <td><?=$row['category_id']?></td>
                             <td><?=$row['name']?></td>
-                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Modifier</a></td>
-                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Supprimer</a></td>
+                        <td><a href="modifycategory.php?id=<?=$row['category_id']?>" class="id_category">Modifier</a></td>
+                        <td><a href="modifycategory.php?id=<?=$row['category_id']?>" class="id_category">Supprimer</a></td>
                         </tr>
                     </tr>
                 </form>

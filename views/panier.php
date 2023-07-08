@@ -42,7 +42,7 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <?php if (empty($ids)): ?>
+                    <?php if (!isset($_SESSION["cart"])): ?>
                         <div>
                             <div class="empty">Votre panier est vide</div>
                         </div>
@@ -62,7 +62,7 @@
                     <?php endif; ?>
                     <tr class="total-row">
                         <th>Total: <?php echo $total ?>€</th>
-                        <?php if (empty($ids)): ?>
+                        <?php if (!isset($_SESSION["cart"])): ?>
                             <th><a href="checkout.php" class="btn-payer" disabled>Payer</a></th>
                         <?php else: ?>
                             <th><a href="checkout.php" class="btn-payer">Payer</a></th>

@@ -30,8 +30,8 @@ require_once "../database.php";
                         <tr>
                             <td><?=$row['carousel_id']?></td>
                             <td><?=$row['images']?></td>
-                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Modifier</a></td>
-                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Supprimer</a></td>
+                        <td><a href="modifycarousel.php?id=<?=$row['carousel_id']?>" class="id_carousel">Modifier</a></td>
+                        <td><a href="modifycarousel.php?id=<?=$row['carousel_id']?>" class="id_carousel">Supprimer</a></td>
                         </tr>
                     </tr>
                 </form>

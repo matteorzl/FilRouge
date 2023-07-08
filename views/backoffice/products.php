@@ -37,8 +37,8 @@ require_once "../database.php";
                             <td> En rupture </td>
                         <?php endif; ?>
                         <td><?=$row['price']?></td>
-                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Modifier</a></td>
-                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Supprimer</a></td>
+                        <td><a href="modifyproducts.php?id=<?=$row['product_id']?>" class="id_produit">Modifier</a></td>
+                        <td><a href="modifyproducts.php?id=<?=$row['product_id']?>" class="id_produit">Supprimer</a></td>
                         </tr>
                     </tr>
                 </form>

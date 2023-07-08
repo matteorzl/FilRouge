@@ -24,7 +24,6 @@ require_once "../database.php";
             $stmt = $conn->query("SELECT * FROM users");
 
             while (($row = $stmt->fetch())) {?>
-                <form method="post">
                     <tr class="info_user">
                         <tr>
                             <td><?=$row['lastname']?></td>
@@ -32,12 +31,15 @@ require_once "../database.php";
                             <td><?=$row['mail']?></td>
                             <td><?=$row['role']?></td>
                             <td>
-                                <button class="modifyuser" type="submit" action="modify/modifyuser.php?id=<?=$row['user_id']?>">Modifier</button>
-                                <button class="deleteuser" type="submit" action="delete/deleteuser.php?id=<?=$row['user_id']?>">Supprimer</button>
+                                <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
+                                    <button class="modifyuser" type="submit">Modifier</button>
+                                </form>
+                                <form method="post" action="delete/deleteuser.php?id=<?=$row['user_id']?>">
+                                    <button class="deleteuser" type="submit">Supprimer</button>
+                                </form>
                             </td>
                         </tr>
                     </tr>
-                </form>
         <?php 
             }
         ?>

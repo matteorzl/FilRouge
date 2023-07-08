@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
+        header('Location: ../compte.php');
+        exit();
+      }
     require_once "../database.php";
 
     $lastname = "Doe";

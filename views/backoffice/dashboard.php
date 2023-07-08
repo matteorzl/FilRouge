@@ -2,7 +2,7 @@
 session_start();
 
 if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
-  header('Location: compte.php');
+  header('Location: ../compte.php');
   exit();
 }
 

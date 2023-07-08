@@ -17,20 +17,22 @@ require_once "../database.php";
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
-    <h2>Catégories</h2>
+    <h2>Produits</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
         <?php
-            $stmt = $conn->query("SELECT * FROM categories");
+            $stmt = $conn->query("SELECT * FROM users");
 
             while (($row = $stmt->fetch())) {?>
                 <form method="post">
-                    <tr class="info_category">
+                    <tr class="info_user">
                         <tr>
-                            <td><?=$row['category_id']?></td>
-                            <td><?=$row['name']?></td>
-                            <td><button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button></td>
-                            <td><button class="deletecategory" type="submit" action="delete/deletecategory.php?id=<?=$row['category_id']?>">Supprimer</button></td>
+                            <td><?=$row['lastname']?></td>
+                            <td><?=$row['firstname']?></td>
+                            <td><?=$row['mail']?></td>
+                            <td><?=$row['role']?></td>
+                            <td><button class="modifyuser" type="submit" action="modify/modifyuser.php?id=<?=$row['user_id']?>">Modifier</button></td>
+                            <td><button class="deleteuser" type="submit" action="delete/deleteuser.php?id=<?=$row['user_id']?>">Supprimer</button></td>
                         </tr>
                     </tr>
                 </form>

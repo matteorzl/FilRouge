@@ -144,6 +144,12 @@
                 <?php else:?>
                   <li><a href="carousel.php" class="nav-link px-2 text-light">Carrousel</a></li>
                 <?php endif;?>
+
+                <?php if(($_SERVER['PHP_SELF']) == "/views/users.php"):?>
+                  <li><a href="users.php" class="nav-link px-2 text-dark">Utilisateur</a></li>
+                <?php else:?>
+                  <li><a href="users.php" class="nav-link px-2 text-light">Utilisateur</a></li>
+                <?php endif;?>
               </ul>
 
               <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

@@ -32,11 +32,10 @@ form input[type="text"],
 form input[type="email"],
 form textarea {
     width: 250px;
-    padding: 8px;
     margin-bottom: 10px;
     resize: none;
     background-color: #6d8bb05e;
-    border: 0.2em solid #4F6D92;
+    border: 0.1em solid #4F6D92;
     border-radius: 0.5em;
     
 }
@@ -67,12 +66,11 @@ form textarea {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #4caf50;
     color: white;
     border: none;
     cursor: pointer;
     background-color: #6d8bb05e;
-    border: 0.2em solid #4F6D92;
+    border: 0.1em solid #4F6D92;
     border-radius: 0.5em;
 }
 

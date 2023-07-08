@@ -10,15 +10,19 @@
         $ids = array_keys($_SESSION["cart"]);
         $idsString = implode(",", $ids);
     
-    $stmt = $conn->query("SELECT p.*, i.bin FROM products p
-        INNER JOIN images i ON p.image_id = i.image_id
-        WHERE p.product_id IN ($idsString)");
-    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $conn->query("SELECT p.*, i.bin FROM products p
+            INNER JOIN images i ON p.image_id = i.image_id
+            WHERE p.product_id IN ($idsString)");
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
     if (isset($_GET["del"])) {
         $id_del = $_GET["del"];
         if ($_SESSION["cart"][$id_del] < 1) {
             unset($_SESSION["cart"][$id_del]);
+            if(empty($_SESSION["cart"])){
+                unset($_SESSION["cart"]);
+            }
         } else {
             $_SESSION["cart"][$id_del]--;
         }
@@ -42,7 +46,7 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <?php if (!isset($_SESSION["cart"])): ?>
+                    <?php if(!isset($_SESSION["cart"])): ?>
                         <div>
                             <div class="empty">Votre panier est vide</div>
                         </div>

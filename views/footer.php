@@ -85,7 +85,7 @@
       
       .content{
       	border-top: 0.5px solid lightgray;
-        position:fixed;
+        position:static;
         bottom: 0; 
         left: 0;
         background-color: white;

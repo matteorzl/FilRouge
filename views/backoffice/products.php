@@ -17,7 +17,7 @@ require_once "../database.php";
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
-    <h2>Section title</h2>
+    <h2>Produits</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
         <?php
@@ -37,7 +37,8 @@ require_once "../database.php";
                             <td> En rupture </td>
                         <?php endif; ?>
                         <td><?=$row['price']?></td>
-                        <td href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Voir produit</td>
+                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Modifier</a></td>
+                        <td><a href="produit.php?id=<?=$row['product_id']?>" class="id_produit">Supprimer</a></td>
                         </tr>
                     </tr>
                 </form>

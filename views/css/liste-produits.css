@@ -24,6 +24,7 @@ aside{
 }
 
 .info_produit{
+    position: absolute;
     display: grid;
     grid-template-rows: 19% 10% 71%;
     align-items:center;

@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!isset($_SESSION["users"])){
+    header('Location: login.php');
+    }
     require_once "database.php";
     require_once "header.php";
 

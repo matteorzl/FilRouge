@@ -25,7 +25,6 @@ require_once "../database.php";
 
             while (($row = $stmt->fetch())) {?>
                 <form method="post">
-
                     <tr class="info_produit">
                         <tr>
                             <td><?=$row['name']?></td>
@@ -36,9 +35,9 @@ require_once "../database.php";
                         <?php else: ?>
                             <td> En rupture </td>
                         <?php endif; ?>
-                        <td><?=$row['price']?></td>
-                        <td><a href="modifyproducts.php?id=<?=$row['product_id']?>" class="id_produit">Modifier</a></td>
-                        <td><a href="modifyproducts.php?id=<?=$row['product_id']?>" class="id_produit">Supprimer</a></td>
+                            <td><?=$row['price']?></td>
+                            <td><button class="modifyproduct" type="submit" action="modifyproduct.php?id=<?=$row['product_id']?>">Modifier</button></td>
+                            <td><button class="deleteproduct" type="submit" action="deleteproduct.php?id=<?=$row['product_id']?>">Supprimer</button></td>
                         </tr>
                     </tr>
                 </form>

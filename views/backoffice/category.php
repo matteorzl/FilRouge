@@ -25,7 +25,6 @@ require_once "../database.php";
 
             while (($row = $stmt->fetch())) {?>
                 <form method="post">
-
                     <tr class="info_category">
                         <tr>
                             <td><?=$row['category_id']?></td>

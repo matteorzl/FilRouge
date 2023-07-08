@@ -6,15 +6,15 @@
     require_once "database.php";
 
     $total = 0;
-
-    $ids = array_keys($_SESSION["cart"]);
-    $idsString = implode(",", $ids);
-
+    if(isset($_SESSION["cart"])){
+        $ids = array_keys($_SESSION["cart"]);
+        $idsString = implode(",", $ids);
+    
     $stmt = $conn->query("SELECT p.*, i.bin FROM products p
         INNER JOIN images i ON p.image_id = i.image_id
         WHERE p.product_id IN ($idsString)");
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    }
     if (isset($_GET["del"])) {
         $id_del = $_GET["del"];
         if ($_SESSION["cart"][$id_del] < 1) {

@@ -3,6 +3,12 @@ session_start();
 
 require_once "header.php";
 require_once "../database.php";
+
+if (isset($_GET["del"])) {
+    $id_del = $_GET["del"];
+    
+    $conn->query("DELETE FROM users WHERE user_id = $id_del");
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +40,7 @@ require_once "../database.php";
                                 <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
                                     <button class="modifyuser" type="submit">Modifier</button>
                                 </form>
-                                <form method="post" action="delete/deleteuser.php?id=<?=$row['user_id']?>">
+                                <form method="post" action="users.php?del=<?=$row['user_id']?>">
                                     <button class="deleteuser" type="submit">Supprimer</button>
                                 </form>
                             </td>

@@ -31,8 +31,10 @@ require_once "../database.php";
                             <td><?=$row['firstname']?></td>
                             <td><?=$row['mail']?></td>
                             <td><?=$row['role']?></td>
-                            <td><button class="modifyuser" type="submit" action="modify/modifyuser.php?id=<?=$row['user_id']?>">Modifier</button></td>
-                            <td><button class="deleteuser" type="submit" action="delete/deleteuser.php?id=<?=$row['user_id']?>">Supprimer</button></td>
+                            <td>
+                                <button class="modifyuser" type="submit" action="modify/modifyuser.php?id=<?=$row['user_id']?>">Modifier</button>
+                                <button class="deleteuser" type="submit" action="delete/deleteuser.php?id=<?=$row['user_id']?>">Supprimer</button>
+                            </td>
                         </tr>
                     </tr>
                 </form>

@@ -30,8 +30,10 @@ require_once "../database.php";
                         <tr>
                             <td><?=$row['carousel_id']?></td>
                             <td><?=$row['images']?></td>
-                            <td><button class="modifycarousel" type="submit" action="modify/modifycarousel.php?id=<?=$row['carousel_id']?>">Modifier</button></td>
-                            <td><button class="deletecarousel" type="submit" action="delete/deletecarousel.php?id=<?=$row['carousel_id']?>">Supprimer</button></td>
+                            <td>
+                                <button class="modifycarousel" type="submit" action="modify/modifycarousel.php?id=<?=$row['carousel_id']?>">Modifier</button>
+                                <button class="deletecarousel" type="submit" action="delete/deletecarousel.php?id=<?=$row['carousel_id']?>">Supprimer</button>
+                            </td>
                         </tr>
                     </tr>
                 </form>

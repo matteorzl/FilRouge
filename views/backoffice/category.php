@@ -29,8 +29,10 @@ require_once "../database.php";
                         <tr>
                             <td><?=$row['category_id']?></td>
                             <td><?=$row['name']?></td>
-                            <td><button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button></td>
-                            <td><button class="deletecategory" type="submit" action="delete/deletecategory.php?id=<?=$row['category_id']?>">Supprimer</button></td>
+                            <td>
+                                <button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button>
+                                <button class="deletecategory" type="submit" action="delete/deletecategory.php?id=<?=$row['category_id']?>">Supprimer</button>
+                            </td>
                         </tr>
                     </tr>
                 </form>

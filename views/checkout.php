@@ -45,13 +45,14 @@
 
             <label for="card_number">Numéro de carte :</label>
             <input type="text" id="card_number" name="card_number" required>
-
+            
+            <div class="form-row inline-labels">
             <label for="exp_date">Date d'expiration :</label>
-            <input type="text" id="exp_date" name="exp_date" required>
-
+            <input type="text" id="exp_date" name="exp_date" placeholder="MM/YY" required>
             <label for="cvv">CVV :</label>
             <input type="text" id="cvv" name="cvv" required>
-
+            </div>
+              
             <input type="submit" value="Payer">
         </form>
        </div>

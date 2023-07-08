@@ -12,6 +12,7 @@ aside{
 	float: right;
     width:80%;
     margin:1em;
+    overflow: visible;
 }
 .button_liste{
 	display:flex;

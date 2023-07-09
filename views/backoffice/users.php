@@ -45,8 +45,16 @@ if (isset($_GET["del"])) {
                                     <button class="modifyuser" type="submit">Modifier</button>
                                 </form>
                                 <form method="post" action="users.php?del=<?=$row['user_id']?>">
-                                    <button class="deleteuser" type="submit">Supprimer</button>
+                                    <button class="deleteuser" type="button" onclick="confirmDelete(<?=$row['user_id']?>)">Supprimer</button>
                                 </form>
+
+                                <script>
+                                    function confirmDelete(user_id) {
+                                        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                                            window.location.href = 'users.php?del=' + userId;
+                                        }
+                                    }
+                                </script>
                             </td>
                         </tr>
                     </tr>

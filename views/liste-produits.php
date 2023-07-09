@@ -27,7 +27,8 @@
         <aside>
             <div class="aside_category">
                 <h3>Filtres :</h3>
-                <form method="get" action="">
+                <form method="get" action="" class="aside_category_form">
+                  <div class="category_div">
                     <label for="category">Catégorie :</label>
                     <select name="category" id="category">
                         <option value="">Toutes les catégories</option>
@@ -35,7 +36,8 @@
                             <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
                         <?php endforeach; ?>
                     </select>
-                    
+                  </div>
+                    <div class="material_div">
                     <label for="materials">Matériaux :</label>
                     <select name="materials" id="materials">
                         <option value="">Tous les matériaux</option>
@@ -43,11 +45,12 @@
                             <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
                         <?php endforeach; ?>
                     </select>
-                    
+                  </div>
                     <button type="submit">Filtrer</button>
                 </form>
             </div>
         </aside>
+
         <?php
             // Récupérer les paramètres de filtrage
             $categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
@@ -82,7 +85,7 @@
             <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
                 <button type="submit" class="button_liste">
                     <div class="produit_img">
-                        <img src="<?php echo $rowImg['bin']; ?>" width="150" class="img_produit">
+                        <img src="<?php echo $row['bin']; ?>" width="150" class="img_produit">
                     </div>
                        <div class="info_produit">
                         <h4><?=$row['name']?></h4>

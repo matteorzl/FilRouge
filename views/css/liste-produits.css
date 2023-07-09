@@ -7,6 +7,39 @@ aside{
     background-color: #6d8bb05e;
     border: 0.2em solid #4F6D92;
     border-radius: 1em;
+    text-align: center;
+}
+.aside_category select{
+  border: 0.2em solid #4F6D92;
+  background-color: #6d8bb05e;
+  margin-bottom:0.5em;
+  border-radius:0.5em;
+}
+.aside_category_form{
+    display:flex;
+    flex-direction:column;
+    margin:0.5em;
+}
+.aside_category_form label{
+  margin-bottom:0.5em;
+}
+
+.aside_category_form button{
+  border: 0.2em solid #4F6D92;
+  background-color: #6d8bb05e;
+  border-radius:0.5em;
+}
+.aside_category_form button:hover{
+  background-color: #4F6D92;
+}
+.material_div,
+.category_div{
+  display:flex;
+  flex-direction:column;
+  border: 0.2em solid #4F6D92;
+  margin-bottom:0.5em;
+  border-radius:0.5em;
+  padding:0.2em;
 }
 .form_list_prod{
 	float: right;

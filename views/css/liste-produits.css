@@ -27,13 +27,12 @@ aside{
 .info_produit{
     position:relative;
     display: grid;
-    grid-template-rows: 19% 10% 71%;
+    grid-template-rows: 20% 15% 65%;
     align-items:center;
     width: 80%;
     text-align: start;
     border-right:0.1em solid #4F6D92;
-    margin:1em;
-    
+    margin-top: 0.5em;
 }
 .quantite_prix{
 	display:grid;

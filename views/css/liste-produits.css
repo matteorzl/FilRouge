@@ -41,6 +41,21 @@ aside{
   border-radius:0.5em;
   padding:0.2em;
 }
+.price_div input{
+    border: 0.2em solid #4F6D92;
+    background-color: #6d8bb05e;
+    border-radius:0.5em;
+    margin-bottom:0.5em;
+    justify-self: end; /* Ajout de cette ligne */
+  }
+  .price_div label{
+    justify-self: start;
+  }
+  .price_div{
+    display: grid;
+    grid-template-columns:50% 50%;
+    justify-items:end;
+  }
 .form_list_prod{
 	float: right;
     width:80%;

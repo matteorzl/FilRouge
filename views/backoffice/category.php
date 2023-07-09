@@ -7,6 +7,12 @@ if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
 
 require_once "header.php";
 require_once "../database.php";
+
+if (isset($_GET["del"])) {
+    $id_del = $_GET["del"];
+    
+    $conn->query("DELETE FROM categories WHERE category_id = $id_del");
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +41,17 @@ require_once "../database.php";
                             <td><?=$row['name']?></td>
                             <td>
                                 <button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button>
-                                <button class="deletecategory" type="submit" action="delete/deletecategory.php?id=<?=$row['category_id']?>">Supprimer</button>
+                                <form method="post" action="category.php?del=<?=$row['category_id']?>">
+                                    <button class="deletecategory" type="submit" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
+                                </form>
+
+                                <script>
+                                    function confirmDelete(category_id) {
+                                        if (confirm('Êtes-vous sûr de vouloir supprimer cette categorie ?')) {
+                                            window.location.href = 'category.php?del=' + category_id;
+                                        }
+                                    }
+                                </script>
                             </td>
                         </tr>
                     </tr>

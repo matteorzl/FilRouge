@@ -51,7 +51,7 @@ if (isset($_GET["del"])) {
                                 <script>
                                     function confirmDelete(user_id) {
                                         if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-                                            window.location.href = 'users.php?del=' + userId;
+                                            window.location.href = 'users.php?del=' + user_id;
                                         }
                                     }
                                 </script>

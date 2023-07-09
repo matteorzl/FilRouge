@@ -7,6 +7,12 @@ if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
 
 require_once "header.php";
 require_once "../database.php";
+
+if (isset($_GET["del"])) {
+    $id_del = $_GET["del"];
+    
+    $conn->query("DELETE FROM products WHERE product_id = $id_del");
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +48,17 @@ require_once "../database.php";
                             <td><?=$row['price']?></td>
                             <td>
                                 <button class="modifyproduct" type="submit" action="modify/modifyproduct.php?id=<?=$row['product_id']?>">Modifier</button>
-                                <button class="deleteproduct" type="submit" action="delete/deleteproduct.php?id=<?=$row['product_id']?>">Supprimer</button>
+                                <form method="post" action="products.php?del=<?=$row['product_id']?>">
+                                    <button class="deleteproduct" type="button" onclick="confirmDelete(<?=$row['product_id']?>)">Supprimer</button>
+                                </form>
+
+                                <script>
+                                    function confirmDelete(product_id) {
+                                        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                                            window.location.href = 'products.php?del=' + product_id;
+                                        }
+                                    }
+                                </script>
                             </td>
                         </tr>
                     </tr>

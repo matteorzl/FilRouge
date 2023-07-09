@@ -45,5 +45,7 @@ h4{
     font-weight: bold;
 }
 .img_produit{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     border-radius: 0.5em;
 }

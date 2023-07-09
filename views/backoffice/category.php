@@ -20,7 +20,7 @@ if (isset($_GET["del"])) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/category.css">
         <link rel="stylesheet" href="js/dashboard.js">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
         <link href="../boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">

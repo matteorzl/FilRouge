@@ -1,7 +1,4 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     session_start();
     require_once "database.php";
 
@@ -46,7 +43,7 @@
                         <th>Quantité</th>
                         <th>Supprimer</th>
                     </tr>
-                    <?php if(!isset($_SESSION["cart"])): ?>
+                    <?php if(!isset($_SESSION["cart"]) || empty($_SESSION["cart"])): ?>
                         <div>
                             <div class="empty">Votre panier est vide</div>
                         </div>

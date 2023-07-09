@@ -33,6 +33,7 @@ aside{
     text-align: start;
     border-right:0.1em solid #4F6D92;
     margin-top: 0.5em;
+    margin-left: 0.2em;
 }
 .quantite_prix{
 	display:grid;

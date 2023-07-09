@@ -1,11 +1,14 @@
 <!--Test-->
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     session_start();
     require_once "header.php";
     require_once "database.php";
 
     // Récupérer les catégories depuis la table "categorie"
-    $sqlCategories = "SELECT * FROM categorie";
+    $sqlCategories = "SELECT * FROM categories";
     $stmtCategories = $conn->query($sqlCategories);
     $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 

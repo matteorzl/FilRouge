@@ -32,6 +32,7 @@ if (isset($_GET["del"])) {
             <tr>
                 <th>ID</th>
                 <th>Nom</th>
+                <th> </th>
             </tr>
             <?php
                 $stmt = $conn->query("SELECT * FROM categories");

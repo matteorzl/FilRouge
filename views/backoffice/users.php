@@ -34,6 +34,7 @@ if (isset($_GET["del"])) {
                 <th>Prénom</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th> </th>
             </tr>
             <?php
                 $stmt = $conn->query("SELECT * FROM users");

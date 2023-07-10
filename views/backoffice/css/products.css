@@ -1,3 +1,7 @@
 div.title-button {
     display: flex;
 }
+
+div.title-button button.createproduct {
+    margin-left: 1rem;
+}

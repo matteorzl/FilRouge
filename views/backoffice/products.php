@@ -38,6 +38,7 @@ if (isset($_GET["del"])) {
                     <th>Matériau</th>
                     <th>Quantité</th>
                     <th>Prix</th>
+                    <th> </th>
                 </tr>
                 <?php
                     $stmt = $conn->query("SELECT * FROM products");

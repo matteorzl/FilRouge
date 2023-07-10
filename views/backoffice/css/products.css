@@ -8,3 +8,7 @@ div.title-button a.createproduct {
     color: black;
     margin-left: 1rem;
 }
+
+div.createproductbox {
+    background-color: rgb(72, 185, 72);
+}

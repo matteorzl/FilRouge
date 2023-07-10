@@ -62,9 +62,7 @@
             $maxPrice = isset($_GET['max_price']) ? $_GET['max_price'] : '';
 
             // Préparer la requête SQL
-            $sqlProducts = "SELECT p.*, i.bin FROM products p
-               INNER JOIN images i ON p.image_id = i.image_id
-               WHERE 1=1";
+            $sqlProducts = "SELECT p.*, i.bin FROM products p";
             if (!empty($categoryFilter)) {
                 $sqlProducts .= " AND category_id = :category";
             }

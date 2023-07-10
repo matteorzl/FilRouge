@@ -43,7 +43,7 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" required>
                 
-                <label for="materials">Matériau :</label>
+                <label for="materials">Matériau</label>
                     <select name="materials" id="materials">
                         <option value="">Sélectionner un matériau</option>
                         <?php foreach ($materials as $material): ?>
@@ -52,16 +52,16 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
                     </select>
                 </label>
 
-                <label for="quantity">Quantité :</label>
+                <label for="quantity">Quantité</label>
                 <input type="text" id="quantity" name="quantity" required>
 
-                <label for="price">Prix :</label>
+                <label for="price">Prix</label>
                 <input type="text" id="price" name="price" required>
 
-                <label for="image">Image :</label>
+                <label for="image">Image</label>
                 <input type="file" id="image" name="image" required>
             
-                <label for="categories">Catégorie :</label>
+                <label for="categories">Catégorie</label>
                     <select name="categories" id="categories">
                         <option value="">Sélectionner une catégorie</option>
                         <?php foreach ($categories as $category): ?>

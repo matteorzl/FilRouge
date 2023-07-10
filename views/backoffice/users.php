@@ -30,37 +30,43 @@ if (isset($_GET["del"])) {
     <h2>Utilisateur</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
-        <?php
-            $stmt = $conn->query("SELECT * FROM users");
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+            <?php
+                $stmt = $conn->query("SELECT * FROM users");
 
-            while (($row = $stmt->fetch())) {?>
-                    <tr class="info_user">
-                        <tr>
-                            <td><?=$row['lastname']?></td>
-                            <td><?=$row['firstname']?></td>
-                            <td><?=$row['mail']?></td>
-                            <td><?=$row['role']?></td>
-                            <td>
-                                <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
-                                    <button class="modifyuser" type="submit">Modifier</button>
-                                </form>
-                                <form method="post" action="users.php?del=<?=$row['user_id']?>">
-                                    <button class="deleteuser" type="button" onclick="confirmDelete(<?=$row['user_id']?>)">Supprimer</button>
-                                </form>
+                while (($row = $stmt->fetch())) {?>
+                        <tr class="info_user">
+                            <tr>
+                                <td><?=$row['lastname']?></td>
+                                <td><?=$row['firstname']?></td>
+                                <td><?=$row['mail']?></td>
+                                <td><?=$row['role']?></td>
+                                <td>
+                                    <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
+                                        <button class="modifyuser" type="submit">Modifier</button>
+                                    </form>
+                                    <form method="post" action="users.php?del=<?=$row['user_id']?>">
+                                        <button class="deleteuser" type="button" onclick="confirmDelete(<?=$row['user_id']?>)">Supprimer</button>
+                                    </form>
 
-                                <script>
-                                    function confirmDelete(user_id) {
-                                        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-                                            window.location.href = 'users.php?del=' + user_id;
+                                    <script>
+                                        function confirmDelete(user_id) {
+                                            if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                                                window.location.href = 'users.php?del=' + user_id;
+                                            }
                                         }
-                                    }
-                                </script>
-                            </td>
+                                    </script>
+                                </td>
+                            </tr>
                         </tr>
-                    </tr>
-        <?php 
-            }
-        ?>
+            <?php 
+                }
+            ?>
         </table>
     </body>
     <footer>

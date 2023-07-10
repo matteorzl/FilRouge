@@ -30,35 +30,39 @@ if (isset($_GET["del"])) {
     <h2>Catégories</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
-        <?php
-            $stmt = $conn->query("SELECT * FROM categories");
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+            </tr>
+            <?php
+                $stmt = $conn->query("SELECT * FROM categories");
 
-            while (($row = $stmt->fetch())) {?>
-                <form method="post">
-                    <tr class="info_category">
-                        <tr>
-                            <td><?=$row['category_id']?></td>
-                            <td><?=$row['name']?></td>
-                            <td>
-                                <button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button>
-                                <form method="post" action="category.php?del=<?=$row['category_id']?>">
-                                    <button class="deletecategory" type="button" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
-                                </form>
+                while (($row = $stmt->fetch())) {?>
+                    <form method="post">
+                        <tr class="info_category">
+                            <tr>
+                                <td><?=$row['category_id']?></td>
+                                <td><?=$row['name']?></td>
+                                <td>
+                                    <button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button>
+                                    <form method="post" action="category.php?del=<?=$row['category_id']?>">
+                                        <button class="deletecategory" type="button" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
+                                    </form>
 
-                                <script>
-                                    function confirmDelete(category_id) {
-                                        if (confirm('Êtes-vous sûr de vouloir supprimer cette categorie ?')) {
-                                            window.location.href = 'category.php?del=' + category_id;
+                                    <script>
+                                        function confirmDelete(category_id) {
+                                            if (confirm('Êtes-vous sûr de vouloir supprimer cette categorie ?')) {
+                                                window.location.href = 'category.php?del=' + category_id;
+                                            }
                                         }
-                                    }
-                                </script>
-                            </td>
+                                    </script>
+                                </td>
+                            </tr>
                         </tr>
-                    </tr>
-                </form>
-        <?php 
-            }
-        ?>
+                    </form>
+            <?php 
+                }
+            ?>
         </table>
     </body>
     <footer>

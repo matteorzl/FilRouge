@@ -35,7 +35,7 @@ if (isset($_GET["del"])) {
             <table class="table table-striped table-sm">
                 <tr>
                     <th>Nom</th>
-                    <th>Descripion</th>
+                    <th>Description</th>
                     <th>Matériau</th>
                     <th>Quantité</th>
                     <th>Prix</th>

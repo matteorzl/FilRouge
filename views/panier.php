@@ -7,9 +7,7 @@
         $ids = array_keys($_SESSION["cart"]);
         $idsString = implode(",", $ids);
     
-        $stmt = $conn->query("SELECT p.*, i.bin FROM products p
-            INNER JOIN images i ON p.image_id = i.image_id
-            WHERE p.product_id IN ($idsString)");
+        $stmt = $conn->query("SELECT p.*FROM products p WHERE p.product_id IN ($idsString)");
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
@@ -52,7 +50,7 @@
                         <?php foreach ($products as $product): ?>
                             <?php if ($_SESSION["cart"][$product["product_id"]] > 0): ?>
                                 <tr>
-                                    <td><img src="<?php echo $product['bin']; ?>" width="40px"></td>
+                                    <td><img src="<?php echo $product['image']; ?>" width="40px"></td>
                                     <td><?=$product["name"]?></td>
                                     <td><?=$product["price"]?>€</td>
                                     <td><?=$_SESSION["cart"][$product["product_id"]]?></td>

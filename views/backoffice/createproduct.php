@@ -43,27 +43,33 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" required>
             </div>
-            <label for="material">Matériau :</label>
-            <textarea id="material" name="material" required></textarea>
-
+            <label for="materials">Matériaux :</label>
+                <select name="materials" id="materials">
+                    <option value="">Tous les matériaux</option>
+                    <?php foreach ($materials as $material): ?>
+                        <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
             <label for="quantity">Quantité :</label>
             <textarea id="quantity" name="quantity" required></textarea>
-
 
             <label for="price">Prix :</label>
             <input type="price" id="price" name="price" required>
 
             <label for="image">Image :</label>
             <input type="file" id="image" name="image" required>
+            
+            <label for="categories">Catégorie :</label>
+                <select name="categories" id="categories">
+                    <option value="">Sélectionner une catégorie</option>
+                    <?php foreach ($categories as $category): ?>
+                        <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
 
-            <select name="category" id="category">
-                <option value="">Sélectionner une catégorie</option>
-                <?php foreach ($categories as $category): ?>
-                    <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
-                <?php endforeach; ?>
-            </select>
-
-            <input type="submit" value="Payer">
+            <input type="submit" value="Créer produit">
         </form>
        </div>
     </body>

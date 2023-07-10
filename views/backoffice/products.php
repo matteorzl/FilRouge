@@ -28,7 +28,7 @@ if (isset($_GET["del"])) {
     <body>
         <div class="title-button">
             <h2>Produits</h2>
-            <a class="createproduct" href="create/createproduct.php">Créer Produit</a>
+            <a href="/create/createproduct.php" class="createproduct">Créer Produit</a>
         </div>
         <div class="table-responsive small">
             <table class="table table-striped table-sm">

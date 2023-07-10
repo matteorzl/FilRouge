@@ -18,7 +18,7 @@ require_once "../database.php";
     </head>
     <body>
         <div class="createuser">
-            <h1 class="titleCreateUser">Créer produit</h1>
+            <h1 class="titleCreateUser">Créer Utilisateur</h1>
             <form action="../users.php" method="post">
                 <label for="lastname">Nom</label>
                 <input type="text" id="lastname" name="lastname" required>

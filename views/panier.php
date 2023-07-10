@@ -13,6 +13,7 @@
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    //Affiche votre panier est vide en fonction de l'état du panier
     if (isset($_GET["del"])) {
         $id_del = $_GET["del"];
         if ($_SESSION["cart"][$id_del] < 1) {
@@ -36,7 +37,13 @@
         <div class="panier">
             <section>
                 <table>
-c
+                    <tr>
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Supprimer</th>
+                    </tr>
                     <?php if(!isset($_SESSION["cart"]) || empty($_SESSION["cart"])): ?>
                         <div>
                             <div class="empty">Votre panier est vide</div>

@@ -18,14 +18,15 @@ require_once "../database.php";
     </head>
     <body>
         <div class="createcategory">
-            <h1 class="titleCreateProduct">Créer Categorie</h1>
+            <h1 class="titleCreateCategory">Créer Categorie</h1>
             <form action="../category.php" method="post">
                 <label for="name">Nom</label>
                 <input type="text" id="name" name="name" required>
 
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" required>
-            
+
+                <input type="submit" class="createbutton" value="Créer Catégorie">
             </form>
        </div>
     </body>

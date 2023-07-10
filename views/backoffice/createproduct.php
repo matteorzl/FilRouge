@@ -37,40 +37,41 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
         <div class="createproduct">
             <h1 class="titleCreateProduct">Créer produit</h1>
             <form action="../products.php" method="post">
-            <div class="form-row inline-labels">
                 <label for="name">Nom</label>
                 <input type="text" id="name" name="name" required>
+                
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" required>
-            </div>
-            <label for="materials">Matériaux :</label>
-                <select name="materials" id="materials">
-                    <option value="">Sélecionner un matériau</option>
-                    <?php foreach ($materials as $material): ?>
-                        <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-            <label for="quantity">Quantité :</label>
-            <input type="quantity" id="quantity" name="quantity" required>
+                
+                <label for="materials">Matériaux :</label>
+                    <select name="materials" id="materials">
+                        <option value="">Sélectionner un matériau</option>
+                        <?php foreach ($materials as $material): ?>
+                            <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
 
-            <label for="price">Prix :</label>
-            <input type="price" id="price" name="price" required>
+                <label for="quantity">Quantité :</label>
+                <input type="text" id="quantity" name="quantity" required>
 
-            <label for="image">Image :</label>
-            <input type="file" id="image" name="image" required>
+                <label for="price">Prix :</label>
+                <input type="ext" id="price" name="price" required>
+
+                <label for="image">Image :</label>
+                <input type="file" id="image" name="image" required>
             
-            <label for="categories">Catégorie :</label>
-                <select name="categories" id="categories">
-                    <option value="">Sélectionner une catégorie</option>
-                    <?php foreach ($categories as $category): ?>
-                        <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
+                <label for="categories">Catégorie :</label>
+                    <select name="categories" id="categories">
+                        <option value="">Sélectionner une catégorie</option>
+                        <?php foreach ($categories as $category): ?>
+                            <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
 
-            <input type="submit" value="Créer produit">
-        </form>
+                <input type="submit" value="Créer produit">
+            </form>
        </div>
     </body>
     <footer>

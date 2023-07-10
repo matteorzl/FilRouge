@@ -1,12 +1,12 @@
 <?php
 session_start();
 if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
-    header('Location: ../compte.php');
+    header('Location: ../../compte.php');
     exit();
   }
 
 require_once "header.php";
-require_once "../database.php";
+require_once "../../database.php";
 ?>
 
 <!DOCTYPE html>

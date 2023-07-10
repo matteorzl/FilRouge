@@ -62,7 +62,7 @@
             $maxPrice = isset($_GET['max_price']) ? $_GET['max_price'] : '';
 
             // Préparer la requête SQL
-            $sqlProducts = "SELECT p.*, i.bin FROM products p WHERE 1=1"; // Condition de départ
+            $sqlProducts = "SELECT p.* FROM products p WHERE 1=1"; // Condition de départ
 
             if (!empty($categoryFilter)) {
                 $sqlProducts .= " AND category_id = :category";

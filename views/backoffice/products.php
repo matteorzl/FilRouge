@@ -27,49 +27,46 @@ if (isset($_GET["del"])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
-    <h2>Produits</h2>
-    <form method="post" action="createproduct.php">
-        <button class="createproduct" type="button">Créer Produit</button>
-    </form>
-      <div class="table-responsive small">
-        <table class="table table-striped table-sm">
-        <?php
-            $stmt = $conn->query("SELECT * FROM products");
-
-            while (($row = $stmt->fetch())) {?>
-                <form method="post">
-                    <tr class="info_produit">
-                        <tr>
-                            <td><?=$row['name']?></td>
-                            <td><?=$row['description']?></td>
-                            <td><?=$row['material']?></td>
-                        <?php if($row['quantity'] > 1): ?>
-                            <td> En stock </td>
-                        <?php else: ?>
-                            <td> En rupture </td>
-                        <?php endif; ?>
-                            <td><?=$row['price']?></td>
-                            <td>
-                                <button class="modifyproduct" type="submit" action="modify/modifyproduct.php?id=<?=$row['product_id']?>">Modifier</button>
-                                <form method="post" action="products.php?del=<?=$row['product_id']?>">
-                                    <button class="deleteproduct" type="button" onclick="confirmDelete(<?=$row['product_id']?>)">Supprimer</button>
-                                </form>
-
-                                <script>
-                                    function confirmDelete(product_id) {
-                                        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-                                            window.location.href = 'products.php?del=' + product_id;
-                                        }
-                                    }
-                                </script>
-                            </td>
-                        </tr>
-                    </tr>
-                </form>
-        <?php 
-            }
-        ?>
-        </table>
+        <h2>Produits</h2>
+        <a href="create/createproduct.php"><button class="createproduct" type="button">Créer Produit</button></a>
+        <div class="table-responsive small">
+            <table class="table table-striped table-sm">
+                <?php
+                    $stmt = $conn->query("SELECT * FROM products");
+                    while (($row = $stmt->fetch())) {?>
+                        <form method="post">
+                            <tr class="info_produit">
+                                <tr>
+                                    <td><?=$row['name']?></td>
+                                    <td><?=$row['description']?></td>
+                                    <td><?=$row['material']?></td>
+                                <?php if($row['quantity'] > 1): ?>
+                                    <td> En stock </td>
+                                <?php else: ?>
+                                    <td> En rupture </td>
+                                <?php endif; ?>
+                                    <td><?=$row['price']?></td>
+                                    <td class="button">
+                                        <button class="modifyproduct" type="submit" action="modify/modifyproduct.php?id=<?=$row['product_id']?>">Modifier</button>
+                                        <form method="post" action="products.php?del=<?=$row['product_id']?>">
+                                            <button class="deleteproduct" type="button" onclick="confirmDelete(<?=$row['product_id']?>)">Supprimer</button>
+                                        </form>
+                                        <script>
+                                            function confirmDelete(product_id) {
+                                                if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                                                    window.location.href = 'products.php?del=' + product_id;
+                                                }
+                                            }
+                                        </script>
+                                    </td>
+                                </tr>
+                            </tr>
+                        </form>
+                <?php 
+                    }
+                ?>
+            </table>
+        </div>
     </body>
     <footer>
         <?php require "footer.php" ?>

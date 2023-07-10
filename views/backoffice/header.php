@@ -161,7 +161,6 @@
                 <button type="button" class="btn left me-2"><a href="login.php">Se connecter</a></button>
                 <button type="button" class="btn btn-warning"><a href="register.php">Créer un compte</a></button>
               <?php else:?>
-                  <button type="button" class="btn left me-2"><a href="compte.php">Mon compte</a></button>
                   <button type="button" class="btn btn-warning"><a href="logout.php">Déconnexion</a></button>
               <?php endif;?>
               </div>

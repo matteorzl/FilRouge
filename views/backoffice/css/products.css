@@ -1,9 +1,5 @@
-div.title-button {
-    display: flex;
+.h2 {
     padding-top: 1rem;
-}
-
-div.title-button .h2 {
     padding-bottom: 1rem;
 }
 
@@ -13,6 +9,9 @@ div.title-button a.createproduct {
 }
 
 div.createproductbox {
+    display: flex;
+    float: right;
+    padding-top: 1rem;
     background-color: rgb(72, 185, 72);
     height: 1%;
     border-radius:0.5em;

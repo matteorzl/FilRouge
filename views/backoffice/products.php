@@ -28,6 +28,9 @@ if (isset($_GET["del"])) {
     </head>
     <body>
     <h2>Produits</h2>
+    <form method="post" action="createproduct.php">
+        <button class="createproduct" type="button">Créer Produit</button>
+    </form>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
         <?php

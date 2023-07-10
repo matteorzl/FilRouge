@@ -42,7 +42,7 @@ if (isset($_GET["del"])) {
                             <td>
                                 <button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button>
                                 <form method="post" action="category.php?del=<?=$row['category_id']?>">
-                                    <button class="deletecategory" type="submit" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
+                                    <button class="deletecategory" type="button" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
                                 </form>
 
                                 <script>

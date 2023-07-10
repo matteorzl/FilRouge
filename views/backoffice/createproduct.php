@@ -1,19 +1,19 @@
 <?php
 session_start();
 if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
-    header('Location: ../../compte.php');
+    header('Location: ../compte.php');
     exit();
   }
 
 require_once "header.php";
-require_once "../../database.php";
+require_once "../database.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../css/createproduct.css">
+        <link rel="stylesheet" href="css/createproduct.css">
     <script>
         function copyAddress() {
             if (document.getElementById('same_address_checkbox').checked) {

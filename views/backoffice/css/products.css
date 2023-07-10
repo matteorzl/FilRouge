@@ -1,5 +1,6 @@
 div.title-button {
     display: flex;
+    padding-bottom: 2rem;
 }
 
 div.title-button button.createproduct {

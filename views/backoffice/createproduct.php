@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
-    header('Location: ../compte.php');
+    header('Location: ../login.php');
     exit();
   }
 
@@ -23,15 +23,6 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/createproduct.css">
-    <script>
-        function copyAddress() {
-            if (document.getElementById('same_address_checkbox').checked) {
-                document.getElementById('billing_address').value = document.getElementById('shipping_address').value;
-            } else {
-                document.getElementById('billing_address').value = '';
-            }
-        }
-    </script>
     </head>
     <body>
         <div class="createproduct">

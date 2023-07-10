@@ -5,6 +5,16 @@ if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
     exit();
   }
 
+// Récupérer les catégories depuis la table "categorie"
+$sqlCategories = "SELECT * FROM categories";
+$stmtCategories = $conn->query($sqlCategories);
+$categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
+$sqlMaterials = "SELECT DISTINCT material FROM products";
+$stmtMaterials = $conn->query($sqlMaterials);
+$materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
+
 require_once "header.php";
 require_once "../database.php";
 ?>

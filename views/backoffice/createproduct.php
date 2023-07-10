@@ -45,14 +45,14 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
             </div>
             <label for="materials">Matériaux :</label>
                 <select name="materials" id="materials">
-                    <option value="">Tous les matériaux</option>
+                    <option value="">Sélecionner un matériau</option>
                     <?php foreach ($materials as $material): ?>
                         <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
                     <?php endforeach; ?>
                 </select>
             </label>
             <label for="quantity">Quantité :</label>
-            <textarea id="quantity" name="quantity" required></textarea>
+            <input type="quantity" id="quantity" name="quantity" required>
 
             <label for="price">Prix :</label>
             <input type="price" id="price" name="price" required>

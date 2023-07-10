@@ -38,26 +38,26 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
             <h1 class="titleCreateProduct">Créer produit</h1>
             <form action="../products.php" method="post">
             <div class="form-row inline-labels">
-                <label for="first_name">Nom</label>
-                <input type="text" id="first_name" name="first_name" required>
-                <label for="last_name">Description</label>
-                <input type="text" id="last_name" name="last_name" required>
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required>
             </div>
-            <label for="shipping_address">Matériau :</label>
-            <textarea id="shipping_address" name="shipping_address" required></textarea>
+            <label for="material">Matériau :</label>
+            <textarea id="material" name="material" required></textarea>
 
-            <label for="billing_address">Quantité :</label>
-            <textarea id="billing_address" name="billing_address" required></textarea>
+            <label for="quantity">Quantité :</label>
+            <textarea id="quantity" name="quantity" required></textarea>
 
 
-            <label for="email">Prix :</label>
-            <input type="email" id="email" name="email" required>
+            <label for="price">Prix :</label>
+            <input type="price" id="price" name="price" required>
 
-            <label for="card_number">Image :</label>
-            <input type="text" id="card_number" name="card_number" required>
+            <label for="image">Image :</label>
+            <input type="file" id="image" name="image" required>
 
             <select name="category" id="category">
-                <option value="">Toutes les catégories</option>
+                <option value="">Sélectionner une catégorie</option>
                 <?php foreach ($categories as $category): ?>
                     <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
                 <?php endforeach; ?>

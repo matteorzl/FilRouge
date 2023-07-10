@@ -36,13 +36,7 @@
         <div class="panier">
             <section>
                 <table>
-                    <tr>
-                        <th>Image</th>
-                        <th>Nom</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
-                        <th>Supprimer</th>
-                    </tr>
+c
                     <?php if(!isset($_SESSION["cart"]) || empty($_SESSION["cart"])): ?>
                         <div>
                             <div class="empty">Votre panier est vide</div>

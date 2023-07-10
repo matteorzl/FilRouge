@@ -27,10 +27,19 @@ if (isset($_GET["del"])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
+        <div class="title-button">
         <h2>Produits</h2>
         <a href="create/createproduct.php"><button class="createproduct" type="button">Créer Produit</button></a>
+        </div>
         <div class="table-responsive small">
             <table class="table table-striped table-sm">
+                <tr>
+                    <th>Nom</th>
+                    <th>Descripion</th>
+                    <th>Matériau</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                </tr>
                 <?php
                     $stmt = $conn->query("SELECT * FROM products");
                     while (($row = $stmt->fetch())) {?>

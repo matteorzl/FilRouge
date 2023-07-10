@@ -1,0 +1,94 @@
+.checkout {
+    border: 0.2em solid #4F6D92;
+    background-color: #6d8bb05e;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-row-gap: 5px;
+    margin-top: 2%;
+    margin-left: 33%;
+    margin-right: 33%;
+    padding: 5px;
+}
+
+h1.titleCheckout {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 250px;
+    margin-bottom: 10px;
+    resize: none;
+    background-color: #6d8bb05e;
+    border: 0.1em solid #4F6D92;
+    border-radius: 0.5em;
+    
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+}
+
+.form-row label {
+    margin-right: 10px;
+}
+
+.sameForBilling {
+    display: flex;
+    align-items: left;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.sameForBilling.checkbox {
+    align-items: right !important;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: #6d8bb05e;
+    border: 0.1em solid #4F6D92;
+    border-radius: 0.5em;
+}
+
+input[type="submit"]:hover {
+    background-color: #4F6D92;
+}
+
+.form-row.inline-labels {
+    display: flex;
+    align-items: center;
+}
+
+.form-row.inline-labels label {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form-row.inline-labels input{
+  width: 7em;
+  margin-right:3em;
+}

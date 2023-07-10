@@ -55,7 +55,7 @@ if (isset($_GET["del"])) {
                                     <td> En rupture </td>
                                 <?php endif; ?>
                                     <td><?=$row['price']?></td>
-                                    <td class="button">
+                                    <td class="btn-mod-del">
                                         <button class="modifyproduct" type="submit" action="modify/modifyproduct.php?id=<?=$row['product_id']?>">Modifier</button>
                                         <form method="post" action="products.php?del=<?=$row['product_id']?>">
                                             <button class="deleteproduct" type="button" onclick="confirmDelete(<?=$row['product_id']?>)">Supprimer</button>

@@ -1,4 +1,4 @@
-.checkout {
+.createproduct {
     border: 0.2em solid #4F6D92;
     background-color: #6d8bb05e;
     padding: 20px;
@@ -14,7 +14,7 @@
     padding: 5px;
 }
 
-h1.titleCheckout {
+h1.titleCreateProduct {
     text-align: center;
 }
 
@@ -49,16 +49,7 @@ form textarea {
     margin-right: 10px;
 }
 
-.sameForBilling {
-    display: flex;
-    align-items: left;
-    padding: 8px;
-    margin-bottom: 10px;
-}
 
-.sameForBilling.checkbox {
-    align-items: right !important;
-}
 
 .checkbox input[type="checkbox"] {
     margin-right: 5px;
@@ -72,6 +63,8 @@ input[type="submit"] {
     background-color: #6d8bb05e;
     border: 0.1em solid #4F6D92;
     border-radius: 0.5em;
+    margin-bottom: 5%;
+    margin-top: 2%;
 }
 
 input[type="submit"]:hover {
@@ -81,7 +74,7 @@ input[type="submit"]:hover {
 .form-row.inline-labels {
     display: flex;
     align-items: center;
-}
+}   
 
 .form-row.inline-labels label {
     text-align: right;

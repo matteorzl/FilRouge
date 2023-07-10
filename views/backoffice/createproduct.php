@@ -69,8 +69,7 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
                         <?php endforeach; ?>
                     </select>
                 </label>
-
-                <input type="submit" value="Créer produit">
+                <input type="submit" class="createbutton" value="Créer produit">
             </form>
        </div>
     </body>

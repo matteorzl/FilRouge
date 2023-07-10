@@ -17,4 +17,7 @@ div.createproductbox {
     background-color: rgb(72, 185, 72);
     height: 1%;
     border-radius:0.5em;
+    margin-top: 0.5%;
+    margin-left: 1%;
+    width: 7%;
 }

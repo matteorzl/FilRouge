@@ -13,15 +13,50 @@ require_once "../database.php";
 <html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/dashboard.css">
-        <link rel="stylesheet" href="js/dashboard.js">
-        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
-        <link href="../boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/createproduct.css">
+    <script>
+        function copyAddress() {
+            if (document.getElementById('same_address_checkbox').checked) {
+                document.getElementById('billing_address').value = document.getElementById('shipping_address').value;
+            } else {
+                document.getElementById('billing_address').value = '';
+            }
+        }
+    </script>
     </head>
     <body>
-        <h1>TEST</h1>
+        <div class="createproduct">
+            <h1 class="titleCreateProduct">Créer produit</h1>
+            <form action="../products.php" method="post">
+            <div class="form-row inline-labels">
+                <label for="first_name">Nom</label>
+                <input type="text" id="first_name" name="first_name" required>
+                <label for="last_name">Description</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+            <label for="shipping_address">Matériau :</label>
+            <textarea id="shipping_address" name="shipping_address" required></textarea>
+
+            <label for="billing_address">Quantité :</label>
+            <textarea id="billing_address" name="billing_address" required></textarea>
+
+
+            <label for="email">Prix :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="card_number">Image :</label>
+            <input type="text" id="card_number" name="card_number" required>
+
+            <select name="category" id="category">
+                <option value="">Toutes les catégories</option>
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <input type="submit" value="Payer">
+        </form>
+       </div>
     </body>
     <footer>
         <?php require "footer.php" ?>

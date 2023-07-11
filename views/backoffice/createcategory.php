@@ -37,7 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         header('Location: category.php');
                         exit();
                     } catch (PDOException $e) {
-                        die("Erreur lors de la création de la catégorie : " . $e->getMessage());
+                        // Afficher l'erreur SQL
+                        echo "Erreur SQL : " . $e->getMessage() . "<br>";
+                        echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
+                        echo "Informations complémentaires : ";
+                        print_r($stmt->errorInfo());
+                        die();
                     }
                 } else {
                     $message = "Erreur lors du téléchargement de l'image.";
@@ -52,11 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Veuillez remplir tous les champs.";
     }
 }
-
-echo "Erreur SQL : " . $e->getMessage() . "<br>";
-echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
-echo "Informations complémentaires : ";
-print_r($stmt->errorInfo());
 
 require_once "header.php";
 ?>

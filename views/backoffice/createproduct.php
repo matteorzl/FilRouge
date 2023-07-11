@@ -38,6 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Déplacer le fichier de l'image vers un dossier spécifié
 
     $targetDir = "../images/product/"; // Chemin du dossier de destination des images
+    // Créer le dossier s'il n'existe pas
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0755, true);
+    }
+       
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
 

@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$category_id, $name, $description, $material, $image, $quantity, $price]);
 
     // Déplacer le fichier de l'image vers un dossier spécifié
-    $targetDir = "../images/product/"; // Chemin du dossier de destination des images
+    $targetDir = "images/"; // Chemin du dossier de destination des images
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
 

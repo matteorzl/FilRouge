@@ -134,9 +134,9 @@
                 <?php endif;?>
 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/material.php"):?>
-                  <li><a href="materiau.php" class="nav-link px-2 text-dark">Matériau</a></li>
+                  <li><a href="material.php" class="nav-link px-2 text-dark">Matériau</a></li>
                 <?php else:?>
-                  <li><a href="materiau.php" class="nav-link px-2 text-light">Matériau</a></li>
+                  <li><a href="material.php" class="nav-link px-2 text-light">Matériau</a></li>
                 <?php endif;?>
                 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/products.php"):?>

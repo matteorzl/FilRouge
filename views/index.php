@@ -47,6 +47,25 @@
             <div class="column">
                 <img src="images/category/table.jpg" alt="Table" style="width:100%">
             </div>
+            <?php
+              // Préparer la requête SQL
+            $sqlCategories = "SELECT * FROM categories"; // Condition de départ
+
+            // Exécuter la requête avec les paramètres de filtrage
+            $stmtCategories = $conn->prepare($sqlCategories);
+            $stmtCategories->execute($params);
+            $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($categories as $row) {?>
+                        <div class="category_img">
+                            <img src="<?php echo $row['image']; ?>" width="150" class="img_category">
+                        </div>
+                           <div class="info_category">
+                            <h4><?=$row['name']?></h4>
+                        </div>
+            <?php 
+            }
+            ?>
         </div>
         <footer>
         <?php require "footer.php" ?>

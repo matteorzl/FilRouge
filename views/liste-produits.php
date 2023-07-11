@@ -23,32 +23,32 @@
     <body>
         <aside>
             <div class="aside_category">
-                <h3>Filtres :</h3>
-                <form method="get" action="" class="aside_category_form">
-                  <div class="category_div">
-                    <label for="category">Catégorie :</label>
-                    <select name="category" id="category">
-                        <option value="">Toutes les catégories</option>
-                        <?php foreach ($categories as $category): ?>
-                            <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                  </div>
+                    <h3>Filtres :</h3>
+                    <form method="get" action="" class="aside_category_form">
+                    <div class="category_div">
+                        <label for="category">Catégorie :</label>
+                        <select name="category" id="category">
+                            <option value="">Toutes les catégories</option>
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                     <div class="material_div">
-                    <label for="materials">Matériaux :</label>
-                    <select name="materials" id="materials">
-                        <option value="">Tous les matériaux</option>
-                        <?php foreach ($materials as $material): ?>
-                            <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                  </div>
-                  <div class="price_div">
-                    <label for="min_price">Prix min :</label>
-                    <input type="number" name="min_price" id="min_price" value="<?php echo $minPrice; ?>">
-                    <label for="max_price">Prix max :</label>
-                    <input type="number" name="max_price" id="max_price" value="<?php echo $maxPrice; ?>">
-                  </div>
+                        <label for="materials">Matériaux :</label>
+                        <select name="materials" id="materials">
+                            <option value="">Tous les matériaux</option>
+                            <?php foreach ($materials as $material): ?>
+                                <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="price_div">
+                        <label for="min_price">Prix min :</label>
+                        <input type="number" name="min_price" id="min_price" value="<?php echo $minPrice; ?>">
+                        <label for="max_price">Prix max :</label>
+                        <input type="number" name="max_price" id="max_price" value="<?php echo $maxPrice; ?>">
+                    </div>
                     <button type="submit">Filtrer</button>
                 </form>
             </div>
@@ -62,9 +62,8 @@
             $maxPrice = isset($_GET['max_price']) ? $_GET['max_price'] : '';
 
             // Préparer la requête SQL
-            $sqlProducts = "SELECT p.*, i.bin FROM products p
-               INNER JOIN images i ON p.image_id = i.image_id
-               WHERE 1=1";
+            $sqlProducts = "SELECT p.* FROM products p WHERE 1=1"; // Condition de départ
+
             if (!empty($categoryFilter)) {
                 $sqlProducts .= " AND category_id = :category";
             }

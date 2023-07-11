@@ -1,3 +1,7 @@
+.btn-mod-del {
+    display: flex;
+}
+
 div.title-button {
     display: flex;
     padding-top: 1rem;
@@ -8,12 +12,12 @@ div.title-button .h2 {
     padding-bottom: 1rem;
 }
 
-div.title-button a.createcategory {
+div.title-button a.createuser {
     color: black;
     margin-left: 1rem;
 }
 
-div.createcategorybox {
+div.createuserbox {
     background-color: rgb(72, 185, 72);
     height: 1%;
     border-radius:0.5em;

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
-    header('Location: ../compte.php');
+    header('Location: ../login.php');
     exit();
   }
 
@@ -20,47 +20,61 @@ if (isset($_GET["del"])) {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/dashboard.css">
-        <link rel="stylesheet" href="js/dashboard.js">
+        <link rel="stylesheet" href="css/users.css">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
         <link href="../boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
-    <h2>Produits</h2>
-      <div class="table-responsive small">
+        <div class="title-button">
+            <h2>Utilisateur</h2>
+            <div class="createuserbox">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                </svg>
+                <a href="createuser.php" class="createuser">Créer Utilisateur</a>
+            </div>
+        </div>
+        <div class="table-responsive small">
         <table class="table table-striped table-sm">
-        <?php
-            $stmt = $conn->query("SELECT * FROM users");
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th> </th>
+            </tr>
+            <?php
+                $stmt = $conn->query("SELECT * FROM users");
 
-            while (($row = $stmt->fetch())) {?>
-                    <tr class="info_user">
-                        <tr>
-                            <td><?=$row['lastname']?></td>
-                            <td><?=$row['firstname']?></td>
-                            <td><?=$row['mail']?></td>
-                            <td><?=$row['role']?></td>
-                            <td>
-                                <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
-                                    <button class="modifyuser" type="submit">Modifier</button>
-                                </form>
-                                <form method="post" action="users.php?del=<?=$row['user_id']?>">
-                                    <button class="deleteuser" type="button" onclick="confirmDelete(<?=$row['user_id']?>)">Supprimer</button>
-                                </form>
+                while (($row = $stmt->fetch())) {?>
+                        <tr class="info_user">
+                            <tr>
+                                <td><?=$row['lastname']?></td>
+                                <td><?=$row['firstname']?></td>
+                                <td><?=$row['mail']?></td>
+                                <td><?=$row['role']?></td>
+                                <td class="btn-mod-del">
+                                    <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
+                                        <button class="modifyuser" type="submit">Modifier</button>
+                                    </form>
+                                    <form method="post" action="users.php?del=<?=$row['user_id']?>">
+                                        <button class="deleteuser" type="button" onclick="confirmDelete(<?=$row['user_id']?>)">Supprimer</button>
+                                    </form>
 
-                                <script>
-                                    function confirmDelete(user_id) {
-                                        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-                                            window.location.href = 'users.php?del=' + user_id;
+                                    <script>
+                                        function confirmDelete(user_id) {
+                                            if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                                                window.location.href = 'users.php?del=' + user_id;
+                                            }
                                         }
-                                    }
-                                </script>
-                            </td>
+                                    </script>
+                                </td>
+                            </tr>
                         </tr>
-                    </tr>
-        <?php 
-            }
-        ?>
+            <?php 
+                }
+            ?>
         </table>
     </body>
     <footer>

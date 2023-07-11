@@ -2,9 +2,7 @@
     require_once "database.php";
     $id = $_GET['id'];
 
-    $stmt = $conn->query("SELECT p.*, i.bin FROM products p
-        INNER JOIN images i ON p.image_id = i.image_id
-        WHERE p.product_id = $id");
+    $stmt = $conn->query("SELECT p.* FROM products p WHERE p.product_id = $id");
     $product = $stmt->fetch();
     if(empty($stmt)){
         echo "<script>alert(\"Ce produit n'existe pas\")</script>";
@@ -30,13 +28,13 @@
                     <div class ="block">
                         <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
                             <div class="carousel-cell">
-                                <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                                <img class="w3-image" src="<?php echo $product['image']; ?>">
                             </div>
                             <div class="carousel-cell">
-                                <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                                <img class="w3-image" src="<?php echo $product['image']; ?>">
                             </div>
                             <div class="carousel-cell">
-                                <img class="w3-image" src="<?php echo $product['bin']; ?>">
+                                <img class="w3-image" src="<?php echo $product['image']; ?>">
                             </div>
                         </div>
                     </div>

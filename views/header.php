@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "header.php";
     require_once "database.php";
 ?>
 <!doctype html>
@@ -156,8 +157,8 @@
 
               </ul>
 
-              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control form-control-#6D8BB0 text-bg-light" placeholder="Rechercher..." aria-label="Search">
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="searching.php" method="GET">
+                <input type="search" class="form-control form-control-#6D8BB0 text-bg-light" name="q" placeholder="Rechercher..." aria-label="Search">
               </form>
 
               <div class="text-end">

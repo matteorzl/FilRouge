@@ -53,7 +53,7 @@
                             </div> 
                         </div>
                         <div class="prix_add">
-                            <div class = "prix"><h> <?=$product["price"]?> </h></div>    
+                            <div class = "prix"><h> <?=$product["price"]?> €</h></div>    
                             <div class = "add_items">
                             <?php if($product["quantity"] > 1): ?>
                                 <button class="button_add" type="submit">Ajouter au panier</button>

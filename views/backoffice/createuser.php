@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($count > 0) {
       // L'adresse e-mail existe déjà
       $_SESSION['error_message'] = "Cette adresse mail est déjà utilisée";
-      header('Location: users.php');
+      header('Location: backoffice/users.php');
       }else{
 
 
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           "role" => $role,
         ]; // Stocke les informations de l'utilisateur en session
         $_SESSION['message'] = "L'incription a été validé";
-        header('Location: users.php');
+        header('Location: backoffice/users.php');
         exit();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
@@ -76,7 +76,7 @@ else{
     <body>
         <div class="createuser">
             <h1 class="titleCreateUser">Créer Utilisateur</h1>
-            <form action="../users.php" method="post">
+            <form action="users.php" method="post">
                 <label for="lastname">Nom</label>
                 <input type="text" id="lastname" name="lastname" required>
                 

@@ -36,24 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Hash du mot de passe
       $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
 
-      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, role) VALUES (?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, 'role') VALUES (?, ?, ?, ?, ?)";
       $params = array($lastname, $firstname, $mail, $hashedpwd);
 
       try {
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
-
         $user_id=$conn->lastinsertId();
-
-        $_SESSION['users'] = [
-          "user_id"=> $user_id,
-          "lastname" => $lastname,
-          "firstname" => $firstname,
-          "mail" => $mail,
-          "role" => $role,
-        ]; // Stocke les informations de l'utilisateur en session
-        $_SESSION['message'] = "L'incription a été validé";
-        header('Location: backoffice/users.php');
         exit();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());
@@ -83,7 +72,7 @@ else{
                 <label for="firstname">Prénom</label>
                 <input type="text" id="firstname" name="firstname" required>
                 
-                <label for="description">Email</label>
+                <label for="mail">Email</label>
                 <input type="mail" id="mail" name="mail" required>
 
                 <label for="pwd">Mot de passe</label>

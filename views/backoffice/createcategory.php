@@ -53,6 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+echo "Erreur SQL : " . $e->getMessage() . "<br>";
+echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
+echo "Informations complémentaires : ";
+print_r($stmt->errorInfo());
+
 require_once "header.php";
 ?>
 

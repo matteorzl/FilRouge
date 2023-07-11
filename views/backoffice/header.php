@@ -132,6 +132,12 @@
                 <?php else:?>
                   <li><a href="category.php" class="nav-link px-2 text-light">Catégorie</a></li>
                 <?php endif;?>
+
+                <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/material.php"):?>
+                  <li><a href="materiau.php" class="nav-link px-2 text-dark">Matériau</a></li>
+                <?php else:?>
+                  <li><a href="materiau.php" class="nav-link px-2 text-light">Matériau</a></li>
+                <?php endif;?>
                 
                 <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/products.php"):?>
                   <li><a href="products.php" class="nav-link px-2 text-dark">Produits</a></li>

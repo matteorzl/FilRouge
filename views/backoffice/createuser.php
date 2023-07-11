@@ -12,46 +12,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["pwd"], $_POST["role"])
      && !empty($_POST["lastname"])&& !empty($_POST["firstname"])&& !empty($_POST["mail"])&& !empty($_POST["pwd"])&& !empty($_POST["role"])){
     
-      $lastname = $_POST["lastname"];
-      $firstname = $_POST["firstname"];
-      $mail = $_POST["mail"];
-      $pwd = $_POST["pwd"];
-      $role = $_POST["role"];
+        $lastname = $_POST["lastname"];
+        $firstname = $_POST["firstname"];
+        $mail = $_POST["mail"];
+        $pwd = $_POST["pwd"];
+        $role = $_POST["role"];
 
-      //On verifie si un compte existe deja 
-      $sql = "SELECT * FROM users WHERE mail = ?";
-      $params = array($mail);
-      $stmt = $conn->prepare($sql);
-      $stmt->execute($params);
-      
-      $count = $stmt->fetchColumn();
-      
-      if ($count > 0) {
-      // L'adresse e-mail existe déjà
-      $_SESSION['error_message'] = "Cette adresse mail est déjà utilisée";
-      header('Location: backoffice/users.php');
-      }else{
-
-
-      // Hash du mot de passe
-      $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
-
-      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, [role]) VALUES (?, ?, ?, ?, ?)";
-      $params = array($lastname, $firstname, $mail, $hashedpwd);
-
-      try {
+        //On verifie si un compte existe deja 
+        $sql = "SELECT * FROM users WHERE mail = ?";
+        $params = array($mail);
         $stmt = $conn->prepare($sql);
         $stmt->execute($params);
-        $user_id=$conn->lastinsertId();
-        exit();
-    } catch (PDOException $e) {
-        die("Erreur lors de l'inscription : " . $e->getMessage());
+        
+        $count = $stmt->fetchColumn();
+        
+        if ($count > 0) {
+            // L'adresse e-mail existe déjà
+            $_SESSION['error_message'] = "Cette adresse mail est déjà utilisée";
+            header('Location: backoffice/users.php');
+            }else{
+
+
+            // Hash du mot de passe
+            $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
+
+            $sql = "INSERT INTO users (lastname, firstname, mail, pwd, [role]) VALUES (?, ?, ?, ?, ?)";
+            $params = array($lastname, $firstname, $mail, $hashedpwd, $role);
+            
+            try {
+                $stmt = $conn->prepare($sql);
+                $stmt->execute($params);
+                $user_id = $conn->lastInsertId();
+                exit();
+            } catch (PDOException $e) {
+                die("Erreur lors de l'inscription : " . $e->getMessage());
+            }
+        }
     }
-  }
+    else {
+        echo "<script>alert(\"Toutes les informations de sont pas remplis\")</script>";
+    }
 }
-else{
-      echo "<script>alert(\"Toutes les informations de sont pas remplis\")</script>";
-}}
 
   require_once "header.php";
 ?>

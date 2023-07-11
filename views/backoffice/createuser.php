@@ -76,7 +76,7 @@ else{
     <body>
         <div class="createuser">
             <h1 class="titleCreateUser">Créer Utilisateur</h1>
-            <form action="users.php" method="post">
+            <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
                 <label for="lastname">Nom</label>
                 <input type="text" id="lastname" name="lastname" required>
                 

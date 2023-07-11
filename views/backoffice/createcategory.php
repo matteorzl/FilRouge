@@ -16,18 +16,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (!extension_loaded('gd') || !function_exists('gd_info')) {
             die('L\'extension GD n\'est pas activée. Veuillez vérifier la configuration de votre serveur.');
+        } else {
+            // Déplacer l'image téléchargée vers le dossier approprié
+            $targetDir = "../images/category";
+            // Créer le dossier s'il n'existe pas
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0755, true);
+            }   
+            $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+            
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
         }
-
-        // Déplacer l'image téléchargée vers le dossier approprié
-        $targetDir = "../images/category";
-        // Créer le dossier s'il n'existe pas
-        if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0755, true);
-        }   
-        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-        
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Vérifier si le fichier image est réel ou une fausse image
         $check = getimagesize($_FILES["image"]["tmp_name"]);

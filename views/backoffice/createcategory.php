@@ -5,6 +5,10 @@ if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     exit();
 }
 
+$error = $stmt->error;
+// Afficher l'erreur MySQLi
+echo "Erreur MySQLi : " . $error;
+
 require_once "../database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

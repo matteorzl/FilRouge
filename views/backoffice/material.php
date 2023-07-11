@@ -43,7 +43,7 @@ if (isset($_GET["del"])) {
                 <th> </th>
             </tr>
             <?php
-                $stmt = $conn->query("SELECT * DISTINCT material FROM products");
+                $stmt = $conn->query("SELECT DISTINCT material FROM products");
 
                 while (($row = $stmt->fetch())) {?>
                     <form method="post">

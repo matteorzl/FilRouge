@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image = $_FILES['image']['name'];
 
         // Déplacer l'image téléchargée vers le dossier approprié
-        $targetDir = "../images/category";
+        $targetDir = "../images/category2";
         // Créer le dossier s'il n'existe pas
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0755, true);

@@ -5,9 +5,30 @@ if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
     exit();
   }
 
-require_once "header.php";
+
 require_once "../database.php";
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupérer les valeurs du formulaire
+    $name = $_POST["name"];
+    $image = $_POST["image"];
+
+    $sql = "INSERT INTO categories ([name], [image]) VALUES (?, ?)";
+    $params = array($name, $image);
+
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
+        header('Location: category.php');
+        exit();
+    } catch (PDOException $e) {
+        die("Erreur lors de la création de la catégorie : " . $e->getMessage());
+    }
+
+
+}
+
+require_once "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +40,7 @@ require_once "../database.php";
     <body>
         <div class="createcategory">
             <h1 class="titleCreateCategory">Créer Categorie</h1>
-            <form action="../category.php" method="post">
+            <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
                 <label for="name">Nom</label>
                 <input type="text" id="name" name="name" required>
 

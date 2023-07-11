@@ -11,18 +11,20 @@ echo "Erreur MySQLi : " . $error;
 
 require_once "../database.php";
 
+$stmt = null;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifier que les données sont envoyées
     if (!empty($_FILES['image']['name']) && isset($_POST['name']) && $_POST['name'] != "") {
         // Récupérer les valeurs du formulaire
         $name = $_POST["name"];
-        $image = $_FILES['image']['name'];
+        $image = basename($_FILES["image"]["name"]);
 
         if (!extension_loaded('gd') || !function_exists('gd_info')) {
             die('L\'extension GD n\'est pas activée. Veuillez vérifier la configuration de votre serveur.');
         } else {
             // Déplacer l'image téléchargée vers le dossier approprié
-            $targetDir = "https://mjfilrouge.azurewebsites.net/views/images/category/";
+            $targetDir = "../views/images/category/";
             // Créer le dossier s'il n'existe pas
             if (!is_dir($targetDir)) {
                 mkdir($targetDir, 0755, true);

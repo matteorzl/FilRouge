@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
 
-    header('Location: products.php');
+    header('Location: ../products.php');
     exit();
 }
 

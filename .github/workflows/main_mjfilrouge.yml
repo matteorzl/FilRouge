@@ -9,6 +9,8 @@ on:
       - main
   workflow_dispatch:
 
+permissions: write-all
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -79,3 +81,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FA3C42E4376340A4BED382E6E7D09248 }}
           package: .
+

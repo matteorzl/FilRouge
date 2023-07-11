@@ -5,8 +5,17 @@ if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     exit();
 }
 
-require_once "header.php";
 require_once "../database.php";
+
+// Récupérer les catégories depuis la table "categories"
+$sqlCategories = "SELECT * FROM categories";
+$stmtCategories = $conn->query($sqlCategories);
+$categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
+$sqlMaterials = "SELECT DISTINCT material FROM products";
+$stmtMaterials = $conn->query($sqlMaterials);
+$materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
@@ -33,16 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: products.php');
     exit();
 }
-
-// Récupérer les catégories depuis la table "categories"
-$sqlCategories = "SELECT * FROM categories";
-$stmtCategories = $conn->query($sqlCategories);
-$categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
-
-// Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
-$sqlMaterials = "SELECT DISTINCT material FROM products";
-$stmtMaterials = $conn->query($sqlMaterials);
-$materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
+require_once "header.php";
 ?>
 
 <!DOCTYPE html>

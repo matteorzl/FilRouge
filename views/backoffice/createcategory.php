@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_FILES['image']['name']) && isset($_POST['name']) && $_POST['name'] != "") {
         // Récupérer les valeurs du formulaire
         $name = $_POST["name"];
-        $image = basename($_FILES["image"]["name"]);
+        $image = $targetDir . basename($_FILES["image"]["name"]);
 
         if (!extension_loaded('gd') || !function_exists('gd_info')) {
             die('L\'extension GD n\'est pas activée. Veuillez vérifier la configuration de votre serveur.');

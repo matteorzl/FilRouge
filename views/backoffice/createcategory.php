@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_FILES['image']['name']) && isset($_POST['name']) && $_POST['name'] != "") {
         // Récupérer les valeurs du formulaire
         $name = $_POST["name"];
-        $location = "https://mjfilrouge.azurewebsites.net/views/images/category/";
         $image = $location . basename($_FILES["image"]["name"]);
 
         if (!extension_loaded('gd') || !function_exists('gd_info')) {

@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($count > 0) {
       // L'adresse e-mail existe déjà
       $_SESSION['error_message'] = "Cette adresse mail est déjà utilisée";
-      header('Location: login.php');
+      header('Location: users.php');
       }else{
 
 
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           "role" => $role,
         ]; // Stocke les informations de l'utilisateur en session
         $_SESSION['message'] = "L'incription a été validé";
-        header('Location: index.php');
+        header('Location: users.php');
         exit();
     } catch (PDOException $e) {
         die("Erreur lors de l'inscription : " . $e->getMessage());

@@ -1,31 +1,56 @@
 <?php
 session_start();
-if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
+if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     header('Location: ../login.php');
     exit();
-  }
-
+}
 
 require_once "../database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les valeurs du formulaire
-    $name = $_POST["name"];
-    $image = $_POST["image"];
+    // Vérifier que les données sont envoyées
+    if (!empty($_FILES['image']['name']) && isset($_POST['name']) && $_POST['name'] != "") {
+        // Récupérer les valeurs du formulaire
+        $name = $_POST["name"];
+        $image = $_FILES['image']['name'];
 
-    $sql = "INSERT INTO categories ([name], [image]) VALUES (?, ?)";
-    $params = array($name, $image);
+        // Déplacer l'image téléchargée vers le dossier approprié
+        $targetDir = "../images/";
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    try {
-        $stmt = $conn->prepare($sql);
-        $stmt->execute($params);
-        header('Location: category.php');
-        exit();
-    } catch (PDOException $e) {
-        die("Erreur lors de la création de la catégorie : " . $e->getMessage());
+        // Vérifier si le fichier image est réel ou une fausse image
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            // Autoriser certains formats d'image (vous pouvez ajouter d'autres formats si nécessaire)
+            $allowedFormats = array("jpg", "jpeg", "png", "gif");
+            if (in_array($imageFileType, $allowedFormats)) {
+                if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                    // Insérer le nom et l'image dans la base de données
+                    $sql = "INSERT INTO categories (name, image) VALUES (?, ?)";
+                    $params = array($name, $image);
+
+                    try {
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute($params);
+                        header('Location: category.php');
+                        exit();
+                    } catch (PDOException $e) {
+                        die("Erreur lors de la création de la catégorie : " . $e->getMessage());
+                    }
+                } else {
+                    $message = "Erreur lors du téléchargement de l'image.";
+                }
+            } else {
+                $message = "Formats d'image autorisés : JPG, JPEG, PNG, GIF uniquement.";
+            }
+        } else {
+            $message = "Le fichier sélectionné n'est pas une image valide.";
+        }
+    } else {
+        $message = "Veuillez remplir tous les champs.";
     }
-
-
 }
 
 require_once "header.php";

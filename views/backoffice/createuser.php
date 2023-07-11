@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Hash du mot de passe
       $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
 
-      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, 'role') VALUES (?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO users (lastname, firstname, mail, pwd, [role]) VALUES (?, ?, ?, ?, ?)";
       $params = array($lastname, $firstname, $mail, $hashedpwd);
 
       try {

@@ -15,8 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image = $_FILES['image']['name'];
 
         // Déplacer l'image téléchargée vers le dossier approprié
-        $targetDir = "https://mjfilrouge.azurewebsites.net/views/images/category/";
+        $targetDir = "../images/category";
+        // Créer le dossier s'il n'existe pas
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0755, true);
+        }   
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 

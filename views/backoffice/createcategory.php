@@ -14,8 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = $_POST["name"];
         $image = $_FILES['image']['name'];
 
+        if (!extension_loaded('gd') || !function_exists('gd_info')) {
+            die('L\'extension GD n\'est pas activée. Veuillez vérifier la configuration de votre serveur.');
+        }
+
         // Déplacer l'image téléchargée vers le dossier approprié
-        $targetDir = "../images/category2";
+        $targetDir = "../images/category";
         // Créer le dossier s'il n'existe pas
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0755, true);

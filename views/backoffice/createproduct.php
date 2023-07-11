@@ -24,7 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $material = $_POST["materials"];
     $quantity = $_POST["quantity"];
     $price = $_POST["price"];
-    $image = $_FILES["image"]["name"]; // Nom du fichier de l'image
+    $location = "https://mjfilrouge.azurewebsites.net/views/images/product/";
+    $image = $location . $_FILES["image"]["name"]; // Nom du fichier de l'image
     $category_id = $_POST["categories"];
 
     // Valider et filtrer les données
@@ -35,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$category_id, $name, $description, $material, $image, $quantity, $price]);
 
     // Déplacer le fichier de l'image vers un dossier spécifié
+
     $targetDir = "../images/product/"; // Chemin du dossier de destination des images
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);

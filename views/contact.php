@@ -11,12 +11,14 @@
     </head>
     <body>
         <h1>Contactez-nous</h1>
-        <div class="items">
-            <input type="text" placeholder="Entrez votre nom" name="Nom"/>
-            <input type="email" placeholder="Entrez votre adresse mail" name="Mail"/>
-            <textarea class="text" placeholder="Entrez votre texte" name="Text"></textarea>
-            <button class="btn btn-primary w-100 py-2" type="submit">Envoyer</button>
-        </div>
+        <form method="post" action="mail.php">
+            <div class="items">
+                <input type="text" placeholder="Entrez votre nom" name="Nom"/>
+                <input type="email" placeholder="Entrez votre adresse mail" name="Mail"/>
+                <textarea class="text" placeholder="Entrez votre texte" name="Text"></textarea>
+                <button class="btn btn-primary w-100 py-2" type="submit">Envoyer</button>
+            </div>
+        </form>
     </body>
     <footer>
         <?php require "footer.php" ?>

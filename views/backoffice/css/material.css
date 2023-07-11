@@ -1,0 +1,27 @@
+.btn-mod-del {
+    display: flex;
+}
+
+div.title-button {
+    display: flex;
+    padding-top: 1rem;
+}
+
+div.title-button .h2 {
+    width: 20%;
+    padding-bottom: 1rem;
+}
+
+div.title-button a.createmateriam {
+    color: black;
+    margin-left: 1rem;
+}
+
+div.creatematerialbox {
+    background-color: rgb(72, 185, 72);
+    height: 1%;
+    border-radius:0.5em;
+    margin-top: 0.5%;
+    margin-left: 1%;
+    width: 8%;
+}

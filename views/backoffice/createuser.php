@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt = $conn->prepare($sql);
                 $stmt->execute($params);
                 $user_id = $conn->lastInsertId();
+                header('Location: users.php');
                 exit();
             } catch (PDOException $e) {
                 die("Erreur lors de l'inscription : " . $e->getMessage());

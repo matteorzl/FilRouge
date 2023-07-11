@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die('L\'extension GD n\'est pas activée. Veuillez vérifier la configuration de votre serveur.');
         } else {
             // Déplacer l'image téléchargée vers le dossier approprié
-            $targetDir = "../views/images/category/";
+            $targetDir = "../images/category/";
             // Créer le dossier s'il n'existe pas
             if (!is_dir($targetDir)) {
                 mkdir($targetDir, 0755, true);

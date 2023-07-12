@@ -1,4 +1,7 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     session_start();
     require_once "database.php";
 
@@ -56,13 +59,14 @@
                                     <td><?=$_SESSION["cart"][$product["product_id"]]?></td>
                                     <td><a href="panier.php?del=<?php echo $product["product_id"]?>"><img src="images/delete/delete.png" width="40px" padding="8px 0"></a></td>
                                 </tr>
-                                <?php $total += $product["price"] * $_SESSION["cart"][$product["product_id"]]; ?>
+                                <?php $total += $product["price"] * $_SESSION["cart"][$product["product_id"]]; 
+                                      $_SESSION["total"]=["total" => $total];?>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     <?php endif; ?>
                     <tr class="total-row">
                         <th>Total: <?php echo $total ?>€</th>
-                        <?php if (!isset($_SESSION["cart"])): ?>
+                        <?php if (!isset($_SESSION["cart"]) || empty($_SESSION["cart"])): ?>
                             <th><a href="checkout.php" class="btn-payer" disabled>Payer</a></th>
                         <?php else: ?>
                             <th><a href="checkout.php" class="btn-payer">Payer</a></th>

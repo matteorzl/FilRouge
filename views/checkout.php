@@ -26,22 +26,57 @@
     <body>
         <div class="checkout">
           <h1 class="titleCheckout">Checkout</h1>
-        <form action="process_payment.php" method="post">
-            <div class="form-row inline-labels">
-                <label for="first_name">Prénom :</label>
-                <input type="text" id="first_name" name="first_name" required>
-                <label for="last_name">Nom :</label>
-                <input type="text" id="last_name" name="last_name" required>
-            </div>
-            <label for="shipping_address">Adresse de livraison :</label>
-            <textarea id="shipping_address" name="shipping_address" required></textarea>
+            <form action="process_payment.php" method="post">
+              <div class="form-row inline-labels">
+                <div>
+                  <label for="first_name">Prénom :</label>
+                  <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div>
+                  <label for="last_name">Nom :</label>
+                  <input type="text" id="last_name" name="last_name" required>
+                </div>
+              </div>
+              <label for="shipping_address">Adresse de livraison :</label>
+              <textarea id="shipping_address" name="shipping_address" required></textarea>
 
+             <div class="form-row inline-labels">
+              <label for="city_livr">Ville :</label>
+              <input type="text" id="city_livr" name="city_livr" required>
+              <label for="region_livr">Region :</label>
+              <input type="text" id="region_livr" name="region_livr" required>
+            </div>
+
+            <div class="form-row inline-labels">
+              <label for="code_postal_livr">CP :</label>
+              <input type="text" id="code_postal_livr" name="code_postal_livr" required>
+              <label for="country_livr">Pays :</label>
+              <input type="text" id="country_livr" name="country_livr" required>
+            </div>
+          
+            <label for="number">Numero de telephone :</label>
+            <input type="tel" id="number" name="number" required>
+              
+            <div class="sameForBilling">
+              <input class="checkbox" type="checkbox" id="same_address_checkbox" onclick="copyAddress()">
+              <label for="same_address_checkbox">Utiliser la même adresse pour la facturation</label>
+            </div>
+          
             <label for="billing_address">Adresse de facturation :</label>
             <textarea id="billing_address" name="billing_address" required></textarea>
+          
+            <div class="form-row inline-labels">
+              <label for="city_fact">Ville :</label>
+              <input type="text" id="city_fact" name="city_fact" required>
+              <label for="region_fact">Region :</label>
+              <input type="text" id="region_fact" name="region_fact" required>
+            </div>
 
-            <div class="sameForBilling">
-                <input class="checkbox" type="checkbox" id="same_address_checkbox" onclick="copyAddress()">
-                <label for="same_address_checkbox">Utiliser la même adresse pour la facturation</label>
+            <div class="form-row inline-labels">
+              <label for="code_postal_fact">CP :</label>
+              <input type="text" id="code_postal_fact" name="code_postal_fact" required>
+              <label for="country_fact">Pays :</label>
+              <input type="text" id="country_fact" name="country_fact" required>
             </div>
 
             <label for="email">Adresse e-mail :</label>

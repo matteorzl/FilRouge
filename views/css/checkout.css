@@ -29,6 +29,7 @@ form label {
 }
 
 form input[type="text"],
+form input[type="tel"],
 form input[type="email"],
 form textarea {
     width: 250px;
@@ -79,13 +80,9 @@ input[type="submit"]:hover {
 }
 
 .form-row.inline-labels {
-    display: flex;
-    align-items: center;
-}
-
-.form-row.inline-labels label {
-    text-align: right;
-    margin-right: 10px;
+  display:grid;
+  grid-template-columns:50% 50%;
+  width:15em;
 }
 
 .form-row.inline-labels input{

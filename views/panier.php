@@ -10,7 +10,7 @@
         $ids = array_keys($_SESSION["cart"]);
         $idsString = implode(" ", $ids);
     
-        $stmt = $conn->query("SELECT p.*FROM products p WHERE p.product_id IN ($idsString)");
+        $stmt = $conn->query("SELECT * FROM products WHERE product_id IN ($idsString)");
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     

@@ -17,8 +17,16 @@
         function copyAddress() {
             if (document.getElementById('same_address_checkbox').checked) {
                 document.getElementById('billing_address').value = document.getElementById('shipping_address').value;
+                document.getElementById('city_livr').value = document.getElementById('city_fact').value;
+                document.getElementById('region_livr').value = document.getElementById('region_fact').value;
+                document.getElementById('code_postal_livr').value = document.getElementById('code_postal_fact').value;
+                document.getElementById('country_livr').value = document.getElementById('country_fact').value;
             } else {
                 document.getElementById('billing_address').value = '';
+                document.getElementById('city_fact').value = '';
+                document.getElementById('region_fact').value = '';
+                document.getElementById('code_postal_fact').value = '';
+                document.getElementById('country_fact').value = '';
             }
         }
     </script>
@@ -95,6 +103,8 @@
             <input type="submit" value="Payer">
         </form>
        </div>
-       <?php require "footer.php" ?>
+       <footer class="footer">
+        <?php require "footer.php" ?>
+       </footer>
     </body>
 </html>

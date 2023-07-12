@@ -11,11 +11,11 @@
     </head>
     <body>
         <h1>Contactez-nous</h1>
-        <form method="post" action="mail.php">
+        <form method="post">
             <div class="items">
                 <input type="text" placeholder="Entrez votre nom" name="nom"/>
                 <input type="email" placeholder="Entrez votre adresse mail" name="mail"/>
-                <textarea class="text" placeholder="Entrez votre texte" name="message"></textarea>
+                <textarea class="text" placeholder="Entrez votre texte" name="message" required></textarea>
                 <button class="btn btn-primary w-100 py-2" type="submit">Envoyer</button>
             </div>
         </form>

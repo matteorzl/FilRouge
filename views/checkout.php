@@ -95,8 +95,6 @@
             <input type="submit" value="Payer">
         </form>
        </div>
+       <?php require "footer.php" ?>
     </body>
-    <footer>
-        <?php require "footer.php" ?>
-    </footer> 
 </html>

@@ -114,7 +114,7 @@
     <body>
         <div class="checkout">
           <h1 class="titleCheckout">Checkout</h1>
-            <form action="process_payment.php" method="post">
+            <form method="post">
               <div class="form-row inline-labels">
                 <div>
                   <label for="first_name">Prénom :</label>

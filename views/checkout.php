@@ -26,7 +26,7 @@
         $country_fact = $_POST["country_fact"];
         $card_name = $_POST["card_name"];
         $card_number = $_POST["card_number"];
-        $exp_date = $_POST["exp_date"];
+        $exp_date = date('m/y', strtotime($_POST["exp_date"]));
         $cvv = $_POST["cvv"];
         $total = $_SESSION["total"]["total"];
     

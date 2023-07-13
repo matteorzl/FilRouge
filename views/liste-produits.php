@@ -1,8 +1,8 @@
 <!--Test-->
 <?php
     session_start();
-    require_once "header.php";
     require_once "database.php";
+    require_once "header.php";
 
     // Récupérer les catégories depuis la table "categorie"
     $sqlCategories = "SELECT * FROM categories";

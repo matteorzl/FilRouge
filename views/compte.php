@@ -3,7 +3,7 @@
     if(!isset($_SESSION["role"]) == 0) {
         header("../index.php");
     }
-
+    $id = $_SESSION["users"]["user_id"];
     require_once "database.php";
     require_once "header.php";
 ?>
@@ -61,7 +61,9 @@
                         </div>
                     <?php else:?>
                         <div class="logout">
-                            <button class="modifyuser" type="button" onclick="window.location.href='modifyuser.php?id=<?=$row['user_id']?>'">Modifier mes informations</button>
+                            <form action="modifyuser.php?id=<?php echo $id ?>" >
+                                <button class="button" type="button">Modifier mes informations</button>
+                            </form>
                         </div>
                     <?php endif;?>
                 </div>

@@ -27,7 +27,6 @@
         $card_name = $_POST["card_name"];
         $card_number = $_POST["card_number"];
         $dateString = $_POST["exp_date"];
-        $exp_date = date('m/y', strtotime('28 ' . date('M Y', strtotime($dateString))));
         $cvv = $_POST["cvv"];
         $total = $_SESSION["total"]["total"];
     
@@ -48,7 +47,7 @@
             if($billingQuery->execute([$user_id, $lastname, $firstname, $billing, $city_fact, $region_fact, $code_postal_fact, $country_fact])){
                 $billingId = $conn->lastinsertId();
 
-                if($payQuery->execute([$user_id, $card_name, $card_number, $exp_date, $cvv])){
+                if ($payQuery->execute([$user_id, $card_name, $card_number, date('Y-m-d', strtotime('28 ' . date('M Y', strtotime($dateString)))) , $cvv])){
                     $paymentId = $conn->lastinsertId();
 
                     $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, rising, payment_method, status) 

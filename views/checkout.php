@@ -59,7 +59,7 @@
                 
                     $stmt = $conn->query("SELECT*FROM products WHERE product_id IN ($idsString)");
                     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($product as $product){
+                    foreach($products as $product){
                         $product_id = $product["product_id"];
                         $price = $product["price"];
                         $quantity = $_SESSION["cart"][$product["product_id"]];
@@ -69,13 +69,13 @@
 
                     echo "Votre paiement a été accepté";
                 }else {
-                    echo "Une erreur s'est produite lors de l'insertion des données : " . $conn->error;
+                    echo "Une erreur s'est produite lors de l'insertion des données : ";
             }
             }else {
-                echo "Une erreur s'est produite lors de l'insertion des données : " . $conn->error;
+                echo "Une erreur s'est produite lors de l'insertion des données : ";
             }
         } else {
-            echo "Une erreur s'est produite lors de l'insertion des données : " . $conn->error;
+            echo "Une erreur s'est produite lors de l'insertion des données : ";
         }
 
     }

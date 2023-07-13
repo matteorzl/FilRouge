@@ -40,20 +40,14 @@
     
         $payQuery = $conn->prepare("INSERT INTO payements (user_id, name, number, expiration, cvv) 
             VALUES (?, ?, ?, ?, ?)");
-    
-        // Liaison des paramètres et exécution des requêtes
-    
-        $deliverieQuery->bind_param($user_id, $lastname, $firstname, $shipping, $city_livr, $region_livr, $code_postal_livr, $country_livr, $phone);
-        $billingQuery->bind_param($user_id, $lastname, $firstname, $billing, $city_fact, $region_fact, $code_postal_fact, $country_fact);
-        $payQuery->bind_param($user_id, $card_name, $card_number, $exp_date, $cvv);
-    
-        if ($deliverieQuery->execute()){
+
+        if ($deliverieQuery->execute([$user_id, $lastname, $firstname, $shipping, $city_livr, $region_livr, $code_postal_livr, $country_livr, $phone])){
             $deliveryId = $conn->lastinsertId();
 
-            if($billingQuery->execute()){
+            if($billingQuery->execute([$user_id, $lastname, $firstname, $billing, $city_fact, $region_fact, $code_postal_fact, $country_fact])){
                 $billingId = $conn->lastinsertId();
 
-                if($payQuery->execute()){
+                if($payQuery->execute([$user_id, $card_name, $card_number, $exp_date, $cvv])){
                     $paymentId = $conn->lastinsertId();
 
                     $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, rising, payment_method, status) 

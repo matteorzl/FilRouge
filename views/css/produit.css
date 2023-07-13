@@ -18,6 +18,7 @@ h1{
 .block{
     margin : 10px;
     align-items: center;
+    width: 50%;
 }
 /* cell number */
 .carousel-cell:before {

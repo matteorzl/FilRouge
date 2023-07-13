@@ -153,6 +153,7 @@ input:focus{
   {
       text-decoration: none;
       color:white;
+      padding-left: 0 !important;
   }
   .dropdown-toggle:not(:focus) {
     outline: 0;

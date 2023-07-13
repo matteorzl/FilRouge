@@ -38,7 +38,7 @@
         $billingQuery = $conn->prepare("INSERT INTO billings (user_id, lastname, firstname, address_1, city, region, [postal-code], country) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
-        $payQuery = $conn->prepare("INSERT INTO payements (user_id, name, number, expiration, cvv) 
+        $payQuery = $conn->prepare("INSERT INTO payments (user_id, name, number, expiration, cvv) 
             VALUES (?, ?, ?, ?, ?)");
 
         if ($deliverieQuery->execute([$user_id, $lastname, $firstname, $shipping, $city_livr, $region_livr, $code_postal_livr, $country_livr, $phone])){

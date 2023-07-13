@@ -76,7 +76,7 @@
                     <?php
                     $cat = $product["category_id"];
                     $stmt = $conn->query("SELECT p.* FROM products p
-                                        WHERE p.category = $cat");
+                                        WHERE p.category_id = $cat");
                     $counter = 1; // Compteur pour limiter l'affichage à 3 produits
 
                     while ($product = $stmt->fetch()) {

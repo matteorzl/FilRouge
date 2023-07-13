@@ -71,7 +71,7 @@
                 $sqlProducts .= " AND category_id = :category";
             }
             if (!empty($materialFilter)) {
-                $sqlProducts .= " AND material = :material";
+                $sqlProducts .= " AND material_id = :material";
             }
             if (!empty($minPrice)) {
                 $sqlProducts .= " AND price >= :min_price";
@@ -100,11 +100,7 @@
             $stmtProducts->execute($params);
             $products = $stmtProducts->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($products as $row) {
-                $idmaterial = $row['material_id'];
-                $material = $conn->query("SELECT [name] FROM materials WHERE material_id = $idmaterial");
-                ?>
-            
+            foreach ($products as $row) {?>
             <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
                 <button type="submit" class="button_liste">
                     <div class="produit_img">
@@ -112,7 +108,7 @@
                     </div>
                        <div class="info_produit">
                         <h4><?=$row['name']?></h4>
-                        <p><?php $material?></p>
+                        <p><?php echo $material["name"]; ?></p>
                         <p><?=$row['description']?></p>
                     </div>
                     <div class="quantite_prix">

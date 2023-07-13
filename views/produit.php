@@ -78,10 +78,10 @@
 
                     while ($product = $stmt->fetch()) {
                         ?> 
-                    <div class="produit produit_<?php $counter ?>">
-                        <div class="nom_prod_<?php $counter ?>"><?php $product['nom'] ?></div>
-                        <div class="img_prod_<?php $counter ?>"><?php $product['image'] ?></div>
-                        <div class="prix_prod_<?php $counter ?>"><?php $product['prix'] ?></div>
+                    <div class="produit">
+                        <div class="nom_prod"><?php $product['nom'] ?></div>
+                        <div class="img_prod"><?php $product['image'] ?></div>
+                        <div class="prix_prod"><?php $product['prix'] ?></div>
                     </div>
                     <?php
                             $counter++;

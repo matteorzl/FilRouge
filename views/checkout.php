@@ -9,9 +9,9 @@
     require_once "database.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $lastname = $_POST["lastname"];
-        $user_id = $_SESSION["user_id"];
-        $firstname = $_POST["firstname"];
+        $lastname = $_POST["last_name"];
+        $user_id = $_SESSION["user"]["user_id"];
+        $firstname = $_POST["first_name"];
         $email = $_POST["email"];
         $shipping = $_POST["shipping_address"];
         $city_livr = $_POST["city_livr"];

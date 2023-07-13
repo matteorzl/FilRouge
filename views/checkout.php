@@ -10,7 +10,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lastname = $_POST["last_name"];
-        $user_id = $_SESSION["user"]["user_id"];
+        $user_id = $_SESSION["users"]["user_id"];
         $firstname = $_POST["first_name"];
         $email = $_POST["email"];
         $shipping = $_POST["shipping_address"];

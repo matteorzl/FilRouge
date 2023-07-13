@@ -13,7 +13,7 @@
     // Récupérer les matériaux depuis la table "materials"
     $sqlMaterials = "SELECT * FROM materials";
     $stmtMaterials = $conn->query($sqlMaterials);
-    $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
+    $materials = $stmtMaterials->fetchAll(PDO::FETCH_ASSOC);
 
     require_once "header.php";
 ?>

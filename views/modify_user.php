@@ -1,6 +1,11 @@
 <?php
     session_start();
     require_once "database.php";
+    $user_id = $_GET["id"];
+
+    if($_SESSION["users"]["user_id"] !== $user_id){
+        header('Location: compte.php');
+    }
     require_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -32,10 +37,6 @@
             if ($conn->connect_error) {
                 die("Erreur de connexion à la base de données: " . $conn->connect_error);
             }
-
-            // Récupérer l'ID de l'utilisateur à partir de la session ou des paramètres de requête
-            $user_id = 1; // Exemple d'ID d'utilisateur à remplacer par votre logique
-
             // Construire la requête de mise à jour en fonction des champs renseignés
             $update_query = "UPDATE users SET ";
 

@@ -61,7 +61,7 @@
                         </div>
                     <?php else:?>
                         <div class="logout">
-                            <form method="post" action="modify_user.php?id=<?php $_SESSION["user_id"]?>">
+                            <form method="post" action="modify_user.php?id=<?php $_SESSION["users"]["user_id"]?>">
                             <button class="button" type="submit" name="modify_user" value="Modify_user">Modifier mes informations</button>
                             </form>
                         </div>

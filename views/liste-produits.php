@@ -10,8 +10,8 @@
     $stmtCategories = $conn->query($sqlCategories);
     $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
-    $sqlMaterials = "SELECT DISTINCT material FROM products";
+    // Récupérer les matériaux depuis la table "materials"
+    $sqlMaterials = "SELECT * FROM materials";
     $stmtMaterials = $conn->query($sqlMaterials);
     $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
@@ -42,7 +42,7 @@
                         <select name="materials" id="materials">
                             <option value="">Tous les matériaux</option>
                             <?php foreach ($materials as $material): ?>
-                                <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
+                                <option value="<?php echo $material["material_id"]; ?>"><?php echo $material["name"]; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

@@ -16,7 +16,7 @@ $stmtCategories = $conn->query($sqlCategories);
 $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
-$sqlMaterials = "SELECT * FROM materials";
+$sqlMaterials = "SELECT [name] FROM materials";
 $stmtMaterials = $conn->query($sqlMaterials);
 $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
@@ -118,13 +118,13 @@ require_once "header.php";
         <label for="price">Prix</label>
         <input type="text" id="price" name="price" required>
 
-        <label for="image">Image </label>
+        <label for="image">1er Image </label>
         <input type="file" id="image1" name="image1" required>
 
-        <label for="image">Image</label>
+        <label for="image">2ème Image</label>
         <input type="file" id="image2" name="image2" required>
 
-        <label for="image">Image</label>
+        <label for="image">3ème Image</label>
         <input type="file" id="image3" name="image3" required>
 
         <label for="categories">Catégorie</label>

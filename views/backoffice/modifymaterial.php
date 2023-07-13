@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $stmt = $conn->prepare($sql);
             $stmt->execute($params);
-            header('Location: category.php');
+            header('Location: material.php');
             exit();
         } catch (PDOException $e) {
             // Afficher l'erreur SQL

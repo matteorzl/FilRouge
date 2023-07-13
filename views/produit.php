@@ -71,7 +71,7 @@
                 <div class="text">produits similaires</div>
                     <div class="produits_sim">
                     <?php
-                    $cat = $product["categorie"];
+                    $cat = $product["category_id"];
                     $stmt = $conn->query("SELECT p.* FROM products p
                                         WHERE p.categorie = $cat");
                     $counter = 1; // Compteur pour limiter l'affichage à 3 produits

@@ -16,7 +16,7 @@ $stmtCategories = $conn->query($sqlCategories);
 $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
-$sqlMaterials = "SELECT [name] FROM materials";
+$sqlMaterials = "SELECT * FROM materials";
 $stmtMaterials = $conn->query($sqlMaterials);
 $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
@@ -24,13 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
     $name = $_POST["name"];
     $description = $_POST["description"];
-    $material = $_POST["materials"];
     $quantity = $_POST["quantity"];
     $price = $_POST["price"];
     $location = "https://mjfilrouge.azurewebsites.net/views/images/product/";
     $image1 = $location . $_FILES["image1"]["name"]; // Nom du fichier de l'image 1
     $image2 = $location . $_FILES["image2"]["name"]; // Nom du fichier de l'image 2
     $image3 = $location . $_FILES["image3"]["name"]; // Nom du fichier de l'image 3
+    $material_id = $_POST["materials"];
     $category_id = $_POST["categories"];
 
     // Valider et filtrer les données
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insérer les données dans la table "products"
     $sql = "INSERT INTO products ([category_id], [material_id], [name], [description], [image1], [image2] , [image3], [quantity], [price]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$category_id, $name, $description, $material, $image1, $image2, $image3, $quantity, $price]);
+    $stmt->execute([$category_id, $material_id, $name, $description, $image1, $image2, $image3, $quantity, $price]);
 
     // Déplacer le fichier de l'image vers un dossier spécifié
 
@@ -108,7 +108,7 @@ require_once "header.php";
         <select name="materials" id="materials">
             <option value="">Sélectionner un matériau</option>
             <?php foreach ($materials as $material): ?>
-                <option value="<?php echo $material; ?>"><?php echo $material; ?></option>
+                <option value="<?php echo $material['material_id']; ?>"><?php echo $material['name']; ?></option>
             <?php endforeach; ?>
         </select>
 

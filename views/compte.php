@@ -61,8 +61,8 @@
                         </div>
                     <?php else:?>
                         <div class="logout">
-                            <form method="post" action="logout.php">
-                            <button class="button" type="submit" name="logout" value="Log out">Déconnexion</button>
+                            <form method="post" action="modify_user.php">
+                            <button class="button" type="submit" name="modify_user" value="Modify_user">Modifier mes informations</button>
                             </form>
                         </div>
                     <?php endif;?>

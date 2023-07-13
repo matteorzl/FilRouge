@@ -11,7 +11,7 @@ require_once "../database.php";
 if (isset($_GET["del"])) {
     $id_del = $_GET["del"];
     
-    $conn->query("DELETE DISTINCT material FROM products WHERE product_id = $id_del");
+    $conn->query("DELETE FROM materials WHERE material_id = $id_del");
 }
 ?>
 

@@ -1,8 +1,6 @@
-<!--Test-->
 <?php
     session_start();
     require_once "database.php";
-    require_once "header.php";
 
     // Récupérer les catégories depuis la table "categorie"
     $sqlCategories = "SELECT * FROM categories";
@@ -13,6 +11,8 @@
     $sqlMaterials = "SELECT DISTINCT material FROM products";
     $stmtMaterials = $conn->query($sqlMaterials);
     $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
+
+    require_once "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

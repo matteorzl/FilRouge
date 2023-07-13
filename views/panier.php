@@ -33,6 +33,7 @@
 <html lang="fr" dir="ltr">
     <head> 
         <link href="css/panier.css" rel="stylesheet">
+        <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="panier">

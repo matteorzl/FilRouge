@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $stmt = $conn->prepare($sql);
             $stmt->execute($params);
-            header('Location: category.php');
+            header('Location: material.php');
             exit();
         } catch (PDOException $e) {
             // Afficher l'erreur SQL
@@ -44,11 +44,11 @@ require_once "header.php";
 <html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/createcategory.css">
+        <link rel="stylesheet" href="css/creatematerial.css">
     </head>
     <body>
-        <div class="createcategory">
-            <h1 class="titleCreateCategory">Créer Matériau</h1>
+        <div class="creatematerial">
+            <h1 class="titleCreateMaterial">Créer Matériau</h1>
             <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
                 <label for="name">Nom</label>
                 <input type="text" id="name" name="name" required>

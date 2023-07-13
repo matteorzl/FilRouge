@@ -61,9 +61,7 @@
                         </div>
                     <?php else:?>
                         <div class="logout">
-                            <form action="modifyuser.php?id=<?php echo $id ?>" >
-                                <button class="button" type="button">Modifier mes informations</button>
-                            </form>
+                            <button class="button" type="button" onclick="window.location.href='modifyuser.php?id=<?php echo $id ?>'">Modifier mes informations</button>
                         </div>
                     <?php endif;?>
                 </div>

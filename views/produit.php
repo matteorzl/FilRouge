@@ -76,15 +76,15 @@
                     <?php
                     $cat = $product["category_id"];
                     $stmt = $conn->query("SELECT p.* FROM products p
-                                        WHERE p.category_id = $cat");
+                                        WHERE p.category_id = $cat AND WHERE NOT p.product_id = $id");
                     $counter = 1; // Compteur pour limiter l'affichage à 3 produits
 
-                    while ($product = $stmt->fetch()) {
+                    while ($products = $stmt->fetch()) {
                         ?> 
                     <div class="produit">
-                        <div class="nom_prod"><?php $product['name'] ?></div>
-                        <div class="img_prod"><?php $product['image1'] ?></div>
-                        <div class="prix_prod"><?php $product['price'] ?></div>
+                        <div class="nom_prod"><?php $products['name'] ?></div>
+                        <div class="img_prod"><?php $products['image1'] ?></div>
+                        <div class="prix_prod"><?php $products['price'] ?></div>
                     </div>
                     <?php
                             $counter++;

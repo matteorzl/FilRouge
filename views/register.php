@@ -162,12 +162,12 @@ else{
           <h1 class="h3 mb-3 fw-normal">Créer un compte</h1>
 
           <div class="form-floating">
-            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
+            <input type="lastname" class="form-control" id="lastname" name="lastname" placeholder="lastname" required>
             <label for="lastname">Nom</label>
           </div>
 
           <div class="form-floating">
-            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
+            <input type="firstname" class="form-control" id="firstname" name="firstname" placeholder="firstname" required>
             <label for="firstname">Prenom</label>
           </div>
 

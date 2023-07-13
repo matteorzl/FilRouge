@@ -16,7 +16,7 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[type="mail"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -33,4 +33,12 @@ body {
 
 a.forgot-pwd {
   color: black;
+  text-align: center;
+}
+
+a.forgot-pwd:link{
+  text-decoration: underline;
+}
+a.forgot-pwd:visited{
+  text-decoration: none;
 }

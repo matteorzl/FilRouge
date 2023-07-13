@@ -5,11 +5,6 @@ error_reporting(E_ALL);
 session_start();
 require_once "database.php";
 
-// Vérifier si un identifiant de produit est spécifié dans l'URL
-if (!isset($_GET['id'])) {
-    header('Location: products.php');
-    exit();
-}
 
 $product_id = $_GET['id'];
 

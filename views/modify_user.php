@@ -25,18 +25,8 @@
             $mail = $_POST['mail'];
             $pwd = $_POST['pwd'];
 
-            // Connexion à la base de données
-            $servername = "nom_du_serveur";
-            $username = "nom_utilisateur";
-            $password = "mot_de_passe";
-            $dbname = "nom_base_de_données";
+            $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Vérifier la connexion
-            if ($conn->connect_error) {
-                die("Erreur de connexion à la base de données: " . $conn->connect_error);
-            }
             // Construire la requête de mise à jour en fonction des champs renseignés
             $update_query = "UPDATE users SET ";
 
@@ -53,7 +43,7 @@
             }
 
             if (!empty($pwd)) {
-                $update_query .= "pwd='$pwd', ";
+                $update_query .= "pwd='$hashed_pwd', ";
             }
 
             // Supprimer la virgule et l'espace en trop à la fin de la requête

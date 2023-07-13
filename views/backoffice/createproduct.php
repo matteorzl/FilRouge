@@ -25,15 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quantity = $_POST["quantity"];
     $price = $_POST["price"];
     $location = "https://mjfilrouge.azurewebsites.net/views/images/product/";
-    $image = $location . $_FILES["image"]["name"]; // Nom du fichier de l'image
+    $image1 = $location . $_FILES["image1"]["name"]; // Nom du fichier de l'image 1
+    $image2 = $location . $_FILES["image2"]["name"]; // Nom du fichier de l'image 2
+    $image3 = $location . $_FILES["image3"]["name"]; // Nom du fichier de l'image 3
     $category_id = $_POST["categories"];
 
     // Valider et filtrer les données
 
     // Insérer les données dans la table "products"
-    $sql = "INSERT INTO products ([category_id], [name], [description], [material], [image], [quantity], [price]) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO products ([category_id], [name], [description], [material], [image1], [image2] , [image3], [quantity], [price]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$category_id, $name, $description, $material, $image, $quantity, $price]);
+    $stmt->execute([$category_id, $name, $description, $material, $image1, $image2, $image3, $quantity, $price]);
 
     // Déplacer le fichier de l'image vers un dossier spécifié
 
@@ -43,8 +45,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mkdir($targetDir, 0755, true);
     }
        
-    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-    move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+    $targetFile1 = $targetDir . basename($_FILES["image1"]["name"]);
+    $targetFile2 = $targetDir . basename($_FILES["image2"]["name"]);
+    $targetFile3 = $targetDir . basename($_FILES["image3"]["name"]);
+
+    move_uploaded_file($_FILES["image1"]["tmp_name"], $targetFile1);
+    move_uploaded_file($_FILES["image2"]["tmp_name"], $targetFile2);
+    move_uploaded_file($_FILES["image3"]["tmp_name"], $targetFile3);
+
+    $thumbnailPath1 = $targetDir . "thumbnail_" . $_FILES["image1"]["name"];
+    $thumbnailPath2 = $targetDir . "thumbnail_" . $_FILES["image2"]["name"];
+    $thumbnailPath3 = $targetDir . "thumbnail_" . $_FILES["image3"]["name"];
+
+    $thumbnail = imagecreatetruecolor(150, 150);
+
+    $sourceImage1 = imagecreatefromjpeg($targetFile1);
+    $sourceImage2 = imagecreatefromjpeg($targetFile2);
+    $sourceImage3 = imagecreatefromjpeg($targetFile3);
+
+    $sourceWidth1 = imagesx($sourceImage1);
+    $sourceWidth2 = imagesx($sourceImage2);
+    $sourceWidth3 = imagesx($sourceImage3);
+
+    $sourceHeight1 = imagesy($sourceImage1);
+    $sourceHeight2 = imagesy($sourceImage2);
+    $sourceHeight3 = imagesy($sourceImage3);
+
+    imagecopyresampled($thumbnail, $sourceImage1, 0, 0, 0, 0, 150, 150, $sourceWidth1, $sourceHeight1);
+    imagecopyresampled($thumbnail, $sourceImage2, 0, 0, 0, 0, 150, 150, $sourceWidth2, $sourceHeight2);
+    imagecopyresampled($thumbnail, $sourceImage3, 0, 0, 0, 0, 150, 150, $sourceWidth3, $sourceHeight3);
+
+    imagejpeg($thumbnail, $thumbnailPath1);
+    imagejpeg($thumbnail, $thumbnailPath2);
+    imagejpeg($thumbnail, $thumbnailPath3);
 
     header('Location: products.php');
     exit();
@@ -82,8 +115,14 @@ require_once "header.php";
         <label for="price">Prix</label>
         <input type="text" id="price" name="price" required>
 
+        <label for="image">Image </label>
+        <input type="file" id="image1" name="image1" required>
+
         <label for="image">Image</label>
-        <input type="file" id="image" name="image" required>
+        <input type="file" id="image2" name="image2" required>
+
+        <label for="image">Image</label>
+        <input type="file" id="image3" name="image3" required>
 
         <label for="categories">Catégorie</label>
         <select name="categories" id="categories">

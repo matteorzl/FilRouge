@@ -18,13 +18,28 @@ try {
 
     if (count($results) > 0) {
         // Afficher les résultats
-        foreach ($results as $row) {
-            echo "Nom du produit : " . $row["name"] . "<br>";
-            echo "Description : " . $row["description"] . "<br>";
-            echo "Matériau : " . $row["material"] . "<br>";
-            echo "Prix : " . $row["price"] . "<br>";
-            // Afficher d'autres informations pertinentes sur le produit
-        }
+        foreach ($results as $row) { ?>
+            <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
+                <button type="submit" class="button_liste">
+                    <div class="produit_img">
+                        <img src="<?php echo $row['image']; ?>" width="150" class="img_produit">
+                    </div>
+                       <div class="info_produit">
+                        <h4><?=$row['name']?></h4>
+                        <p><?=$row['material']?></p>
+                        <p><?=$row['description']?></p>
+                    </div>
+                    <div class="quantite_prix">
+                        <h4><?=$row['price']?>€</h4>
+                        <?php if($row['quantity'] > 1): ?>
+                            <p> En stock </p>
+                        <?php else: ?>
+                            <p> En rupture </p>
+                        <?php endif; ?>
+                    </div>
+                </button>
+            </form>
+        <?php }
     } else {
         echo "Aucun produit trouvé.";
     }
@@ -34,6 +49,6 @@ try {
     // Fermer la connexion à la base de données
     $conn = null;
 }
-
-require "footer.php"
+require_once "header.php";
+require "footer.php";
 ?>

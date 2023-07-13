@@ -79,12 +79,12 @@
                                         WHERE p.category_id = $cat AND NOT p.product_id = $id");
                     $counter = 1; // Compteur pour limiter l'affichage à 3 produits
 
-                    while ($products = $stmt->fetch()) {
+                    while ($product_similar = $stmt->fetch()) {
                         ?> 
                     <div class="produit">
-                        <div class="nom_prod"><?php echo $products['name'] ?></div>
-                        <div class="img_prod"><?php echo $products['image1'] ?></div>
-                        <div class="prix_prod"><?php echo $products['price'] ?></div>
+                        <div class="nom_prod"><?php echo $product_similar['name'] ?></div>
+                        <div class="img_prod"><?php echo $product_similar['image1'] ?></div>
+                        <div class="prix_prod"><?php echo $product_similar['price'] ?></div>
                     </div>
                     <?php
                             $counter++;

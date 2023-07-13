@@ -56,10 +56,8 @@
             if ($conn->query($update_query) === TRUE) {
                 echo "Les informations de l'utilisateur ont été mises à jour avec succès.";
             } else {
-                echo "Erreur lors de la mise à jour des informations de l'utilisateur: " . $conn->error;
+                echo "Erreur lors de la mise à jour des informations de l'utilisateur: ";
             }
-
-            $conn->close();
         }
         ?>
         <div class="modifyuser">

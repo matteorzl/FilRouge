@@ -27,7 +27,7 @@
         $card_name = $_POST["card_name"];
         $card_number = $_POST["card_number"];
         $dateString = $_POST["exp_date"];
-        $exp_date = date('m/y', strtotime($dateString));
+        $exp_date = date('m/y', strtotime('28 ' . date('M Y', strtotime($dateString))));
         $cvv = $_POST["cvv"];
         $total = $_SESSION["total"]["total"];
     

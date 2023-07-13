@@ -82,9 +82,9 @@
                     while ($product = $stmt->fetch()) {
                         ?> 
                     <div class="produit">
-                        <div class="nom_prod"><?php $product['nom'] ?></div>
-                        <div class="img_prod"><?php $product['image'] ?></div>
-                        <div class="prix_prod"><?php $product['prix'] ?></div>
+                        <div class="nom_prod"><?php $product['name'] ?></div>
+                        <div class="img_prod"><?php $product['image1'] ?></div>
+                        <div class="prix_prod"><?php $product['price'] ?></div>
                     </div>
                     <?php
                             $counter++;

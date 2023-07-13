@@ -13,7 +13,7 @@
     <head>
         <meta charset="utf-8">
         <title>Modifiez vos informations</title>
-        <link rel="stylesheet" href="css/modify_user.css">
+        <link rel="stylesheet" href="css/modifyuser.css">
     <head>
     <body>
         <?php
@@ -62,7 +62,7 @@
             $conn->close();
         }
         ?>
-        <div class="modify_user">
+        <div class="modifyuser">
             <h2>Modifiez vos informations</h2>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <label for="lastname">Nom :</label>

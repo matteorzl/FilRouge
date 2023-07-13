@@ -1,94 +1,132 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
-require_once "database.php";
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    session_start();
+    require_once "database.php";
 
+    // Récupérer les catégories depuis la table "categorie"
+    $sqlCategories = "SELECT * FROM categories";
+    $stmtCategories = $conn->query($sqlCategories);
+    $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
-$product_id = $_GET['id'];
+    // Récupérer les matériaux depuis la table "materials"
+    $sqlMaterials = "SELECT * FROM materials";
+    $stmtMaterials = $conn->query($sqlMaterials);
+    $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
-// Vérifier si le formulaire de modification a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
-    $name = $_POST["name"];
-    $description = $_POST["description"];
-    $quantity = $_POST["quantity"];
-    $price = $_POST["price"];
-    $material_id = $_POST["materials"];
-    $category_id = $_POST["categories"];
-
-    // Mettre à jour les données dans la table "products"
-    $sql = "UPDATE products SET category_id = ?, material_id = ?, name = ?, description = ?, quantity = ?, price = ? WHERE product_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$category_id, $material_id, $name, $description, $quantity, $price, $product_id]);
-
-    header('Location: products.php');
-    exit();
-}
-
-// Récupérer les détails du produit à modifier depuis la base de données
-$sqlProduct = "SELECT * FROM products WHERE product_id = ?";
-$stmtProduct = $conn->prepare($sqlProduct);
-$stmtProduct->execute([$product_id]);
-$product = $stmtProduct->fetch(PDO::FETCH_ASSOC);
-
-// Récupérer les catégories depuis la table "categories"
-$sqlCategories = "SELECT * FROM categories";
-$stmtCategories = $conn->query($sqlCategories);
-$categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
-
-// Récupérer les matériaux depuis la table "materials"
-$sqlMaterials = "SELECT * FROM materials";
-$stmtMaterials = $conn->query($sqlMaterials);
-$materials = $stmtMaterials->fetchAll(PDO::FETCH_ASSOC);
-
-require_once "header.php";
+    require_once "header.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/modifyproduct.css">
-</head>
-<body>
-<div class="modifyproduct">
-    <h1 class="titleModifyProduct">Modifier produit</h1>
-    <form action="<?php echo $_SERVER["PHP_SELF"] . '?id=' . $product_id; ?>" method="post">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" value="<?php echo $product['name']; ?>" required>
+    <head>
+        <link rel="stylesheet" href="css/liste-produits.css">
+        <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <aside>
+            <div class="aside_category">
+                    <h3>Filtres :</h3>
+                    <form method="get" action="" class="aside_category_form">
+                    <div class="category_div">
+                        <label for="category">Catégorie :</label>
+                        <select name="category" id="category">
+                            <option value="">Toutes les catégories</option>
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="material_div">
+                        <label for="materials">Matériaux :</label>
+                        <select name="materials" id="materials">
+                            <option value="">Tous les matériaux</option>
+                            <?php foreach ($materials as $material): ?>
+                                <option value="<?php echo $material["material_id"]; ?>"><?php echo $material["name"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="price_div">
+                        <label for="min_price">Prix min :</label>
+                        <input type="number" name="min_price" id="min_price" value="<?php echo $minPrice; ?>">
+                        <label for="max_price">Prix max :</label>
+                        <input type="number" name="max_price" id="max_price" value="<?php echo $maxPrice; ?>">
+                    </div>
+                    <button type="submit">Filtrer</button>
+                </form>
+            </div>
+        </aside>
 
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description" value="<?php echo $product['description']; ?>" required>
+        <?php
+            // Récupérer les paramètres de filtrage
+            $categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
+            $materialFilter = isset($_GET['materials']) ? $_GET['materials'] : '';
+            $minPrice = isset($_GET['min_price']) ? $_GET['min_price'] : '';
+            $maxPrice = isset($_GET['max_price']) ? $_GET['max_price'] : '';
 
-        <label for="quantity">Quantité</label>
-        <input type="text" id="quantity" name="quantity" value="<?php echo $product['quantity']; ?>" required>
+            // Préparer la requête SQL
+            $sqlProducts = "SELECT p.* FROM products p WHERE 1=1"; // Condition de départ
 
-        <label for="price">Prix</label>
-        <input type="text" id="price" name="price" value="<?php echo $product['price']; ?>" required>
+            if (!empty($categoryFilter)) {
+                $sqlProducts .= " AND category_id = :category";
+            }
+            if (!empty($materialFilter)) {
+                $sqlProducts .= " AND material = :material";
+            }
+            if (!empty($minPrice)) {
+                $sqlProducts .= " AND price >= :min_price";
+            }
+            if (!empty($maxPrice)) {
+                $sqlProducts .= " AND price <= :max_price";
+            }
 
-        <label for="materials">Matériau</label>
-        <select name="materials" id="materials">
-            <option value="">Sélectionner un matériau</option>
-            <?php foreach ($materials as $material): ?>
-                <option value="<?php echo $material['material_id']; ?>" <?php if ($material['material_id'] == $product['material_id']) echo 'selected'; ?>><?php echo $material['name']; ?></option>
-            <?php endforeach; ?>
-        </select>
+            // Préparer les paramètres pour la requête préparée
+            $params = [];
+            if (!empty($categoryFilter)) {
+                $params['category'] = $categoryFilter;
+            }
+            if (!empty($materialFilter)) {
+                $params['material'] = $materialFilter;
+            }
+            if (!empty($minPrice)) {
+                $params['min_price'] = $minPrice;
+            }
+            if (!empty($maxPrice)) {
+                $params['max_price'] = $maxPrice;
+            }
 
-        <label for="categories">Catégorie</label>
-        <select name="categories" id="categories">
-            <option value="">Sélectionner une catégorie</option>
-            <?php foreach ($categories as $category): ?>
-                <option value="<?php echo $category['category_id']; ?>" <?php if ($category['category_id'] == $product['category_id']) echo 'selected'; ?>><?php echo $category['name']; ?></option>
-            <?php endforeach; ?>
-        </select>
+            // Exécuter la requête avec les paramètres de filtrage
+            $stmtProducts = $conn->prepare($sqlProducts);
+            $stmtProducts->execute($params);
+            $products = $stmtProducts->fetchAll(PDO::FETCH_ASSOC);
 
-        <input type="submit" class="modifybutton" value="Modifier produit">
-    </form>
-</div>
-</body>
-<footer>
-<?php require "footer.php" ?>
-</footer>
+            foreach ($products as $row) {?>
+            <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
+                <button type="submit" class="button_liste">
+                    <div class="produit_img">
+                        <img src="<?php echo $row['image1']; ?>" width="150" class="img_produit">
+                    </div>
+                       <div class="info_produit">
+                        <h4><?=$row['name']?></h4>
+                        <p><?=$row['material']?></p>
+                        <p><?=$row['description']?></p>
+                    </div>
+                    <div class="quantite_prix">
+                        <h4><?=$row['price']?>€</h4>
+                        <?php if($row['quantity'] > 1): ?>
+                            <p> En stock </p>
+                        <?php else: ?>
+                            <p> En rupture </p>
+                        <?php endif; ?>
+                    </div>
+                </button>
+            </form>
+    <?php 
+        }
+    ?>
+
+    </body>
+    <footer>
+        <?php require "footer.php" ?>
+    </footer> 
 </html>

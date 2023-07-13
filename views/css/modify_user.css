@@ -1,0 +1,57 @@
+.modify_user{
+    border: 0.2em solid #4F6D92;
+    background-color: #6d8bb05e;
+    border-radius: 5px;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    margin-top: 2%;
+    margin-left: 33%;
+    margin-right: 33%;
+    padding: 5px;
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"]{
+    width: 250px;
+    margin-bottom: 10px;
+    resize: none;
+    background-color: #6d8bb05e;
+    border: 0.1em solid #4F6D92;
+    border-radius: 0.5em;
+    
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+}
+
+.form-row label {
+    margin-right: 10px;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: #6d8bb05e;
+    border: 0.1em solid #4F6D92;
+    border-radius: 0.5em;
+}
+
+input[type="submit"]:hover {
+    background-color: #4F6D92;
+}

@@ -102,4 +102,39 @@ require_once "header.php";
         <label for="quantity">Quantité</label>
         <input type="text" id="quantity" name="quantity" value="<?php echo $product['quantity']; ?>" required>
 
-        <label for="price">Prix</label
+        <label for="price">Prix</label>
+        <input type="text" id="price" name="price" value="<?php echo $product['price']; ?>" required>
+
+        <label for="image">1ère Image</label>
+        <input type="file" id="image1" name="image1">
+
+        <label for="image">2ème Image</label>
+        <input type="file" id="image2" name="image2">
+
+        <label for="image">3ème Image</label>
+        <input type="file" id="image3" name="image3">
+
+        <label for="materials">Matériau</label>
+        <select name="materials" id="materials">
+            <option value="">Sélectionner un matériau</option>
+            <?php foreach ($materials as $material): ?>
+                <option value="<?php echo $material['material_id']; ?>" <?php if ($material['material_id'] == $product['material_id']) echo "selected"; ?>><?php echo $material['name']; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <label for="categories">Catégorie</label>
+        <select name="categories" id="categories">
+            <option value="">Sélectionner une catégorie</option>
+            <?php foreach ($categories as $category): ?>
+                <option value="<?php echo $category['category_id']; ?>" <?php if ($category['category_id'] == $product['category_id']) echo "selected"; ?>><?php echo $category['name']; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <input type="submit" class="createbutton" value="Modifier produit">
+    </form>
+</div>
+</body>
+<footer>
+<?php require "footer.php" ?>
+</footer>
+</html>

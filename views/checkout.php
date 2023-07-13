@@ -32,10 +32,10 @@
     
         // Préparation des requêtes préparées pour éviter les injections SQL
     
-        $deliverieQuery = $conn->prepare("INSERT INTO deliveries (user_id, lastname, firstname, adresse_1, city, region, postal-code, country, phone) 
+        $deliverieQuery = $conn->prepare("INSERT INTO deliveries (user_id, lastname, firstname, adresse_1, city, region, [postal-code], country, phone) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $billingQuery = $conn->prepare("INSERT INTO billings (user_id, lastname, firstname, adresse_1, city, region, postal-code, country) 
+        $billingQuery = $conn->prepare("INSERT INTO billings (user_id, lastname, firstname, adresse_1, city, region, [postal-code], country) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     
         $payQuery = $conn->prepare("INSERT INTO payements (user_id, name, number, expiration, cvv) 

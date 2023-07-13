@@ -52,7 +52,7 @@ if (isset($_GET["del"])) {
                                 <td><?=$row['category_id']?></td>
                                 <td><?=$row['name']?></td>
                                 <td class="btn-mod-del">
-                                    <button class="modifycategory" type="submit" action="modify/modifycategory.php?id=<?=$row['category_id']?>">Modifier</button>
+                                <button class="modifycategory" type="button" onclick="window.location.href='modifycategory.php?id=<?=$row['category_id']?>'">Modifier</button>
                                     <form method="post" action="category.php?del=<?=$row['category_id']?>">
                                         <button class="deletecategory" type="button" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
                                     </form>

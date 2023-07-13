@@ -1,21 +1,21 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    session_start();
-    require_once "database.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+require_once "database.php";
 
-    // Récupérer les catégories depuis la table "categorie"
-    $sqlCategories = "SELECT * FROM categories";
-    $stmtCategories = $conn->query($sqlCategories);
-    $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
+// Récupérer les catégories depuis la table "categorie"
+$sqlCategories = "SELECT * FROM categories";
+$stmtCategories = $conn->query($sqlCategories);
+$categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupérer les matériaux depuis la table "materials"
-    $sqlMaterials = "SELECT * FROM materials";
-    $stmtMaterials = $conn->query($sqlMaterials);
-    $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
+// Récupérer les matériaux depuis la table "materials"
+$sqlMaterials = "SELECT * FROM materials";
+$stmtMaterials = $conn->query($sqlMaterials);
+$materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
-    require_once "header.php";
+require_once "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -101,29 +101,28 @@
             $products = $stmtProducts->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($products as $row) {?>
-            <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
-                <button type="submit" class="button_liste">
-                    <div class="produit_img">
-                        <img src="<?php echo $row['image1']; ?>" width="150" class="img_produit">
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="<?php echo $row['image1']; ?>" alt="Product Image">
                     </div>
-                       <div class="info_produit">
-                        <h4><?=$row['name']?></h4>
-                        <p><?=$row['material']?></p>
-                        <p><?=$row['description']?></p>
-                    </div>
-                    <div class="quantite_prix">
-                        <h4><?=$row['price']?>€</h4>
-                        <?php if($row['quantity'] > 1): ?>
-                            <p> En stock </p>
+                    <div class="product-details">
+                        <h4><?php echo $row['name']; ?></h4>
+                        <p><?php echo $row['material']; ?></p>
+                        <p><?php echo $row['description']; ?></p>
+                        <p><?php echo $row['price']; ?>€</p>
+                        <?php if ($row['quantity'] > 1): ?>
+                            <p>En stock</p>
                         <?php else: ?>
-                            <p> En rupture </p>
+                            <p>En rupture de stock</p>
                         <?php endif; ?>
+                        <form method="post" action="product.php?id=<?php echo $row['product_id']; ?>">
+                            <button type="submit">Voir détails</button>
+                        </form>
                     </div>
-                </button>
-            </form>
-    <?php 
-        }
-    ?>
+                </div>
+        <?php 
+            }
+        ?>
 
     </body>
     <footer>

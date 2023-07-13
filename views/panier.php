@@ -51,7 +51,7 @@
                         <?php foreach ($products as $product): ?>
                             <?php if ($_SESSION["cart"][$product["product_id"]] > 0): ?>
                                 <tr>
-                                    <td><img src="<?php echo $product['image']; ?>" width="40px"></td>
+                                    <td><img src="<?php echo $product['image1']; ?>" width="40px"></td>
                                     <td><?=$product["name"]?></td>
                                     <td><?=$product["price"]?>€</td>
                                     <td><?=$_SESSION["cart"][$product["product_id"]]?></td>

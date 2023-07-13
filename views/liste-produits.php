@@ -101,7 +101,7 @@
             <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
                 <button type="submit" class="button_liste">
                     <div class="produit_img">
-                        <img src="<?php echo $row['image']; ?>" width="150" class="img_produit">
+                        <img src="<?php echo $row['image1']; ?>" width="150" class="img_produit">
                     </div>
                        <div class="info_produit">
                         <h4><?=$row['name']?></h4>

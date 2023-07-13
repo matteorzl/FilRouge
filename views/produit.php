@@ -31,13 +31,13 @@
                     <div class ="block">
                         <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": true, "imagesLoaded":true}'>
                             <div class="carousel-cell">
-                                <img class="w3-image" src="<?php echo $product['image']; ?>">
+                                <img class="w3-image" src="<?php echo $product['image1']; ?>">
                             </div>
                             <div class="carousel-cell">
-                                <img class="w3-image" src="<?php echo $product['image']; ?>">
+                                <img class="w3-image" src="<?php echo $product['image2']; ?>">
                             </div>
                             <div class="carousel-cell">
-                                <img class="w3-image" src="<?php echo $product['image']; ?>">
+                                <img class="w3-image" src="<?php echo $product['image3']; ?>">
                             </div>
                         </div>
                     </div>

@@ -53,11 +53,7 @@ if (isset($_GET["del"])) {
                                 <td><?=$row['name']?></td>
                                 <td><?=$row['description']?></td>
                                 <td><?=$row['material_name']?></td>
-                                <?php if($row['quantity'] > 1): ?>
-                                    <td> En stock </td>
-                                <?php else: ?>
-                                    <td> En rupture </td>
-                                <?php endif; ?>
+                                <td><?=$row['quantity']?></td>
                                 <td><?=$row['price']?></td>
                                 <td class="btn-mod-del">
                                 <button class="modifyproduct" type="button" onclick="window.location.href='modifyproduct.php?id=<?=$row['product_id']?>'">Modifier</button>

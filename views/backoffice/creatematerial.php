@@ -16,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = $_POST["name"];
 
         // Insérer le nom dans la base de données
-        $sql = "INSERT INTO materials (name) VALUES (?)";
+        $sql = "INSERT INTO materials ([name]) VALUES (?)";
         $params = array($name);
 
         try {
             $stmt = $conn->prepare($sql);
             $stmt->execute($params);
-            header('Location: material.php');
+            header('Location: category.php');
             exit();
         } catch (PDOException $e) {
             // Afficher l'erreur SQL
@@ -44,11 +44,11 @@ require_once "header.php";
 <html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/creatematerial.css">
+        <link rel="stylesheet" href="css/createcategory.css">
     </head>
     <body>
-        <div class="creatematerial">
-            <h1 class="titleCreateMaterial">Créer Matériau</h1>
+        <div class="createcategory">
+            <h1 class="titleCreateCategory">Créer Matériau</h1>
             <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
                 <label for="name">Nom</label>
                 <input type="text" id="name" name="name" required>

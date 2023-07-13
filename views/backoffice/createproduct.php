@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     header('Location: ../login.php');
@@ -13,7 +16,7 @@ $stmtCategories = $conn->query($sqlCategories);
 $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
-$sqlMaterials = "SELECT DISTINCT material FROM products";
+$sqlMaterials = "SELECT * FROM materials";
 $stmtMaterials = $conn->query($sqlMaterials);
 $materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
 
@@ -33,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Valider et filtrer les données
 
     // Insérer les données dans la table "products"
-    $sql = "INSERT INTO products ([category_id], [name], [description], [material], [image1], [image2] , [image3], [quantity], [price]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO products ([category_id], [material_id], [name], [description], [image1], [image2] , [image3], [quantity], [price]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$category_id, $name, $description, $material, $image1, $image2, $image3, $quantity, $price]);
 

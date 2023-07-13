@@ -18,7 +18,7 @@ $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 // Récupérer les matériaux distincts depuis la colonne "material" de la table "products"
 $sqlMaterials = "SELECT * FROM materials";
 $stmtMaterials = $conn->query($sqlMaterials);
-$materials = $stmtMaterials->fetchAll(PDO::FETCH_COLUMN);
+$materials = $stmtMaterials->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire

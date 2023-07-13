@@ -66,32 +66,30 @@
                 </div>
             </form>
         </article>
-        <!-- <?php
-        // $cat = $product["categorie"];
-        // $stmt = $conn->query("SELECT p.*, i.bin FROM products p
-        // INNER JOIN images i ON p.image_id = i.image_id
-        // WHERE p.categorie = $cat");
-        // $product = $stmt->fetch();
-        ?>  -->
         <article>
             <div class ="produits_similaires">
                 <div class="text">produits similaires</div>
-                <div class="produits_sim">
-                    <div class="produit produit_1">
-                        <div class="nom_prod_1">sdvsv</div>
-                        <div class="img_prod_1">sdvsv</div>
-                        <div class="prix_prod_1">sdvds</div>
+                    <div class="produits_sim">
+                    <?php
+                    $cat = $product["categorie"];
+                    $stmt = $conn->query("SELECT p.* FROM products p
+                                        WHERE p.categorie = $cat");
+                    $counter = 1; // Compteur pour limiter l'affichage à 3 produits
+
+                    while ($product = $stmt->fetch()) {
+                        ?> 
+                    <div class="produit produit_<?php $counter ?>">
+                        <div class="nom_prod_<?php $counter ?>"><?php $product['nom'] ?></div>
+                        <div class="img_prod_<?php $counter ?>"><?php $product['image'] ?></div>
+                        <div class="prix_prod_<?php $counter ?>"><?php $product['prix'] ?></div>
                     </div>
-                    <div class="produit produit_2">
-                        <div class="nom_prod_2">sdvvs</div>
-                        <div class="img_prod_2">sdvdsv</div>
-                        <div class="prix_prod_2">sdvsdvs</div>
-                    </div>
-                    <div class="produit produit_3">
-                        <div class="nom_prod_3">vdsv</div>
-                        <div class="img_prod_3">sdvsvsd</div>
-                        <div class="prix_prod_3">sdvsdv</div>
-                    </div>
+                    <?php
+                            $counter++;
+
+                            if ($counter > 3) {
+                                break; // Sortir de la boucle après avoir affiché 3 produits
+                            }
+                    }?>
                 </div>
             </div>
         </article>

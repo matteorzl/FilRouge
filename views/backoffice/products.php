@@ -1,9 +1,9 @@
 <?php
 session_start();
-if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
+if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     header('Location: ../login.php');
     exit();
-  }
+}
 
 require_once "header.php";
 require_once "../database.php";
@@ -46,34 +46,32 @@ if (isset($_GET["del"])) {
                     <th> </th>
                 </tr>
                 <?php
-                    $stmt = $conn->query("SELECT * FROM products");
+                    $stmt = $conn->query("SELECT p.*, m.name AS material_name FROM products p JOIN materials m ON p.material_id = m.material_id");
                     while (($row = $stmt->fetch())) {?>
                         <form method="post">
                             <tr class="info_produit">
-                                <tr>
-                                    <td><?=$row['name']?></td>
-                                    <td><?=$row['description']?></td>
-                                    <td><?=$row['material']?></td>
+                                <td><?=$row['name']?></td>
+                                <td><?=$row['description']?></td>
+                                <td><?=$row['material_name']?></td>
                                 <?php if($row['quantity'] > 1): ?>
                                     <td> En stock </td>
                                 <?php else: ?>
                                     <td> En rupture </td>
                                 <?php endif; ?>
-                                    <td><?=$row['price']?></td>
-                                    <td class="btn-mod-del">
-                                        <button class="modifyproduct" type="submit" action="modify/modifyproduct.php?id=<?=$row['product_id']?>">Modifier</button>
-                                        <form method="post" action="products.php?del=<?=$row['product_id']?>">
-                                            <button class="deleteproduct" type="button" onclick="confirmDelete(<?=$row['product_id']?>)">Supprimer</button>
-                                        </form>
-                                        <script>
-                                            function confirmDelete(product_id) {
-                                                if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-                                                    window.location.href = 'products.php?del=' + product_id;
-                                                }
+                                <td><?=$row['price']?></td>
+                                <td class="btn-mod-del">
+                                <button class="modifyproduct" type="button" onclick="window.location.href='modifyproduct.php?id=<?=$row['product_id']?>'">Modifier</button>
+                                    <form method="post" action="products.php?del=<?=$row['product_id']?>">
+                                        <button class="deleteproduct" type="button" onclick="confirmDelete(<?=$row['product_id']?>)">Supprimer</button>
+                                    </form>
+                                    <script>
+                                        function confirmDelete(product_id) {
+                                            if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                                                window.location.href = 'products.php?del=' + product_id;
                                             }
-                                        </script>
-                                    </td>
-                                </tr>
+                                        }
+                                    </script>
+                                </td>
                             </tr>
                         </form>
                 <?php 

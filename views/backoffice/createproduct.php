@@ -104,14 +104,6 @@ require_once "header.php";
         <label for="description">Description</label>
         <input type="text" id="description" name="description" required>
 
-        <label for="materials">Matériau</label>
-        <select name="materials" id="materials">
-            <option value="">Sélectionner un matériau</option>
-            <?php foreach ($materials as $material): ?>
-                <option value="<?php echo $material['material_id']; ?>"><?php echo $material['name']; ?></option>
-            <?php endforeach; ?>
-        </select>
-
         <label for="quantity">Quantité</label>
         <input type="text" id="quantity" name="quantity" required>
 
@@ -126,6 +118,14 @@ require_once "header.php";
 
         <label for="image">3ème Image</label>
         <input type="file" id="image3" name="image3" required>
+
+        <label for="materials">Matériau</label>
+        <select name="materials" id="materials">
+            <option value="">Sélectionner un matériau</option>
+            <?php foreach ($materials as $material): ?>
+                <option value="<?php echo $material['material_id']; ?>"><?php echo $material['name']; ?></option>
+            <?php endforeach; ?>
+        </select>
 
         <label for="categories">Catégorie</label>
         <select name="categories" id="categories">

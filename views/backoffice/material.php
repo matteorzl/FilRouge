@@ -53,8 +53,8 @@ if (isset($_GET["del"])) {
                                 <td><?=$row['name']?></td>
                                 <td class="btn-mod-del">
                                     <button class="modifymaterial" type="submit" action="modify/modifymaterial.php?id=<?=$row['material']?>">Modifier</button>
-                                    <form method="post" action="material.php?del=<?=$row['material']?>">
-                                        <button class="deletematerial" type="button" onclick="confirmDelete(<?=$row['material']?>)">Supprimer</button>
+                                    <form method="post" action="material.php?del=<?=$row['material_id']?>">
+                                        <button class="deletematerial" type="button" onclick="confirmDelete(<?=$row['material_id']?>)">Supprimer</button>
                                     </form>
 
                                     <script>

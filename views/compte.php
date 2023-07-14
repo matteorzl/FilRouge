@@ -10,11 +10,11 @@
     
     require_once "database.php";
 
-    $deliveries = $conn->query("SELECT address_1 , address_2 FROM deliveries WHERE user_id = $id");
-    $billings = $conn->query("SELECT address_1 , address_2 FROM billings WHERE user_id = $id");
-    $sqlpayments = ("SELECT * FROM payments WHERE user_id = $id");
+    $deliveries = $conn->query("SELECT address_1 , address_2 FROM deliveries WHERE user_id = $id")->fetchAll(PDO::FETCH_ASSOC);
+    $billings = $conn->query("SELECT address_1 , address_2 FROM billings WHERE user_id = $id")->fetchAll(PDO::FETCH_ASSOC);
+    $sqlpayments = "SELECT * FROM payments WHERE user_id = $id";
     $stmtpayments = $conn->query($sqlpayments);
-    $payments = $stmtpayments->fetchAll(PDO::FETCH_ASSOC);
+    $payments = $stmtpayments->fetchAll(PDO::FETCH_ASSOC); 
     require_once "header.php";
 ?>
 
@@ -35,8 +35,8 @@
                 <div class="adresses">
                     <h> Adresse de livraison : </h>
                     <select class="livraison">
-                            <option><?php echo $deliveries["address_1"]; ?></option>
-                            <option><?php echo $deliveries["address_2"]; ?></option>
+                            <option><?php echo $deliveries[0]['address_1']; ?></option>
+                            <option><?php echo $deliveries[0]['address_2']; ?></option>
                     </select>
                     <h> Adresse de facturation : </h>
                     <select class="facturation">

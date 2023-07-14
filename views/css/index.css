@@ -75,7 +75,9 @@ img.w3-image {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: #6d8bb05e;
+    border: 0.2em solid #4F6D92;
+    border-radius:0.5em;
     padding: 10px;
 }
 

@@ -35,13 +35,13 @@
                 <div class="adresses">
                     <h> Adresse de livraison : </h>
                     <select class="livraison">
-                            <option><?php echo $delivery["address_1"]; ?></option>
-                            <option><?php echo $delivery["address_2"]; ?></option>
+                            <option><?php echo $deliveries["address_1"]; ?></option>
+                            <option><?php echo $deliveries["address_2"]; ?></option>
                     </select>
                     <h> Adresse de facturation : </h>
                     <select class="facturation">
-                        <option><?php echo $billing["address_1"]; ?></option>
-                        <option><?php echo $billing["address_2"]; ?></option>
+                        <option><?php echo $billings["address_1"]; ?></option>
+                        <option><?php echo $billings["address_2"]; ?></option>
                     </select>
                 </div>
                 <div class="methode_paiement">

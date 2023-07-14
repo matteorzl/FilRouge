@@ -71,9 +71,20 @@ Le livrable ﬁnal demandé est un site d’e-commerce et un backofﬁce web pou
 ![Utilisateurs](/img/users.png)
 
 ## Choix techniques
+### Visual Studio Code
 ![VS Code](/img/vscode.png)
+
+### Live Share (Extension VS Code)
 ![Live Share](/img/liveshare.png)
+
+### Github
 ![Github](/img/github.png)
+
+### Azure App Service
 ![Azure App Service](/img/appservice.png)
+
+### Azure SQL
 ![Azure SQL](/img/sql.png)
+
+### Azure Data Studio
 ![Azure Data Studio](/img/datastudio.png)

@@ -54,12 +54,99 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-    // Répéter le processus pour les images 2 et 3
-    // ...
+    // Vérifier si l'image 2 est envoyée
+    if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
+        // Récupérer le nom temporaire du fichier image
+        $tmpImage2 = $_FILES["image2"]["tmp_name"];
 
-    // Vous pouvez ajouter le même code pour les images 2 et 3 en les adaptant individuellement
-    // ...
+        // Définir l'emplacement et le nom du fichier final de l'image
+        $location = "https://mjfilrouge.azurewebsites.net/views/images/carousel/";
+        $image2 = $location . basename($_FILES["image2"]["name"]);
 
+        // Vérifier le format d'image autorisé
+        $allowedFormats = array("jpg", "jpeg", "png", "gif");
+        $image2FileType = strtolower(pathinfo($_FILES["image2"]["name"], PATHINFO_EXTENSION));
+
+        if (in_array($image2FileType, $allowedFormats)) {
+            // Déplacer l'image téléchargée vers le dossier approprié
+            $targetDir = "../images/carousel/";
+            // Créer le dossier s'il n'existe pas
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0755, true);
+            }
+
+            $targetFile2 = $targetDir . basename($_FILES["image2"]["name"]);
+
+            // Déplacer l'image téléchargée vers le dossier cible
+            move_uploaded_file($tmpImage2, $targetFile2);
+
+            // Mettre à jour le nom de l'image dans la base de données
+            $sql = "UPDATE carousel SET image2 = ?";
+            $params = array($image2);
+
+            try {
+                $stmt = $conn->prepare($sql);
+                $stmt->execute($params);
+                echo "L'image 2 du carrousel a été mise à jour avec succès.";
+            } catch (PDOException $e) {
+                // Afficher l'erreur SQL
+                echo "Erreur SQL : " . $e->getMessage() . "<br>";
+                echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
+                echo "Informations complémentaires : ";
+                print_r($stmt->errorInfo());
+                die();
+            }
+        } else {
+            echo "Format d'image autorisé : JPG, JPEG, PNG, GIF uniquement pour l'image 2.";
+        }
+    }
+
+    // Vérifier si l'image 3 est envoyée
+    if (isset($_FILES['image3']['name']) && !empty($_FILES['image3']['name'])) {
+        // Récupérer le nom temporaire du fichier image
+        $tmpImage3 = $_FILES["image3"]["tmp_name"];
+
+        // Définir l'emplacement et le nom du fichier final de l'image
+        $location = "https://mjfilrouge.azurewebsites.net/views/images/carousel/";
+        $image3 = $location . basename($_FILES["image3"]["name"]);
+
+        // Vérifier le format d'image autorisé
+        $allowedFormats = array("jpg", "jpeg", "png", "gif");
+        $image3FileType = strtolower(pathinfo($_FILES["image3"]["name"], PATHINFO_EXTENSION));
+
+        if (in_array($image3FileType, $allowedFormats)) {
+            // Déplacer l'image téléchargée vers le dossier approprié
+            $targetDir = "../images/carousel/";
+            // Créer le dossier s'il n'existe pas
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0755, true);
+            }
+
+            $targetFile3 = $targetDir . basename($_FILES["image3"]["name"]);
+
+            // Déplacer l'image téléchargée vers le dossier cible
+            move_uploaded_file($tmpImage3, $targetFile3);
+
+            // Mettre à jour le nom de l'image dans la base de données
+            $sql = "UPDATE carousel SET image3 = ?";
+            $params = array($image3);
+
+            try {
+                $stmt = $conn->prepare($sql);
+                $stmt->execute($params);
+                echo "L'image 3 du carrousel a été mise à jour avec succès.";
+            } catch (PDOException $e) {
+                // Afficher l'erreur SQL
+                echo "Erreur SQL : " . $e->getMessage() . "<br>";
+                echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
+                echo "Informations complémentaires : ";
+                print_r($stmt->errorInfo());
+                die();
+            }
+        } else {
+            echo "Format d'image autorisé : JPG, JPEG, PNG, GIF uniquement pour l'image 3.";
+        }
+    }
 }
 
 if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
@@ -119,4 +206,4 @@ require_once "header.php";
     <footer>
         <?php require "footer.php" ?>
     </footer> 
-</
+</html>

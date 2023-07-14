@@ -55,9 +55,7 @@ if (isset($_GET["del"])) {
                                 <td><?=$row['mail']?></td>
                                 <td><?=$row['role']?></td>
                                 <td class="btn-mod-del">
-                                    <form method="post" action="modify/modifyuser.php?id=<?=$row['user_id']?>">
-                                        <button class="modifyuser" type="submit">Modifier</button>
-                                    </form>
+                                    <button class="modifyuser" type="button" onclick="window.location.href='modifyuser.php?id=<?=$row['user_id']?>'">Modifier</button>
                                     <form method="post" action="users.php?del=<?=$row['user_id']?>">
                                         <button class="deleteuser" type="button" onclick="confirmDelete(<?=$row['user_id']?>)">Supprimer</button>
                                     </form>

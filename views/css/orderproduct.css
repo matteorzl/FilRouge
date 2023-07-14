@@ -1,10 +1,5 @@
-.form_list_prod{
-	float: right;
-    width:80%;
-    margin:1em;
-    overflow: visible;
-}
-.button_liste{
+
+.product{
 	display:flex;
 	background-color: #6d8bb05e;
     border: 0.2em solid #4F6D92;
@@ -12,18 +7,6 @@
     flex-direction:row;
     align-items: center;
     width:80%;
-}
-
-.info_produit{
-    position:relative;
-    display: grid;
-    grid-template-rows: 20% 15% 65%;
-    align-items:center;
-    width: 80%;
-    text-align: start;
-    border-right:0.1em solid #4F6D92;
-    margin-top: 0.5em;
-    margin-left: 0.2em;
 }
 .quantite_prix{
 	display:grid;

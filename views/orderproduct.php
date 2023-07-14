@@ -29,6 +29,7 @@
             $stmt->execute();
             $product = $stmt->fetch(PDO::FETCH_ASSOC);
         ?>
+        <div class="product">
             <div class="produit_img">
                 <img src="<?php echo $product['image1']; ?>" width="150" class="img_produit">
             </div>
@@ -39,6 +40,7 @@
                 <h4><?php echo $row['price']; ?>€</h4>
                 <p><?php echo $row['quantity']; ?></p>
             </div>
+        </div>
         <?php 
         }
         ?>

@@ -8,6 +8,7 @@ div.text-index {
 div.row {
     margin-right: 0 !important;
     margin-left: 0 !important;
+    padding-bottom: 2rem;
 }
 
 div.row::after {

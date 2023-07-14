@@ -70,12 +70,16 @@ img.w3-image {
     text-align: center;
 }
 
+.image-wrapper .img_category {
+    border: 0.2em solid #4F6D92;
+}
+
 .image-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #6d8bb05e;
+    background-color: #6d8bb0b7;
     border: 0.2em solid #4F6D92;
     border-radius:0.5em;
     padding: 10px;

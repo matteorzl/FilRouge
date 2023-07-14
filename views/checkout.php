@@ -53,7 +53,7 @@
                     $paymentId = $conn->lastinsertId();
 
                     $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, date_order, date_delivery, rising, payment_method, [status]) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     $orderQuery->execute([$user_id, $deliveryId, $billingId, $paymentId, $dateOrder, $dateDelivery, $total,'carte bleu','En preparation']);
                     $orderId = $conn->lastinsertId();
 

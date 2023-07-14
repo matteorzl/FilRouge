@@ -69,6 +69,7 @@
                     }
 
                     echo "Votre paiement a été accepté";
+                    header("compte.php");
                     unset($_SESSION["cart"]);
                 }else {
                     echo "Une erreur s'est produite lors de l'insertion des données : ";

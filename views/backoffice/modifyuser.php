@@ -66,11 +66,11 @@ require_once "header.php";
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/createuser.css">
+    <link rel="stylesheet" href="css/modifyuser.css">
 </head>
 <body>
-    <div class="createuser">
-        <h1 class="titleCreateUser">Modifier Utilisateur</h1>
+    <div class="modifyuser">
+        <h1 class="titleModifyUser">Modifier Utilisateur</h1>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] . "?id=$id"; ?>">
             <label for="lastname">Nom</label>
             <input type="text" id="lastname" name="lastname" required value="<?php echo $user['lastname']; ?>">
@@ -83,8 +83,8 @@ require_once "header.php";
 
             <label for="role">Rôle</label>
             <select name="role" id="role">
-                <option value="0" <?php if ($user['role'] == 0) echo "selected"; ?>>Utilisateur</option>
-                <option value="1" <?php if ($user['role'] == 1) echo "selected"; ?>>Administrateur</option>
+                <option value="0" <?php echo "selected"; ?>>Utilisateur</option>
+                <option value="1" <?php echo "selected"; ?>>Administrateur</option>
             </select>
 
             <input type="submit" class="createbutton" value="Modifier utilisateur">

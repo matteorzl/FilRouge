@@ -136,11 +136,9 @@ h1{
     font-family: 'Dancing script';
 }
 .produits_sim{
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    grid-column-gap: 10px;
+    display: flex;
+    flex-direction: column;
     margin: 10px;
-    height: 300px;
 }
 .produit{
     width: 100%;

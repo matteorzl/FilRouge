@@ -50,20 +50,20 @@
                 if ($payQuery->execute([$user_id, $card_name, $card_number, date('Y-m-d', strtotime('28 ' . date('M Y', strtotime($dateString)))) , $cvv])){
                     $paymentId = $conn->lastinsertId();
 
-                    $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, rising, payment_method, status) 
+                    $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, rising, payment_method, [status]) 
                     VALUES ($user_id, $deliveryId, $billingId, $paymentId, $total,'carte bleu','En preparation')");
                     $orderId = $conn->lastinsertId();
 
                     $ids = array_keys($_SESSION["cart"]);
-                    $idsString = implode(" ", $ids);
+                    $idsString = implode(",", $ids);
                 
-                    $stmt = $conn->query("SELECT*FROM products WHERE product_id IN ($idsString)");
+                    $stmt = $conn->query("SELECT * FROM products WHERE product_id IN ($idsString)");
                     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach($products as $product){
                         $product_id = $product["product_id"];
                         $price = $product["price"];
                         $quantity = $_SESSION["cart"][$product["product_id"]];
-                        $order_product = $conn->prepare("INSERT INTO orders-product (order_id, product_id, price, quantity)
+                        $order_product = $conn->prepare("INSERT INTO [orders-product] (order_id, product_id, price, quantity)
                                                           VALUES ($orderId,$product_id,$price,$quantity)");
                     }
 

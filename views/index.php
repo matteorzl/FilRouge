@@ -53,8 +53,8 @@
             <h2>VENANT DES HAUTES TERRES D'ÉCOSSE NOS MEUBLES SONT IMMORTELS<h2>
         </div>
         <div class="row">
-            <?php
-              // Préparer la requête SQL
+        <?php
+            // Préparer la requête SQL
             $sqlCategories = "SELECT * FROM categories"; // Condition de départ
 
             // Exécuter la requête avec les paramètres de filtrage
@@ -63,10 +63,14 @@
             $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($categories as $row) {?>
-                        <div class="column">
-                            <img src="<?php echo $row['image']; ?>" width="150" class="img_category">
+                <div class="column">
+                    <div class="image-wrapper">
+                        <img src="<?php echo $row['image']; ?>" width="150" class="img_category">
+                        <div class="image-text">
                             <h4><?=$row['name']?></h4>
                         </div>
+                    </div>
+                </div>
             <?php 
             }
             ?>

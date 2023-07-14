@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
-        <link rel="stylesheet" href="css/order.css">
+        <link rel="stylesheet" href="css/orderproduct.css">
         <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>

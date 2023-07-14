@@ -6,68 +6,70 @@ error_reporting(E_ALL);
 
 require_once "../database.php";
 
-// Vérifier si les images sont envoyées
-if (
-    !empty($_FILES['image1']['name']) &&
-    !empty($_FILES['image2']['name']) &&
-    !empty($_FILES['image3']['name'])
-) {
-    // Récupérer les noms temporaires des fichiers images
-    $tmpImage1 = $_FILES["image1"]["tmp_name"];
-    $tmpImage2 = $_FILES["image2"]["tmp_name"];
-    $tmpImage3 = $_FILES["image3"]["tmp_name"];
-
-    // Définir les emplacements et les noms de fichiers finaux des images
-    $location = "https://mjfilrouge.azurewebsites.net/views/images/carousel/";
-    $image1 = $location . basename($_FILES["image1"]["name"]);
-    $image2 = $location . basename($_FILES["image2"]["name"]);
-    $image3 = $location . basename($_FILES["image3"]["name"]);
-
-    // Vérifier les formats d'image autorisés
-    $allowedFormats = array("jpg", "jpeg", "png", "gif");
-    $image1FileType = strtolower(pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION));
-    $image2FileType = strtolower(pathinfo($_FILES["image2"]["name"], PATHINFO_EXTENSION));
-    $image3FileType = strtolower(pathinfo($_FILES["image3"]["name"], PATHINFO_EXTENSION));
-
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Vérifier si les images sont envoyées
     if (
-        in_array($image1FileType, $allowedFormats) &&
-        in_array($image2FileType, $allowedFormats) &&
-        in_array($image3FileType, $allowedFormats)
+        isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name']) &&
+        isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name']) &&
+        isset($_FILES['image3']['name']) && !empty($_FILES['image3']['name'])
     ) {
-        // Déplacer les images téléchargées vers le dossier approprié
-        $targetDir = "../images/carousel/";
-        // Créer le dossier s'il n'existe pas
-        if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0755, true);
+        // Récupérer les noms temporaires des fichiers images
+        $tmpImage1 = $_FILES["image1"]["tmp_name"];
+        $tmpImage2 = $_FILES["image2"]["tmp_name"];
+        $tmpImage3 = $_FILES["image3"]["tmp_name"];
+
+        // Définir les emplacements et les noms de fichiers finaux des images
+        $location = "https://mjfilrouge.azurewebsites.net/views/images/carousel/";
+        $image1 = $location . basename($_FILES["image1"]["name"]);
+        $image2 = $location . basename($_FILES["image2"]["name"]);
+        $image3 = $location . basename($_FILES["image3"]["name"]);
+
+        // Vérifier les formats d'image autorisés
+        $allowedFormats = array("jpg", "jpeg", "png", "gif");
+        $image1FileType = strtolower(pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION));
+        $image2FileType = strtolower(pathinfo($_FILES["image2"]["name"], PATHINFO_EXTENSION));
+        $image3FileType = strtolower(pathinfo($_FILES["image3"]["name"], PATHINFO_EXTENSION));
+
+        if (
+            in_array($image1FileType, $allowedFormats) &&
+            in_array($image2FileType, $allowedFormats) &&
+            in_array($image3FileType, $allowedFormats)
+        ) {
+            // Déplacer les images téléchargées vers le dossier approprié
+            $targetDir = "../images/carousel/";
+            // Créer le dossier s'il n'existe pas
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0755, true);
+            }
+
+            $targetFile1 = $targetDir . basename($_FILES["image1"]["name"]);
+            $targetFile2 = $targetDir . basename($_FILES["image2"]["name"]);
+            $targetFile3 = $targetDir . basename($_FILES["image3"]["name"]);
+
+            // Déplacer les images téléchargées vers le dossier cible
+            move_uploaded_file($tmpImage1, $targetFile1);
+            move_uploaded_file($tmpImage2, $targetFile2);
+            move_uploaded_file($tmpImage3, $targetFile3);
+
+            // Insérer les noms des images dans la base de données
+            $sql = "INSERT INTO carousel (image1, image2, image3) VALUES (?, ?, ?)";
+            $params = array($image1, $image2, $image3);
+
+            try {
+                $stmt = $conn->prepare($sql);
+                $stmt->execute($params);
+                echo "Les images du carrousel ont été insérées avec succès.";
+            } catch (PDOException $e) {
+                // Afficher l'erreur SQL
+                echo "Erreur SQL : " . $e->getMessage() . "<br>";
+                echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
+                echo "Informations complémentaires : ";
+                print_r($stmt->errorInfo());
+                die();
+            }
+        } else {
+            echo "Formats d'image autorisés : JPG, JPEG, PNG, GIF uniquement.";
         }
-
-        $targetFile1 = $targetDir . basename($_FILES["image1"]["name"]);
-        $targetFile2 = $targetDir . basename($_FILES["image2"]["name"]);
-        $targetFile3 = $targetDir . basename($_FILES["image3"]["name"]);
-
-        // Déplacer les images téléchargées vers le dossier cible
-        move_uploaded_file($tmpImage1, $targetFile1);
-        move_uploaded_file($tmpImage2, $targetFile2);
-        move_uploaded_file($tmpImage3, $targetFile3);
-
-        // Insérer les noms des images dans la base de données
-        $sql = "INSERT INTO carousel (image1, image2, image3) VALUES (?, ?, ?)";
-        $params = array($image1, $image2, $image3);
-
-        try {
-            $stmt = $conn->prepare($sql);
-            $stmt->execute($params);
-            echo "Les images du carrousel ont été insérées avec succès.";
-        } catch (PDOException $e) {
-            // Afficher l'erreur SQL
-            echo "Erreur SQL : " . $e->getMessage() . "<br>";
-            echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
-            echo "Informations complémentaires : ";
-            print_r($stmt->errorInfo());
-            die();
-        }
-    } else {
-        echo "Formats d'image autorisés : JPG, JPEG, PNG, GIF uniquement.";
     }
 }
 
@@ -114,13 +116,13 @@ require_once "header.php";
 
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
             <label for="image1">Image 1</label>
-            <input type="file" id="image1" name="image1" required>
+            <input type="file" id="image1" name="image1">
 
             <label for="image2">Image 2</label>
-            <input type="file" id="image2" name="image2" required>
+            <input type="file" id="image2" name="image2">
 
             <label for="image3">Image 3</label>
-            <input type="file" id="image3" name="image3" required>
+            <input type="file" id="image3" name="image3">
 
             <input type="submit" class="change-images-button" value="Changer les images">
         </form>

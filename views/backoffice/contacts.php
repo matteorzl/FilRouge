@@ -19,6 +19,8 @@ if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
 $sql = "SELECT * FROM contacts";
 $stmt = $conn->query($sql);
 $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+require_once "header.php";
 ?>
 
 <!DOCTYPE html>

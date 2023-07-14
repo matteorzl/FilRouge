@@ -50,7 +50,7 @@
                 if ($payQuery->execute([$user_id, $card_name, $card_number, date('Y-m-d', strtotime('28 ' . date('M Y', strtotime($dateString)))) , $cvv])){
                     $paymentId = $conn->lastinsertId();
 
-                    $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, rising, payment_method, [status]) 
+                    $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, date_order, date_billing,rising, payment_method, [status]) 
                     VALUES (?, ?, ?, ?, ?, ?, ?)");
                     $orderQuery->execute([$user_id, $deliveryId, $billingId, $paymentId, $total,'carte bleu','En preparation']);
                     $orderId = $conn->lastinsertId();

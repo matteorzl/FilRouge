@@ -3,6 +3,9 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+require_once "../database.php";
+
 // Vérifier si les images sont envoyées
 if (
     !empty($_FILES['image1']['name']) &&
@@ -22,9 +25,9 @@ if (
 
     // Vérifier les formats d'image autorisés
     $allowedFormats = array("jpg", "jpeg", "png", "gif");
-    $image1FileType = strtolower(pathinfo($tmpImage1, PATHINFO_EXTENSION));
-    $image2FileType = strtolower(pathinfo($tmpImage2, PATHINFO_EXTENSION));
-    $image3FileType = strtolower(pathinfo($tmpImage3, PATHINFO_EXTENSION));
+    $image1FileType = strtolower(pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION));
+    $image2FileType = strtolower(pathinfo($_FILES["image2"]["name"], PATHINFO_EXTENSION));
+    $image3FileType = strtolower(pathinfo($_FILES["image3"]["name"], PATHINFO_EXTENSION));
 
     if (
         in_array($image1FileType, $allowedFormats) &&
@@ -68,14 +71,12 @@ if (
     }
 }
 
-session_start();
 if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     header('Location: ../login.php');
     exit();
 }
 
 require_once "header.php";
-require_once "../database.php";
 ?>
 
 <!DOCTYPE html>

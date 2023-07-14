@@ -24,7 +24,7 @@ input{
     border:2px solid #4F6D92;
     border-radius: 5px;
     margin: 3px;
-    min-height: 25%;
+    min-height: 10em;
     resize: none;
 }
 

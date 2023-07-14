@@ -83,8 +83,8 @@ require_once "header.php";
 
             <label for="role">Rôle</label>
             <select name="role" id="role">
-                <option value="0" <?php if ($user['role'] == 0) echo "selected"; ?>>Utilisateur</option>
-                <option value="1" <?php if ($user['role'] == 1) echo "selected"; ?>>Administrateur</option>
+                <option value="0" <?php echo "selected"; ?>>Utilisateur</option>
+                <option value="1" <?php echo "selected"; ?>>Administrateur</option>
             </select>
 
             <input type="submit" class="createbutton" value="Modifier utilisateur">

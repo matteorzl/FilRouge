@@ -146,6 +146,7 @@ h1{
     border: 0.2em solid #4F6D92;
     border-radius:1em;
     align-items: center;
+    justify-content: space-between;
 }
 .produit{
     width: 100%;
@@ -160,3 +161,9 @@ h1{
     height: 280px;
 }
 
+.nom_prod{
+    border-bottom:0.2em solid #4F6D92;
+}
+.prix_prod{
+    border-top: 0.2em solid #4F6D92;
+}

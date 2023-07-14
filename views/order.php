@@ -42,7 +42,7 @@
                         <p><?= $row['date_delivery'] ?></p>
                     </div>
                     <div class="quantite_prix">
-                        <h4><?= $row['status'] ?>€</h4>
+                        <h4><?= $row['status'] ?></h4>
                         <p>Cliquer pour afficher les details</p>
                     </div>
                 </button>

@@ -63,7 +63,7 @@
             $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($categories as $row) {?>
-                        <div class="column_img">
+                        <div class="column">
                             <img src="<?php echo $row['image']; ?>" width="150" class="img_category">
                             <h4><?=$row['name']?></h4>
                         </div>

@@ -66,7 +66,7 @@
                         $quantity = $_SESSION["cart"][$product["product_id"]];
                         $order_product = $conn->prepare("INSERT INTO [orders-product] (order_id, product_id, price, quantity)
                                                           VALUES ( ?, ?, ?, ?)");
-                        $order_product->execute([$order_id, $product_id, $price, $quantity])
+                        $order_product->execute([$order_id, $product_id, $price, $quantity]);
                     }
 
                     echo "Votre paiement a été accepté";

@@ -139,6 +139,14 @@ h1{
     display: flex;
     margin: 10px;
 }
+.button_liste{
+	display:flex;
+    flex-direction: column;
+	background-color: #6d8bb05e;
+    border: 0.2em solid #4F6D92;
+    border-radius:1em;
+    align-items: center;
+}
 .produit{
     width: 100%;
     border: 5px solid;

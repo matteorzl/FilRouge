@@ -31,6 +31,13 @@ if (!empty($categoryFilter)) {
     $params['category'] = $categoryFilter;
 }
 
+if (!empty($minPrice)) {
+    $params['min_price'] = $minPrice;
+}
+if (!empty($maxPrice)) {
+    $params['max_price'] = $maxPrice;
+}
+
 // Exécuter la requête avec les paramètres de filtrage
 $stmtProducts = $conn->prepare($sqlProducts);
 $stmtProducts->execute($params);

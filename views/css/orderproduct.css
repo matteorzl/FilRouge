@@ -6,7 +6,9 @@
     border-radius:1em;
     flex-direction:row;
     align-items: center;
-    width:80%;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .quantite_prix{
 	display:grid;

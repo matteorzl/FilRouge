@@ -55,6 +55,11 @@ div.text-index {
 }
 
 img.w3-image {
-    width: 50%;
+    width: 100%;
 }
 
+.articlecarousel {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

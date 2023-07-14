@@ -21,7 +21,7 @@
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     </head>
     <body>
-        <article>
+        <article class=articlecarousel>
         <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": 5000, "imagesLoaded":true, "freeScroll":true}'>
             <?php
             $stmtCarousel = $conn->query("SELECT image1, image2, image3 FROM carousel");
@@ -53,15 +53,6 @@
             <h2>VENANT DES HAUTES TERRES D'ÉCOSSE NOS MEUBLES SONT IMMORTELS<h2>
         </div>
         <div class="row">
-            <div class="column">
-                <img src="images/category/chair.jpg" alt="Chair" style="width:100%">
-            </div>
-            <div class="column">
-                <img src="images/category/desk.jpg" alt="Desk" style="width:100%">
-            </div>
-            <div class="column">
-                <img src="images/category/table.jpg" alt="Table" style="width:100%">
-            </div>
             <?php
               // Préparer la requête SQL
             $sqlCategories = "SELECT * FROM categories"; // Condition de départ
@@ -72,10 +63,8 @@
             $categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($categories as $row) {?>
-                        <div class="category_img">
+                        <div class="column_img">
                             <img src="<?php echo $row['image']; ?>" width="150" class="img_category">
-                        </div>
-                           <div class="info_category">
                             <h4><?=$row['name']?></h4>
                         </div>
             <?php 

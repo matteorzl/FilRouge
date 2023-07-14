@@ -55,7 +55,7 @@ require_once "header.php";
 <div class="text-index">
     <h2>VENANT DES HAUTES TERRES D'ÉCOSSE NOS MEUBLES SONT IMMORTELS<h2>
 </div>
-<div class="row">
+<div class="category-grid">
     <?php foreach ($categories as $row) { ?>
         <div class="column">
             <a href="liste-produits.php?category=<?php echo $row['category_id']; ?>" class="category-link">

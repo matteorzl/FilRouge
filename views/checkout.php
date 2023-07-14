@@ -30,7 +30,7 @@
         $cvv = $_POST["cvv"];
         $total = $_SESSION["total"]["total"];
         $dateOrder = date('Y-m-d'); // Date d'aujourd'hui
-        $dateBilling = date('Y-m-d', strtotime('+15 days')); // Date dans 15 jours
+        $dateDelivery = date('Y-m-d', strtotime('+15 days')); // Date dans 15 jours
     
         // Préparation des requêtes préparées pour éviter les injections SQL
     
@@ -52,9 +52,9 @@
                 if ($payQuery->execute([$user_id, $card_name, $card_number, date('Y-m-d', strtotime('28 ' . date('M Y', strtotime($dateString)))) , $cvv])){
                     $paymentId = $conn->lastinsertId();
 
-                    $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, date_order, date_billing,rising, payment_method, [status]) 
+                    $orderQuery = $conn->prepare("INSERT INTO orders (user_id, delivery_id, billing_id, payment_id, date_order, dateDelivery, rising, payment_method, [status]) 
                     VALUES (?, ?, ?, ?, ?, ?, ?)");
-                    $orderQuery->execute([$user_id, $deliveryId, $billingId, $paymentId, $dateOrder, $dateBilling, $total,'carte bleu','En preparation']);
+                    $orderQuery->execute([$user_id, $deliveryId, $billingId, $paymentId, $dateOrder, $dateDelivery, $total,'carte bleu','En preparation']);
                     $orderId = $conn->lastinsertId();
 
                     $ids = array_keys($_SESSION["cart"]);

@@ -10,6 +10,8 @@ if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
 
 require_once "../database.php";
 
+$id = $_GET["id"];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["role"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["role"])) {
         $id = $_GET["id"];
@@ -56,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$id = $_GET["id"];
 $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = :id");
 $stmt->bindParam(":id", $id);
 $stmt->execute();

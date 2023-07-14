@@ -128,6 +128,12 @@
                   <li><a href="carousel.php" class="nav-link px-2 text-light">Carrousel</a></li>
                 <?php endif;?>
 
+                <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/contacts.php"):?>
+                  <li><a href="contacts.php" class="nav-link px-2 text-dark">Contacts</a></li>
+                <?php else:?>
+                  <li><a href="contacts.php" class="nav-link px-2 text-light">Contacts</a></li>
+                <?php endif;?>
+
                 <?php if(($_SERVER['PHP_SELF']) == "/views/backoffice/users.php"):?>
                   <li><a href="users.php" class="nav-link px-2 text-dark">Utilisateur</a></li>
                 <?php else:?>

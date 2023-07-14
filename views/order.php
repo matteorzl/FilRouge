@@ -16,10 +16,6 @@
     $stmtorder = $conn->query($sqlorder);
     $order = $stmtorder->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupérer les matériaux depuis la table "delivery"
-    $deliveryId = $order["delivery_id"];
-    $deliveryaddress = $conn->query("SELECT address_1 FROM deliveries WHERE delivery_id = $deliveryId");
-
     require_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -30,7 +26,10 @@
     </head>
     <body>
         <?php
-            foreach ($order as $row) {?>
+            foreach ($order as $row) {
+                $deliveryId = $row["delivery_id"];
+                $deliveryaddress = $conn->query("SELECT address_1 FROM deliveries WHERE delivery_id = $deliveryId");
+                ?>
             <form method="post" action="orderproduct.php?id=<?=$row['order_id']?>" class="form_list_prod">
                 <button type="submit" class="button_liste">
                     <div class="produit_img">

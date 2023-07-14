@@ -22,17 +22,32 @@
     </head>
     <body>
         <article>
-            <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": 5000, "imagesLoaded":true, "freeScroll":true}'>
-                <div class="carousel-cell">
-                    <img class="w3-image" src="https://smash-images.photobox.com/original/5f04c1b41fd48d1b10ff27dfc90548bf13608845_Large-Print-lifestyle-3_1-2600.jpg">
-                </div>
-                <div class="carousel-cell">
-                    <img class="w3-image" src="https://smash-images.photobox.com/original/bca8e5fa7862a2cfaefc300c5b572e7a6dc6f3f3_Standard-Prints-lifestyle-3_1-2600.jpg">
-                </div>
-                <div class="carousel-cell">
-                    <img class="w3-image" src="https://smash-images.photobox.com/original/a422aed1a721e933961b19ea9e47e07fc71e0699_Acrylic-Prints-lifestyle-3_1-2600.jpg">
-                </div>
-            </div>
+        <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": 5000, "imagesLoaded":true, "freeScroll":true}'>
+            <?php
+            $stmtCarousel = $conn->query("SELECT image1, image2, image3 FROM carousel");
+            $rowCarousel = $stmtCarousel->fetch();
+
+            if ($rowCarousel) {
+                $image1 = $rowCarousel['image1'];
+                $image2 = $rowCarousel['image2'];
+                $image3 = $rowCarousel['image3'];
+
+                echo '<div class="carousel-cell">';
+                echo '<img class="w3-image" src="' . $image1 . '">';
+                echo '</div>';
+
+                echo '<div class="carousel-cell">';
+                echo '<img class="w3-image" src="' . $image2 . '">';
+                echo '</div>';
+
+                echo '<div class="carousel-cell">';
+                echo '<img class="w3-image" src="' . $image3 . '">';
+                echo '</div>';
+            } else {
+                echo "Aucune image trouvée dans le carrousel.";
+            }
+            ?>
+        </div>
         </article>
         <div class="text-index">
             <h2>VENANT DES HAUTES TERRES D'ÉCOSSE NOS MEUBLES SONT IMMORTELS<h2>

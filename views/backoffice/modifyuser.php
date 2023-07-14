@@ -1,20 +1,16 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
+if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
     header('Location: ../login.php');
     exit();
 }
 
 require_once "../database.php";
 
-$id = $_GET["id"];
+$id = $_GET["id"]; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["role"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["role"])) {
-        $id = $_GET["id"];
         $lastname = $_POST["lastname"];
         $firstname = $_POST["firstname"];
         $mail = $_POST["mail"];
@@ -34,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Mettre à jour les informations de l'utilisateur
-        $sqlUpdateUser = "UPDATE users SET lastname = :lastname, firstname = :firstname, mail = :mail, role = :role WHERE user_id = :id";
+        $sqlUpdateUser = "UPDATE users SET lastname = :lastname, firstname = :firstname, mail = :mail, [role] = :[role] WHERE user_id = :id";
         $stmtUpdateUser = $conn->prepare($sqlUpdateUser);
         $stmtUpdateUser->bindParam(":lastname", $lastname);
         $stmtUpdateUser->bindParam(":firstname", $firstname);

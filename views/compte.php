@@ -35,13 +35,21 @@
                 <div class="adresses">
                     <h> Adresse de livraison : </h>
                     <select class="livraison">
+                        <?php if (!empty($deliveries)): ?>
                             <option><?php echo $deliveries[0]['address_1']; ?></option>
                             <option><?php echo $deliveries[0]['address_2']; ?></option>
+                        <?php else: ?>
+                            <option>Aucune adresse de livraison trouvée.</option>
+                        <?php endif; ?>
                     </select>
                     <h> Adresse de facturation : </h>
                     <select class="facturation">
-                        <option><?php echo $billings["address_1"]; ?></option>
-                        <option><?php echo $billings["address_2"]; ?></option>
+                        <?php if (!empty($billings)): ?>
+                            <option><?php echo $billings[0]['address_1']; ?></option>
+                            <option><?php echo $billings[0]['address_2']; ?></option>
+                        <?php else: ?>
+                            <option>Aucune adresse de facturation trouvée.</option>
+                        <?php endif; ?>
                     </select>
                 </div>
                 <div class="methode_paiement">

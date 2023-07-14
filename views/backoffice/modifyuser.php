@@ -1,97 +1,109 @@
 <?php
 session_start();
-if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
+if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
     header('Location: ../login.php');
     exit();
 }
 
 require_once "../database.php";
 
-$id = $_GET["id"]; 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["role"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["role"])) {
+    if (isset($_POST["user_id"], $_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["pwd"], $_POST["role"])
+     && !empty($_POST["user_id"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["pwd"]) && !empty($_POST["role"])) {
+        
+        $user_id = $_POST["user_id"];
         $lastname = $_POST["lastname"];
         $firstname = $_POST["firstname"];
         $mail = $_POST["mail"];
+        $pwd = $_POST["pwd"];
         $role = $_POST["role"];
-
-        // Vérifier si l'adresse e-mail existe déjà pour un autre utilisateur
-        $sqlCheckEmail = "SELECT user_id FROM users WHERE mail = :mail AND user_id != :id";
-        $stmtCheckEmail = $conn->prepare($sqlCheckEmail);
-        $stmtCheckEmail->bindParam(":mail", $mail);
-        $stmtCheckEmail->bindParam(":id", $id);
-        $stmtCheckEmail->execute();
-
-        if ($stmtCheckEmail->rowCount() > 0) {
-            $_SESSION["error_message"] = "Cette adresse mail est déjà utilisée par un autre utilisateur";
-            header("Location: modifyuser.php?id=$id");
+        
+        // On vérifie si un compte existe déjà avec l'adresse e-mail fournie (autre que l'utilisateur en cours de modification)
+        $sql = "SELECT COUNT(*) FROM users WHERE mail = ? AND user_id != ?";
+        $params = array($mail, $user_id);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
+        $count = $stmt->fetchColumn();
+        
+        if ($count > 0) {
+            // L'adresse e-mail existe déjà pour un autre utilisateur
+            $_SESSION['error_message'] = "Cette adresse e-mail est déjà utilisée";
+            header('Location: users.php');
             exit();
         }
-
-        // Mettre à jour les informations de l'utilisateur
-        $sqlUpdateUser = "UPDATE users SET lastname = :lastname, firstname = :firstname, mail = :mail, [role] = :[role] WHERE user_id = :id";
-        $stmtUpdateUser = $conn->prepare($sqlUpdateUser);
-        $stmtUpdateUser->bindParam(":lastname", $lastname);
-        $stmtUpdateUser->bindParam(":firstname", $firstname);
-        $stmtUpdateUser->bindParam(":mail", $mail);
-        $stmtUpdateUser->bindParam(":role", $role);
-        $stmtUpdateUser->bindParam(":id", $id);
-
-        if ($stmtUpdateUser->execute()) {
-            $_SESSION["success_message"] = "Utilisateur mis à jour avec succès";
-            header("Location: users.php");
+        
+        // Hash du mot de passe
+        $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
+        
+        $sql = "UPDATE users SET lastname = ?, firstname = ?, mail = ?, pwd = ?, role = ? WHERE user_id = ?";
+        $params = array($lastname, $firstname, $mail, $hashedpwd, $role, $user_id);
+        
+        try {
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($params);
+            header('Location: users.php');
             exit();
-        } else {
-            $_SESSION["error_message"] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur";
-            header("Location: modifyuser.php?id=$id");
-            exit();
+        } catch (PDOException $e) {
+            die("Erreur lors de la modification de l'utilisateur : " . $e->getMessage());
         }
     } else {
-        $_SESSION["error_message"] = "Toutes les informations ne sont pas remplies";
-        header("Location: modifyuser.php?id=$id");
-        exit();
+        echo "<script>alert(\"Toutes les informations ne sont pas remplies\")</script>";
     }
 }
 
-$stmt = $conn->prepare("SELECT * FROM users WHERE user_id = :id");
-$stmt->bindParam(":id", $id);
-$stmt->execute();
-$user = $stmt->fetch();
-
 require_once "header.php";
+
+// Vérifier si un ID d'utilisateur est passé en paramètre
+if (isset($_GET["id"])) {
+    $user_id = $_GET["id"];
+    
+    $sql = "SELECT * FROM users WHERE user_id = ?";
+    $params = array($user_id);
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($params);
+    $user = $stmt->fetch();
+} else {
+    // Rediriger vers la liste des utilisateurs si aucun ID n'est spécifié
+    header('Location: users.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/createuser.css">
+    <link rel="stylesheet" href="css/modifyuser.css">
 </head>
 <body>
-    <div class="createuser">
-        <h1 class="titleCreateUser">Modifier Utilisateur</h1>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] . "?id=$id"; ?>">
+    <div class="modifyuser">
+        <h1 class="titleModifyUser">Modifier Utilisateur</h1>
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+            <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+            
             <label for="lastname">Nom</label>
-            <input type="text" id="lastname" name="lastname" required value="<?php echo $user['lastname']; ?>">
-
+            <input type="text" id="lastname" name="lastname" value="<?php echo $user['lastname']; ?>" required>
+            
             <label for="firstname">Prénom</label>
-            <input type="text" id="firstname" name="firstname" required value="<?php echo $user['firstname']; ?>">
-
+            <input type="text" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>" required>
+            
             <label for="mail">Email</label>
-            <input type="email" id="mail" name="mail" required value="<?php echo $user['mail']; ?>">
-
+            <input type="email" id="mail" name="mail" value="<?php echo $user['mail']; ?>" required>
+            
+            <label for="pwd">Mot de passe</label>
+            <input type="password" id="pwd" name="pwd" required>
+            
             <label for="role">Rôle</label>
             <select name="role" id="role">
-                <option value="0" <?php echo "selected"; ?>>Utilisateur</option>
-                <option value="1" <?php echo "selected"; ?>>Administrateur</option>
+                <option value="0" <?php if ($user['role'] == 0) echo 'selected'; ?>>Utilisateur</option>
+                <option value="1" <?php if ($user['role'] == 1) echo 'selected'; ?>>Administrateur</option>
             </select>
-
-            <input type="submit" class="createbutton" value="Modifier utilisateur">
+            
+            <input type="submit" class="modifybutton" value="Modifier utilisateur">
         </form>
    </div>
 </body>
 <footer>
-    <?php require "footer.php"; ?>
+    <?php require "footer.php" ?>
 </footer>
 </html>

@@ -47,7 +47,7 @@
             </div>
             <div class="info_commandes">
                 <div class="commandes">
-                    <button class="button">Vos commandes</button>
+                    <button class="button" type="button" onclick="window.location.href='order.php?id=<?php echo $id ?>'">Modifier mes informations</button>
                 </div>
                 <div class="button_log">
                     <?php if(!isset($_SESSION["users"])):?>

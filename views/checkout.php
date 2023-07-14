@@ -1,7 +1,4 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     session_start();
     if(!isset($_SESSION["users"])){
     header('Location: login.php');
@@ -72,6 +69,7 @@
                     }
 
                     echo "Votre paiement a été accepté";
+                    unset($_SESSION["cart"]);
                 }else {
                     echo "Une erreur s'est produite lors de l'insertion des données : ";
             }

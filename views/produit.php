@@ -81,18 +81,22 @@
 
                     while ($product_similar = $stmt->fetch()) {
                         ?> 
-                    <div class="produit">
-                        <div class="nom_prod"><?php echo $product_similar['name'] ?></div>
-                        <div class="img_prod"><img class="w3-image" src="<?php echo $product_similar['image1']; ?>"></div>
-                        <div class="prix_prod"><?php echo $product_similar['price'] ?></div>
-                    </div>
-                    <?php
-                            $counter++;
+                    <form method="post" action="produit.php?id=<?=$product_similar['product_id']?>" class="form_list_prod">
+                        <button type="submit" class="button_liste">
+                            <div class="produit">
+                                <div class="nom_prod"><?php echo $product_similar['name'] ?></div>
+                                <div class="img_prod"><img class="w3-image" src="<?php echo $product_similar['image1']; ?>" width="260px"></div>
+                                <div class="prix_prod"><?php echo $product_similar['price'] ?></div>
+                            </div>
+                        </button>
+                    </form>
+                            <?php
+                                    $counter++;
 
-                            if ($counter > 3) {
-                                break; // Sortir de la boucle après avoir affiché 3 produits
-                            }
-                    }?>
+                                    if ($counter > 3) {
+                                        break; // Sortir de la boucle après avoir affiché 3 produits
+                                    }
+                            }?>
                 </div>
             </div>
         </article>

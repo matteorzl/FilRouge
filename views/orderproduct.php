@@ -37,7 +37,7 @@
                 <h4><?php echo $product['name']; ?></h4>
             </div>
             <div class="quantite_prix">
-                <h4><?php echo $row['price']; ?>€</h4>
+                <h4><?php echo $row['rising']; ?>€</h4>
                 <p><?php echo $row['quantity']; ?></p>
             </div>
         </div>

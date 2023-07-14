@@ -133,8 +133,6 @@ h1{
 .produits_similaires{
     text-shadow:1px 1px 2px #4F6D92;
     background-color: #6d8bb05e;
-    display: grid;
-    grid-template-rows: 20% 80%;
     border: 4px solid;
     border-color: #4F6D92;
     margin : 10px;

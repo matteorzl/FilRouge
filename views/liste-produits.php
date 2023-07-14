@@ -17,6 +17,10 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_ASSOC);
 // Récupérer le paramètre de filtrage de catégorie depuis l'URL
 $categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
 
+// Récupérer le paramètre de filtrage de prix min et max depuis l'URL
+$minPrice = isset($_GET['min_price']) ? $_GET['min_price'] : '';
+$maxPrice = isset($_GET['max_price']) ? $_GET['max_price'] : '';
+
 // Préparer la requête SQL
 $sqlProducts = "SELECT p.* FROM products p WHERE 1=1"; // Condition de départ
 
@@ -32,9 +36,11 @@ if (!empty($categoryFilter)) {
 }
 
 if (!empty($minPrice)) {
+    $sqlProducts .= " AND price >= :min_price";
     $params['min_price'] = $minPrice;
 }
 if (!empty($maxPrice)) {
+    $sqlProducts .= " AND price <= :max_price";
     $params['max_price'] = $maxPrice;
 }
 

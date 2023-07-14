@@ -85,7 +85,7 @@
                         <button type="submit" class="button_liste">
                             <div class="produit">
                                 <div class="nom_prod"><?php echo $product_similar['name'] ?></div>
-                                <div class="img_prod"><img class="w3-image" src="<?php echo $product_similar['image1']; ?>" width="200px"></div>
+                                <div class="img_prod"><img class="w3-image" src="<?php echo $product_similar['image1']; ?>" width="150px"></div>
                                 <div class="prix_prod"><?php echo $product_similar['price'] ?></div>
                             </div>
                         </button>

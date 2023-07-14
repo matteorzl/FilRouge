@@ -63,8 +63,17 @@ if (
         echo "Formats d'image autorisés : JPG, JPEG, PNG, GIF uniquement.";
     }
 }
+
+session_start();
+if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
+    header('Location: ../login.php');
+    exit();
+}
+
 require_once "header.php";
+require_once "../database.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
@@ -76,9 +85,40 @@ require_once "header.php";
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     </head>
     <body>
-        <img src="<?php echo $image1; ?>" alt="Image 1">
-        <img src="<?php echo $image2; ?>" alt="Image 2">
-        <img src="<?php echo $image3; ?>" alt="Image 3">
+        <div class="carousel-images">
+            <?php
+            // Récupérer les images du carrousel depuis la base de données
+            $stmt = $conn->query("SELECT image1, image2, image3 FROM carousel");
+            $row = $stmt->fetch();
+
+            // Vérifier si les images existent dans la base de données
+            if ($row) {
+                $image1 = $row['image1'];
+                $image2 = $row['image2'];
+                $image3 = $row['image3'];
+
+                // Afficher les images du carrousel avec le code HTML
+                echo '<img src="' . $image1 . '" alt="Image 1">';
+                echo '<img src="' . $image2 . '" alt="Image 2">';
+                echo '<img src="' . $image3 . '" alt="Image 3">';
+            } else {
+                echo "Aucune image trouvée dans le carrousel.";
+            }
+            ?>
+        </div>
+
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
+            <label for="image1">Image 1</label>
+            <input type="file" id="image1" name="image1" required>
+
+            <label for="image2">Image 2</label>
+            <input type="file" id="image2" name="image2" required>
+
+            <label for="image3">Image 3</label>
+            <input type="file" id="image3" name="image3" required>
+
+            <input type="submit" class="change-images-button" value="Changer les images">
+        </form>
     </body>
     <footer>
         <?php require "footer.php" ?>

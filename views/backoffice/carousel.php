@@ -63,6 +63,7 @@ if (
         echo "Formats d'image autorisés : JPG, JPEG, PNG, GIF uniquement.";
     }
 }
+require_once "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

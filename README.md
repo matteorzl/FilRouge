@@ -7,11 +7,11 @@ Aujourd’hui nous souhaitons créer notre propre solution e-commerce pour attei
 Le livrable ﬁnal demandé est un site d’e-commerce et un backofﬁce web pour manager le contenu, le tout avec un système de paiement sécurisé et maintenable sur le temps.
 
 ## Sitemap
-LOREM
-## Layout
-LOREM
+![Sitemap](/img/sitemap.png)
+
 ## Page : Accueil
-LOREM
+![Accueil](/img/accueil.png)
+
 ## Page : Catégorie
 LOREM
 ## Page : Produit

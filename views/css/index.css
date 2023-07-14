@@ -73,6 +73,10 @@ div.image-text {
     color: white;
 }
 
+div.column {
+    padding-bottom: 5rem;
+}
+
 @media screen and (max-width: 768px) {
     div.category-grid {
         grid-template-columns: repeat(2, 1fr);

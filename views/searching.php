@@ -4,6 +4,7 @@ session_start();
 require_once "database.php";
 // Récupérer la requête de recherche entrée par l'utilisateur
 $searchQuery = $_GET['q'];
+require_once "header.php";
 
 try {
 
@@ -22,7 +23,7 @@ try {
             <form method="post" action="produit.php?id=<?=$row['product_id']?>" class="form_list_prod">
                 <button type="submit" class="button_liste">
                     <div class="produit_img">
-                        <img src="<?php echo $row['image']; ?>" width="150" class="img_produit">
+                        <img src="<?php echo $row['image1']; ?>" width="150" class="img_produit">
                     </div>
                        <div class="info_produit">
                         <h4><?=$row['name']?></h4>
@@ -49,6 +50,5 @@ try {
     // Fermer la connexion à la base de données
     $conn = null;
 }
-require_once "header.php";
 require "footer.php";
 ?>

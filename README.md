@@ -13,50 +13,67 @@ Le livrable ﬁnal demandé est un site d’e-commerce et un backofﬁce web pou
 ![Accueil](/img/accueil.png)
 
 ## Page : Catégorie
-LOREM
+![Category](/img/category.png)
+
 ## Page : Produit
-LOREM
+![Produit](/img/produit.png)
+
 ## Page : Recherche
-LOREM
+![Recherche](/img/recherche.png)
+
+## Page : Panier Vide
+![Panier Vide](/img/paniervide.png)
+
 ## Page : Panier
-LOREM
+![Panier](/img/panier.png)
+
 ## Page : Checkout
-LOREM
+![Checkout](/img/checkout.png)
+
 ## Page : Inscription
-LOREM
+![Inscription](/img/inscription.png)
+
 ## Page : Connexion
-LOREM
+![Connexion](/img/connexion.png)
+
 ## Page : Paramètres du compte
-LOREM
+![ParametreCompte](/img/parametrecompte.png)
+
 ## Page : Mes commandes
-LOREM
+![MesCommandes](/img/mescommandes.png)
+
 ## Page : Commande
-LOREM
+![Commande](/img/commande.png)
+
 ## Page : Contact
-LOREM
+![Contact](/img/contact.png)
+
 ## Backoffice
-LOREM
-## Divers
-### Pagination
-LOREM
-### Menu
-LOREM
-#### Connecté
-LOREM
-#### Non-Connecté
-LOREM
-### Design System
-LOREM
-### i18n
-LOREM
-### a11y
-LOREM
-### Sécurité
-LOREM
-### Choix techniques
-LOREM
-## Livrables & délai
-LOREM
-## Processus de réalisation
-LOREM
-LOREM
+### Accueil
+![Dashboard](/img/dashboard.png)
+
+### Catégorie
+![Categories](/img/categories.png)
+
+### Matériau
+![Materials](/img/materials.png)
+
+### Produits
+![Products](/img/products.png)
+
+### Carrousel
+![Carrousel](/img/carousel.png)
+
+### Contacts
+![Contacts](/img/contacts.png)
+
+### Utilisateur
+![Utilisateurs](/img/users.png)
+
+## Choix techniques
+![VS Code](/img/vscode.png)
+![Live Share](/img/liveshare.png)
+![Github](/img/github.png)
+![Azure App Service](/img/appservice.png)
+![Azure SQL](/img/sql.png)
+![Azure Data Studio](/img/datastudio.png)

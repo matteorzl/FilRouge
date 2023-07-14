@@ -51,7 +51,7 @@ if (
         move_uploaded_file($tmpImage3, $targetFile3);
 
         // Insérer les noms des images dans la base de données
-        $sql = "UPDATE carousel SET image1 = ?, image2 = ?, image3 = ?";
+        $sql = "INSERT INTO carousel (image1, image2, image3) VALUES (?, ?, ?)";
         $params = array($image1, $image2, $image3);
 
         try {

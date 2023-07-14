@@ -48,7 +48,7 @@
         ?>
         <div class="rising">
             <div class="total">
-                <h4><?php echo $totalPrice; ?>€</h4>
+                <h4>Total <?php echo $totalPrice; ?>€</h4>
             </div>
         </div>
     </body>

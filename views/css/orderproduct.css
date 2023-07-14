@@ -1,0 +1,41 @@
+.form_list_prod{
+	float: right;
+    width:80%;
+    margin:1em;
+    overflow: visible;
+}
+.button_liste{
+	display:flex;
+	background-color: #6d8bb05e;
+    border: 0.2em solid #4F6D92;
+    border-radius:1em;
+    flex-direction:row;
+    align-items: center;
+    width:80%;
+}
+
+.info_produit{
+    position:relative;
+    display: grid;
+    grid-template-rows: 20% 15% 65%;
+    align-items:center;
+    width: 80%;
+    text-align: start;
+    border-right:0.1em solid #4F6D92;
+    margin-top: 0.5em;
+    margin-left: 0.2em;
+}
+.quantite_prix{
+	display:grid;
+    grid-template-rows: 80% 20%;
+    align-items: center;
+    text-align: center;
+}
+h4{
+    font-weight: bold;
+}
+.img_produit{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+}

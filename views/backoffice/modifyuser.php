@@ -91,7 +91,7 @@ if (isset($_GET["id"])) {
             <input type="email" id="mail" name="mail" value="<?php echo $user['mail']; ?>" required>
             
             <label for="pwd">Mot de passe</label>
-            <input type="password" id="pwd" name="pwd" required>
+            <input type="password" id="pwd" name="pwd">
             
             <label for="role">Rôle</label>
             <select name="role" id="role">

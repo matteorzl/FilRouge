@@ -5,21 +5,17 @@
     session_start();
     require_once "database.php";
 
-    $user_id = $_GET["id"];
+    $order_id = $_GET["id"];
 
     if($_SESSION["users"]["user_id"] !== $user_id){
         header('Location: compte.php');
     }
 
     // Récupérer les catégories depuis la table "order"
-    $sqlorder = "SELECT * FROM orders WHERE user_id = $user_id";
+    $sqlorder = "SELECT * FROM [orders-product] WHERE order_id = $order_id";
     $stmtorder = $conn->query($sqlorder);
     $order = $stmtorder->fetchAll(PDO::FETCH_ASSOC);
-
-    // Récupérer les matériaux depuis la table "delivery"
-    $deliveryId = $order["delivery_id"];
-    $deliveryaddress = $conn->query("SELECT address_1 FROM deliveries WHERE delivery_id = $deliveryId");
-
+    
     require_once "header.php";
 ?>
 <!DOCTYPE html>

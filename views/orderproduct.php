@@ -15,7 +15,7 @@
     $sqlorder = "SELECT * FROM [orders-product] WHERE order_id = $order_id";
     $stmtorder = $conn->query($sqlorder);
     $order = $stmtorder->fetchAll(PDO::FETCH_ASSOC);
-    
+
     require_once "header.php";
 ?>
 <!DOCTYPE html>
@@ -26,23 +26,21 @@
     </head>
     <body>
         <?php
-            foreach ($order as $row) {?>
-            <form method="post" action="orderproduct.php?id=<?=$row['order_id']?>" class="form_list_prod">
-                <button type="submit" class="button_liste">
-                    <div class="produit_img">
-                        <h4>Commande numero: <?php $row["order_id"]?></h4>
+            foreach ($order as $row) {
+                $productId = $order["product_id"];
+                $stmt = $conn->query("SELECT [name] AND image1 FROM products WHERE product_id = $productId");
+                ?>
+            <div class="produit_img">
+                <img src="<?php echo $stmt['image1']; ?>" width="150" class="img_produit">
                     </div>
                        <div class="info_produit">
-                        <p><?=$row['date_order']?></p>
-                        <p><?php echo $deliveryaddress; ?></p>
-                        <p><?=$row['date_delivery']?></p>
+                        <h4><?=$stmt['name']?></h4>
                     </div>
                     <div class="quantite_prix">
-                        <h4><?=$row['status']?>€</h4>
-                        <p>Cliquer pour afficher les details</p>
+                        <h4><?=$row['price']?>€</h4>
+                        <p><?=$row['quantity']?></p>
                     </div>
-                </button>
-            </form>
+            </div>
     <?php 
         }
     ?>

@@ -1,4 +1,7 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     session_start();
     if(!isset($_SESSION["role"]) == 0) {
         header("../index.php");
@@ -25,29 +28,27 @@
                 <div class="adresses">
                     <h> Adresse de livraison : </h>
                     <select class="livraison">
-                        <option value="adl1">zvzvze</option>
-                        <option value="adl2">zvzvrz</option>
-                        <option value="adl3">dvzz</option>
+                            <option><?php echo $delivery["address_1"]; ?></option>
+                            <option><?php echo $delivery["address_2"]; ?></option>
                     </select>
                     <h> Adresse de facturation : </h>
                     <select class="facturation">
-                        <option value="adf1">zvzvze</option>
-                        <option value="adf2">zvzvrz</option>
-                        <option value="adf3">dvzz</option>
+                        <option><?php echo $billing["address_1"]; ?></option>
+                        <option><?php echo $billing["address_2"]; ?></option>
                     </select>
                 </div>
                 <div class="methode_paiement">
                     <h> Cartes de paiement : </h>
                     <select class="cartes">
-                        <option value="cb1">zvzvze</option>
-                        <option value="cb2">zvzvrz</option>
-                        <option value="cb3">dvzz</option>
+                        <?php foreach ($payments as $payment): ?>
+                            <option><?php echo $payment["number"]; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
             <div class="info_commandes">
                 <div class="commandes">
-                    <button class="button" type="button" onclick="window.location.href='order.php?id=<?php echo $id ?>'">Modifier mes informations</button>
+                    <button class="button" type="button" onclick="window.location.href='order.php?id=<?php echo $id ?>'">Mes commandes</button>
                 </div>
                 <div class="button_log">
                     <?php if(!isset($_SESSION["users"])):?>

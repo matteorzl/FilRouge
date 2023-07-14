@@ -8,9 +8,7 @@ if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
 require_once "../database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["user_id"], $_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["role"])
-     && !empty($_POST["user_id"]) && !empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["role"])) {
-        
+    if (isset($_POST["user_id"], $_POST["lastname"], $_POST["firstname"], $_POST["mail"], $_POST["role"])) {
         $user_id = $_POST["user_id"];
         $lastname = $_POST["lastname"];
         $firstname = $_POST["firstname"];
@@ -31,16 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
         
-        // Vérifier si un mot de passe a été saisi
+        $params = array($lastname, $firstname, $mail, $role, $user_id);
+        $sql = "UPDATE users SET lastname = ?, firstname = ?, mail = ?, role = ? WHERE user_id = ?";
+        
         if (!empty($_POST["pwd"])) {
+            // Si un mot de passe est saisi, on le met à jour également
             $pwd = $_POST["pwd"];
-            // Hash du mot de passe
             $hashedpwd = password_hash($pwd, PASSWORD_BCRYPT);
             $sql = "UPDATE users SET lastname = ?, firstname = ?, mail = ?, pwd = ?, role = ? WHERE user_id = ?";
             $params = array($lastname, $firstname, $mail, $hashedpwd, $role, $user_id);
-        } else {
-            $sql = "UPDATE users SET lastname = ?, firstname = ?, mail = ?, role = ? WHERE user_id = ?";
-            $params = array($lastname, $firstname, $mail, $role, $user_id);
         }
         
         try {
@@ -52,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Erreur lors de la modification de l'utilisateur : " . $e->getMessage());
         }
     } else {
-        echo "<script>alert(\"Toutes les informations ne sont pas remplies\")</script>";
+        echo "<script>alert(\"Certaines informations ne sont pas remplies\")</script>";
     }
 }
 

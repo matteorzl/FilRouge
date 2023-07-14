@@ -9,10 +9,10 @@
     $id = $_SESSION["users"]["user_id"];
     
     require_once "database.php";
-    
+
     $deliveries = $conn->query("SELECT address_1 , address_2 FROM deliveries WHERE user_id = $id");
     $billings = $conn->query("SELECT address_1 , address_2 FROM billings WHERE user_id = $id");
-    $sqlpayments = $conn->query("SELECT [number] FROM payments WHERE user_id = $id");
+    $sqlpayments = $conn->query("SELECT * FROM payments WHERE user_id = $id");
     $stmtpayments = $conn->query($sqlpayments);
     $payments = $stmtpayments->fetchAll(PDO::FETCH_ASSOC);
     require_once "header.php";

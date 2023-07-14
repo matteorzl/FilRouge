@@ -6,6 +6,17 @@ session_start();
 require_once "database.php";
 require_once "header.php";
 
+// Récupérer les catégories depuis la table "categorie"
+$sqlCategories = "SELECT * FROM categories";
+$stmtCategories = $conn->query($sqlCategories);
+$categories = $stmtCategories->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les matériaux depuis la table "materials"
+$sqlMaterials = "SELECT * FROM materials";
+$stmtMaterials = $conn->query($sqlMaterials);
+$materials = $stmtMaterials->fetchAll(PDO::FETCH_ASSOC);
+
+
 // Récupérer le paramètre de filtrage de catégorie depuis l'URL
 $categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
 
@@ -19,6 +30,9 @@ if (!empty($categoryFilter)) {
 
 // Préparer les paramètres pour la requête préparée
 $params = [];
+if (!empty($categoryFilter)) {
+    $params['category'] = $categoryFilter;
+}
 
 // Exécuter la requête avec les paramètres de filtrage
 $stmtProducts = $conn->prepare($sqlProducts);
@@ -74,7 +88,7 @@ $products = $stmtProducts->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="info_produit">
                 <h4><?php echo $row['name']; ?></h4>
-                <p><?php echo $material["name"]; ?></p>
+                <p><?php echo $material['name']; ?></p>
                 <p><?php echo $row['description']; ?></p>
             </div>
             <div class="quantite_prix">

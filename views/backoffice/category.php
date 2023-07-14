@@ -1,13 +1,16 @@
 <?php
 session_start();
-if($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])){
-    header('Location: ../login.php');
+
+// Vérifier si l'utilisateur est connecté et a le rôle d'administrateur
+if ($_SESSION["users"]["role"] != 1 || !isset($_SESSION["users"])) {
+    header('Location: ../login.php'); // Rediriger vers la page de connexion
     exit();
-  }
+}
 
 require_once "header.php";
 require_once "../database.php";
 
+// Supprimer une catégorie si le paramètre "del" est présent dans l'URL
 if (isset($_GET["del"])) {
     $id_del = $_GET["del"];
     
@@ -29,20 +32,20 @@ if (isset($_GET["del"])) {
         <div class="title-button">
             <h2>Catégories</h2>
             <div class="createcategorybox">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                        </svg>
-                        <a href="createcategory.php" class="createcategory">Créer Catégorie</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                </svg>
+                <a href="createcategory.php" class="createcategory">Créer Catégorie</a>
             </div>
         </div>
         <div class="table-responsive small">
-        <table class="table table-striped table-sm">
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th> </th>
-            </tr>
-            <?php
+            <table class="table table-striped table-sm">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th> </th>
+                </tr>
+                <?php
                 $stmt = $conn->query("SELECT * FROM categories");
 
                 while (($row = $stmt->fetch())) {?>
@@ -52,7 +55,7 @@ if (isset($_GET["del"])) {
                                 <td><?=$row['category_id']?></td>
                                 <td><?=$row['name']?></td>
                                 <td class="btn-mod-del">
-                                <button class="modifycategory" type="button" onclick="window.location.href='modifycategory.php?id=<?=$row['category_id']?>'">Modifier</button>
+                                    <button class="modifycategory" type="button" onclick="window.location.href='modifycategory.php?id=<?=$row['category_id']?>'">Modifier</button>
                                     <form method="post" action="category.php?del=<?=$row['category_id']?>">
                                         <button class="deletecategory" type="button" onclick="confirmDelete(<?=$row['category_id']?>)">Supprimer</button>
                                     </form>
@@ -68,10 +71,11 @@ if (isset($_GET["del"])) {
                             </tr>
                         </tr>
                     </form>
-            <?php 
+                <?php 
                 }
-            ?>
-        </table>
+                ?>
+            </table>
+        </div>
     </body>
     <footer>
         <?php require "footer.php" ?>

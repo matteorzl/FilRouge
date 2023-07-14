@@ -1,17 +1,30 @@
 <?php
+    // Début de la session
     session_start();
+
+    // Redirection vers la page d'accueil si l'utilisateur n'a pas le rôle approprié
     if(!isset($_SESSION["role"]) == 0) {
         header("../index.php");
     }
+
+    // Récupération de l'identifiant de l'utilisateur depuis la session
     $id = $_SESSION["users"]["user_id"];
     
+    // Inclusion du fichier de base de données
     require_once "database.php";
 
+    // Récupération des adresses de livraison de l'utilisateur
     $deliveries = $conn->query("SELECT address_1 , address_2 FROM deliveries WHERE user_id = $id")->fetchAll(PDO::FETCH_ASSOC);
+
+    // Récupération des adresses de facturation de l'utilisateur
     $billings = $conn->query("SELECT address_1 , address_2 FROM billings WHERE user_id = $id")->fetchAll(PDO::FETCH_ASSOC);
+
+    // Récupération des informations de paiement de l'utilisateur
     $sqlpayments = "SELECT * FROM payments WHERE user_id = $id";
     $stmtpayments = $conn->query($sqlpayments);
     $payments = $stmtpayments->fetchAll(PDO::FETCH_ASSOC); 
+
+    // Inclusion du fichier "header.php"
     require_once "header.php";
 ?>
 
@@ -19,6 +32,7 @@
 <html lang="fr" dir="ltr">
     <head> 
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Inclusion de la feuille de style "compte.css" -->
         <link rel="stylesheet" href="css/compte.css">
     </head>
     <body>

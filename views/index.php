@@ -24,6 +24,7 @@ require_once "header.php";
 <article class=articlecarousel>
     <div class="carousel" data-flickity='{"wrapAround": true, "autoPlay": 5000, "imagesLoaded":true, "freeScroll":true}'>
         <?php
+        // Récupérer les images pour le carrousel depuis la table "carousel"
         $stmtCarousel = $conn->query("SELECT image1, image2, image3 FROM carousel");
         $rowCarousel = $stmtCarousel->fetch();
 

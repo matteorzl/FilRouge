@@ -1,11 +1,12 @@
 <?php
     session_start();
-    require_once "header.php";
-    require_once "database.php";
+    require_once "header.php"; // Inclure le fichier d'en-tête
+    require_once "database.php"; // Inclure le fichier de base de données
 ?>
 <!doctype html>
 <html lang="fr" dir="ltr">
-  <head><script src="boostrap/assets/js/color-modes.js"></script>
+  <head>
+    <script src="boostrap/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

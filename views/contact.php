@@ -1,39 +1,46 @@
 <?php
-session_start();
-require_once "header.php";
-require_once "database.php";
+    // Début de la session
+    session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Récupérer les données du formulaire
-    $name = $_POST['nom'];
-    $email = $_POST['mail'];
-    $message = $_POST['message'];
+    // Inclusion du fichier "header.php"
+    require_once "header.php";
 
-    // Préparer la requête SQL pour insérer les données dans la table contacts
-    $sql = "INSERT INTO contacts ([name], [mail], [text]) VALUES (?, ?, ?)";
-    $params = array($name, $email, $message);
+    // Inclusion du fichier de base de données
+    require_once "database.php";
 
-    try {
-        // Exécuter la requête avec les paramètres
-        $stmt = $conn->prepare($sql);
-        $stmt->execute($params);
+    // Vérification de la méthode de requête HTTP
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Récupérer les données du formulaire
+        $name = $_POST['nom'];
+        $email = $_POST['mail'];
+        $message = $_POST['message'];
 
-        // Afficher un message de succès
-        echo '<p>Votre message a bien été envoyé.</p>';
-    } catch (PDOException $e) {
-        // Afficher l'erreur SQL
-        echo "Erreur SQL : " . $e->getMessage() . "<br>";
-        echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
-        echo "Informations complémentaires : ";
-        print_r($stmt->errorInfo());
-        die();
+        // Préparer la requête SQL pour insérer les données dans la table contacts
+        $sql = "INSERT INTO contacts ([name], [mail], [text]) VALUES (?, ?, ?)";
+        $params = array($name, $email, $message);
+
+        try {
+            // Exécuter la requête avec les paramètres
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($params);
+
+            // Afficher un message de succès
+            echo '<p>Votre message a bien été envoyé.</p>';
+        } catch (PDOException $e) {
+            // Afficher l'erreur SQL
+            echo "Erreur SQL : " . $e->getMessage() . "<br>";
+            echo "Code d'erreur SQL : " . $e->getCode() . "<br>";
+            echo "Informations complémentaires : ";
+            print_r($stmt->errorInfo());
+            die();
+        }
     }
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head> 
+        <!-- Inclusion de la feuille de style "contact.css" -->
         <link rel="stylesheet" href="css/contact.css">
         <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>

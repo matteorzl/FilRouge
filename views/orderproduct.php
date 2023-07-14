@@ -21,13 +21,15 @@
         <link href="boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-    <?php
-        foreach ($order as $row) {
-            $productId = $row["product_id"];
-            $stmt = $conn->prepare("SELECT [name], image1 FROM products WHERE product_id = :productId");
-            $stmt->bindParam(':productId', $productId);
-            $stmt->execute();
-            $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        <?php
+            $totalPrice = 0; // Variable pour stocker le prix total de la commande
+            foreach ($order as $row) {
+                $productId = $row["product_id"];
+                $stmt = $conn->prepare("SELECT [name], image1 FROM products WHERE product_id = :productId");
+                $stmt->bindParam(':productId', $productId);
+                $stmt->execute();
+                $product = $stmt->fetch(PDO::FETCH_ASSOC);
+                $totalPrice += $row['price']; // Ajouter le prix du produit au total
         ?>
         <div class="product">
             <div class="produit_img">
@@ -37,13 +39,18 @@
                 <h4><?php echo $product['name']; ?></h4>
             </div>
             <div class="quantite_prix">
-                <h4><?php echo $row['rising']; ?>€</h4>
+                <h4><?php echo $row['price']; ?>€</h4>
                 <p><?php echo $row['quantity']; ?></p>
             </div>
         </div>
         <?php 
-        }
+            }
         ?>
+        <div class="rising">
+            <div class="total">
+                <h4><?php echo $totalPrice; ?>€</h4>
+            </div>
+        </div>
     </body>
     <footer>
         <?php require "footer.php" ?>

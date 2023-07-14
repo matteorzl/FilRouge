@@ -168,7 +168,7 @@ h1{
 .produit{
     width: 100%;
     display: grid;
-    grid-template-rows: 10% 80% 10%;
+    grid-template-rows: 20% 60% 20%;
     justify-content: center;
     text-align: center;
     color: white;

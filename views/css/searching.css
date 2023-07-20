@@ -1,6 +1,8 @@
 .form_list_prod{
     margin:1em;
     overflow: visible;
+    margin-left:20%;
+    margin-right:20%;
 }
 .button_liste{
 	display:flex;
@@ -8,8 +10,7 @@
     border: 0.2em solid #4F6D92;
     border-radius:1em;
     flex-direction:row;
-    align-items: center;
-    width:80%;
+    width:100%;
 }
 
 .info_produit{

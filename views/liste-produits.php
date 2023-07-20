@@ -16,6 +16,7 @@ $materials = $stmtMaterials->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer le paramètre de filtrage de catégorie depuis l'URL
 $categoryFilter = isset($_GET['category']) ? $_GET['category'] : '';
+$materialsFilter = isset($_GET['materials']) ? $_GET['materials'] : '';
 
 // Récupérer le paramètre de filtrage de prix min et max depuis l'URL
 $minPrice = isset($_GET['min_price']) ? $_GET['min_price'] : '';
@@ -29,10 +30,19 @@ if (!empty($categoryFilter)) {
     $params['category'] = $categoryFilter;
 }
 
+if (!empty($materialsFilter)) {
+    $sqlProducts .= " AND material_id = :materials";
+    $params['materials'] = $materialsFilter;
+}
+
 // Préparer les paramètres pour la requête préparée
 $params = [];
 if (!empty($categoryFilter)) {
     $params['category'] = $categoryFilter;
+}
+
+if (!empty($materialsFilter)) {
+    $params['materials'] = $materialsFilter;
 }
 
 if (!empty($minPrice)) {

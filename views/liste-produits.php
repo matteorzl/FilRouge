@@ -105,7 +105,8 @@ $products = $stmtProducts->fetchAll(PDO::FETCH_ASSOC);
 
 <?php foreach ($products as $row) {
     $materialId = $row["material_id"];
-    $materialname = $conn->query("SELECT [name] FROM materials WHERE material_id = $materialId");
+    $stmt = $conn->query("SELECT [name] FROM materials WHERE material_id = $materialId");
+    $materialname = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <form method="post" action="produit.php?id=<?php echo $row['product_id']; ?>" class="form_list_prod">
         <button type="submit" class="button_liste">
